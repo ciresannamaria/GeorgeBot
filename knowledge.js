@@ -930,6 +930,423 @@ const knowledge = [
         "The internet is made from many connected networks and devices. Routers help information travel between networks. The internet provides many services, including the World Wide Web, email, and file sharing. The World Wide Web is one part of the internet and contains websites and web pages."
 },
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // =========================================
+// YEAR 4 — UNIT 1 — LESSON 3
+// SHARING INFORMATION
+// =========================================
+
+
+// -----------------------------------------
+// WHAT CAN BE SHARED ON THE WORLD WIDE WEB?
+// -----------------------------------------
+
+{
+    topic: "Networks — Sharing information on the WWW",
+
+    keywords: [
+        "what can be shared on the world wide web",
+        "what can we share on the www",
+        "what can be shared on the web",
+        "what information can be shared on the web",
+        "what can you share on the internet",
+        "sharing information on the world wide web"
+    ],
+
+    answer:
+        "Different types of media can be shared on the World Wide Web, including text, images, videos and sounds. Physical objects, such as a real sandwich or a real dog, cannot be shared, but pictures, videos or digital versions of them can be shared."
+},
+
+
+// -----------------------------------------
+// CAN PHYSICAL OBJECTS BE SHARED?
+// -----------------------------------------
+
+{
+    topic: "Networks — Physical objects and the WWW",
+
+    keywords: [
+        "can physical objects be shared on the web",
+        "can you share a physical object on the internet",
+        "can a real object be shared on the world wide web",
+        "can you share a sandwich on the internet",
+        "can you share a dog on the internet",
+        "can you share a real book on the internet"
+    ],
+
+    answer:
+        "A physical object cannot be shared directly on the World Wide Web. However, a digital version, such as a photo, video or digital book, can be shared."
+},
+
+
+// -----------------------------------------
+// DIGITAL MEDIA
+// -----------------------------------------
+
+{
+    topic: "Networks — Digital media",
+
+    keywords: [
+        "what is digital media",
+        "what digital media can be shared",
+        "can images be shared on the web",
+        "can videos be shared on the web",
+        "can sounds be shared on the web",
+        "can songs be shared on the web",
+        "can photos be shared on the web"
+    ],
+
+    answer:
+        "Digital media such as text, images, videos and sounds can be shared on the World Wide Web."
+},
+
+
+// -----------------------------------------
+// WEB ADDRESS
+// -----------------------------------------
+
+{
+    topic: "Networks — Web address",
+
+    keywords: [
+        "what is a web address",
+        "what does a web address mean",
+        "what is the address of a website",
+        "what is a website address",
+        "web address"
+    ],
+
+    answer:
+        "A web address is the address used to find a website or web page on the World Wide Web."
+},
+
+
+// -----------------------------------------
+// PARTS OF A WEB ADDRESS
+// -----------------------------------------
+
+{
+    topic: "Networks — Parts of a web address",
+
+    keywords: [
+        "what are the parts of a web address",
+        "what are the three parts of a web address",
+        "what does www mean in a web address",
+        "what is the middle part of a web address",
+        "what does the end of a web address mean",
+        "parts of a web address"
+    ],
+
+    answer:
+        "A web address has different parts. 'www' stands for World Wide Web. The middle part is usually connected to the theme or organisation behind the website. The ending can give information about the website, such as the country it is associated with or the type of organisation."
+},
+
+
+// -----------------------------------------
+// WWW IN A WEB ADDRESS
+// -----------------------------------------
+
+{
+    topic: "Networks — WWW in a web address",
+
+    keywords: [
+        "what does www stand for",
+        "what does www mean",
+        "why does a web address have www",
+        "www in a web address"
+    ],
+
+    answer:
+        "WWW stands for World Wide Web. Some web addresses begin with 'www', but not all websites need to use it."
+},
+
+
+// -----------------------------------------
+// DOMAIN NAME
+// -----------------------------------------
+
+{
+    topic: "Networks — Domain name",
+
+    keywords: [
+        "what is a domain name",
+        "what does domain name mean",
+        "what is the domain of a website",
+        "how do you find the domain name",
+        "domain name"
+    ],
+
+    answer:
+        "A domain name is the part of a web address that identifies a website or organisation. For example, in bbc.co.uk, 'bbc.co.uk' is the domain name."
+},
+
+
+// -----------------------------------------
+// WEBSITE ORIGIN FROM DOMAIN
+// -----------------------------------------
+
+{
+    topic: "Networks — Website origin",
+
+    keywords: [
+        "how can a web address tell you where a website is from",
+        "how can you tell where a website comes from",
+        "how can you tell where a website originates",
+        "can a domain tell you where a website is from",
+        "where does a website come from",
+        "website origin"
+    ],
+
+    answer:
+        "The ending of a web address can give you a clue about the country or type of organisation associated with a website. For example, .co.uk is associated with the United Kingdom, .fr with France, and .mx with Mexico."
+},
+
+
+// -----------------------------------------
+// DOMAIN TYPES
+// -----------------------------------------
+
+{
+    topic: "Networks — Domain types",
+
+    keywords: [
+        "what does .gov mean",
+        "what does .com mean",
+        "what does .sch mean",
+        "what does .co.uk mean",
+        "what does .fr mean",
+        "what does .mx mean",
+        "what do website endings mean"
+    ],
+
+    answer:
+        "Some website endings give information about a website. For example, .gov can indicate a government website, .com is commonly used by companies and other organisations, and .sch can indicate a school. Some endings also give a clue about the country associated with a website, such as .co.uk for the United Kingdom, .fr for France, and .mx for Mexico."
+},
+
+
+// -----------------------------------------
+// WHERE ARE WEBSITES STORED?
+// -----------------------------------------
+
+{
+    topic: "Networks — Website storage",
+
+    keywords: [
+        "where are websites stored",
+        "where are websites kept",
+        "where is a website stored",
+        "where are websites stored on the internet",
+        "where does a website live",
+        "where do websites exist"
+    ],
+
+    answer:
+        "Most websites are hosted in large data centres. Websites can be stored in data centres in different parts of the world."
+},
+
+
+// -----------------------------------------
+// DATA CENTRE
+// -----------------------------------------
+
+{
+    topic: "Networks — Data centre",
+
+    keywords: [
+        "what is a data centre",
+        "what is a data center",
+        "what does a data centre do",
+        "what is stored in a data centre",
+        "what is inside a data centre",
+        "data centre"
+    ],
+
+    answer:
+        "A data centre is a large building containing many powerful computers. Most websites are hosted in data centres."
+},
+
+
+// -----------------------------------------
+// DATA CENTRES AROUND THE WORLD
+// -----------------------------------------
+
+{
+    topic: "Networks — Data centres around the world",
+
+    keywords: [
+        "are data centres around the world",
+        "where are data centres located",
+        "where are data centers located",
+        "can a website be stored in another country",
+        "can a website be stored in a different country",
+        "are websites stored all around the world"
+    ],
+
+    answer:
+        "Yes. Data centres are located around the world. A website created in one country might be stored in a data centre in another country."
+},
+
+
+// -----------------------------------------
+// HOW DO WE ACCESS THE WORLD WIDE WEB?
+// -----------------------------------------
+
+{
+    topic: "Networks — Accessing the WWW",
+
+    keywords: [
+        "how can I access the world wide web",
+        "how do I access the world wide web",
+        "how can we access the world wide web",
+        "how do we access the www",
+        "how can I access websites",
+        "how do we access websites",
+        "how do I access a website"
+    ],
+
+    answer:
+        "You can access the World Wide Web using a device such as a computer, tablet, phone, game console, smart TV or smart speaker. The device needs a web browser to access websites."
+},
+
+
+// -----------------------------------------
+// DEVICES USED TO ACCESS THE WWW
+// -----------------------------------------
+
+{
+    topic: "Networks — Devices for accessing the WWW",
+
+    keywords: [
+        "what devices can access the world wide web",
+        "what devices can access the web",
+        "which devices can access websites",
+        "what can I use to access the internet",
+        "what devices can I use to access websites",
+        "devices used to access the world wide web"
+    ],
+
+    answer:
+        "Many devices can be used to access the World Wide Web, including computers, tablets, phones, game consoles, smart TVs and smart speakers."
+},
+
+
+// -----------------------------------------
+// WEB BROWSER
+// -----------------------------------------
+
+{
+    topic: "Networks — Web browser",
+
+    keywords: [
+        "what is a web browser",
+        "what does a web browser do",
+        "what is a browser",
+        "what do you use to browse websites",
+        "what do you need to access a website",
+        "web browser"
+    ],
+
+    answer:
+        "A web browser is software that lets you view and browse web pages on the World Wide Web. Examples include Google Chrome, Safari, Microsoft Edge, Firefox and Opera."
+},
+
+
+// -----------------------------------------
+// EXAMPLES OF WEB BROWSERS
+// -----------------------------------------
+
+{
+    topic: "Networks — Web browser examples",
+
+    keywords: [
+        "what are some web browsers",
+        "name some web browsers",
+        "which apps are web browsers",
+        "give me examples of web browsers",
+        "what is an example of a web browser",
+        "web browser examples"
+    ],
+
+    answer:
+        "Examples of web browsers include Google Chrome, Safari, Microsoft Edge, Firefox and Opera."
+},
+
+
+// -----------------------------------------
+// GOOGLE AND CHROME
+// -----------------------------------------
+
+{
+    topic: "Networks — Google and Chrome",
+
+    keywords: [
+        "is google a web browser",
+        "is google a browser",
+        "is chrome a web browser",
+        "what is the difference between google and chrome",
+        "do I need google to access the web",
+        "do you need google to use the internet"
+    ],
+
+    answer:
+        "Google is a search engine, not a web browser. Google Chrome is a web browser. You do not need Google to access the World Wide Web, but you do need a web browser to view websites."
+},
+
+
+// -----------------------------------------
+// ROUTER AND THE WORLD WIDE WEB
+// -----------------------------------------
+
+{
+    topic: "Networks — Router and WWW",
+
+    keywords: [
+        "what does a router do when accessing a website",
+        "how does a router help access a website",
+        "does a router help access the world wide web",
+        "how does a router help with the internet"
+    ],
+
+    answer:
+        "A router directs information around networks and helps information travel to and from websites."
+},
+
+
+// -----------------------------------------
+// LESSON 3 SUMMARY
+// -----------------------------------------
+
+{
+    topic: "Networks — Lesson 3 summary",
+
+    keywords: [
+        "what did we learn in lesson 3",
+        "what did we learn about sharing information",
+        "summarise lesson 3",
+        "summarize lesson 3",
+        "lesson 3 networks",
+        "what did we learn about the world wide web"
+    ],
+
+    answer:
+        "In this lesson, we learned what information can be shared on the World Wide Web, where websites are stored, and how we can access the World Wide Web using different devices and web browsers."
+},
+
+
+
+
+    
 // -----------------------------------------
 // UNIT 2 — [UNIT NAME]
 // -----------------------------------------
