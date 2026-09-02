@@ -10,6 +10,31 @@ const knowledge = [
 // GENERAL COMPUTING KNOWLEDGE
 // =========================================
 
+
+// -----------------------------------------
+// GREETINGS
+// -----------------------------------------
+
+{
+    topic: "General — Greetings",
+
+    keywords: [
+        "hello",
+        "hi",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "hi georgebot",
+        "hello georgebot",
+        "hey georgebot"
+    ],
+
+    answer:
+        "Hello! 👋 I'm GeorgeBot. What would you like to learn about?"
+},
+
+    
 // -----------------------------------------
 // COMPUTING
 // -----------------------------------------
