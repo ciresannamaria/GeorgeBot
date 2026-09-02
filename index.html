@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website work properly on iPads and other screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GeorgeBot</title>
+
+    <!-- Connect our CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================
+         MAIN GEORGE BOT WINDOW
+         ===================================== -->
+
+    <div class="chat-container">
+
+
+        <!-- =================================
+             GEORGE BOT HEADER
+             ================================= -->
+
+        <header class="chat-header">
+
+            <!-- Custom GeorgeBot icon -->
+            <div class="bot-icon">
+
+                <div class="robot-face">
+
+                    <div class="robot-eyes">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="robot-mouth"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bot name and description -->
+            <div>
+
+                <h1>GeorgeBot</h1>
+
+                <p>Your Computing Learning Buddy</p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================
+             CHAT AREA
+             ================================= -->
+
+        <main id="chat">
+
+            <!-- First message shown when the page opens -->
+
+            <div class="message bot-message">
+
+                <strong>GeorgeBot</strong>
+
+                <p>
+                    Hello! 👋 I'm GeorgeBot.
+                    Ask me something about Computing!
+                </p>
+
+            </div>
+
+        </main>
+
+
+
+        <!-- =================================
+             QUESTION / INPUT AREA
+             ================================= -->
+
+        <form id="chat-form">
+
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Ask GeorgeBot something..."
+                autocomplete="off"
+            >
+
+            <button
+                type="submit"
+                aria-label="Send message"
+            >
+                ➤
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+         ===================================== -->
+
+    <!--
+        IMPORTANT:
+        knowledge.js must come FIRST.
+        It contains everything GeorgeBot knows.
+    -->
+
+    <script src="knowledge.js"></script>
+
+
+    <!--
+        script.js comes SECOND.
+        It controls how GeorgeBot behaves.
+    -->
+
+
+    <!-- =====================================
+         JAVASCRIPT
+         ===================================== -->
+
+    <!-- knowledge.js must come first -->
+    <script src="knowledge.js"></script>
+
+    <!-- script.js controls GeorgeBot -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

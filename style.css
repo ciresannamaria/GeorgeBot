@@ -1,0 +1,430 @@
+/* =========================================
+   GEORGE BOT
+   St George's School Brand Colours
+   ========================================= */
+
+
+/* =========================================
+   BASIC RESET
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f5f7fa;
+    color: #0E204A;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================
+   MAIN CHATBOT WINDOW
+   ========================================= */
+
+.chat-container {
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 30px rgba(14, 32, 74, 0.15);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.chat-header {
+    background: #0E204A;
+    color: white;
+
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+/* Robot icon */
+
+.bot-icon {
+    width: 48px;
+    height: 48px;
+
+    background: #B28B5D;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 26px;
+}
+
+
+/* Header title */
+
+.chat-header h1 {
+    font-size: 22px;
+    margin-bottom: 3px;
+}
+
+
+/* Header subtitle */
+
+.chat-header p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   CHAT AREA
+   ========================================= */
+
+#chat {
+    flex: 1;
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =========================================
+   MESSAGE BUBBLES
+   ========================================= */
+
+.message {
+    max-width: 75%;
+
+    padding: 14px 18px;
+
+    border-radius: 14px;
+
+    line-height: 1.5;
+
+    font-size: 16px;
+}
+
+
+/* Name above message */
+
+.message strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   GEORGE BOT MESSAGE
+   ========================================= */
+
+.bot-message {
+    background: #eef2f6;
+
+    color: #0E204A;
+
+    align-self: flex-start;
+
+    border-bottom-left-radius: 4px;
+}
+
+
+/* =========================================
+   STUDENT MESSAGE
+   ========================================= */
+
+.user-message {
+    background: #004681;
+
+    color: white;
+
+    align-self: flex-end;
+
+    border-bottom-right-radius: 4px;
+}
+
+
+/* Student name */
+
+.user-message strong {
+    color: #B28B5D;
+}
+
+
+/* =========================================
+   INPUT AREA
+   ========================================= */
+
+#chat-form {
+    padding: 18px 20px;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+    gap: 10px;
+
+    background: white;
+}
+
+
+/* Text input */
+
+#user-input {
+    flex: 1;
+
+    padding: 14px 18px;
+
+    border: 2px solid #d5dce2;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+
+/* Input when selected */
+
+#user-input:focus {
+    border-color: #004681;
+}
+
+
+/* Placeholder text */
+
+#user-input::placeholder {
+    color: #777;
+}
+
+
+/* =========================================
+   SEND BUTTON
+   ========================================= */
+
+#chat-form button {
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #B28B5D;
+
+    color: #0E204A;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease,
+                background 0.15s ease;
+}
+
+
+/* Button hover */
+
+#chat-form button:hover {
+    transform: scale(1.05);
+}
+
+
+/* Button press */
+
+#chat-form button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   TABLET / iPAD
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        background: white;
+    }
+
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+    .chat-header {
+        padding: 15px 18px;
+    }
+
+    .chat-header h1 {
+        font-size: 20px;
+    }
+
+    .chat-header p {
+        font-size: 13px;
+    }
+
+    .bot-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 23px;
+    }
+
+    #chat {
+        padding: 20px 16px;
+    }
+
+    .message {
+        max-width: 88%;
+
+        font-size: 16px;
+    }
+
+    #chat-form {
+        padding: 12px;
+    }
+
+    #user-input {
+        font-size: 16px;
+    }
+}
+/* =========================================
+   GEORGE BOT CUSTOM ICON
+   ========================================= */
+
+.bot-icon {
+    background: #B28B5D;
+
+    position: relative;
+}
+
+
+/* Robot face */
+
+.robot-face {
+    width: 30px;
+    height: 25px;
+
+    background: white;
+
+    border-radius: 7px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Robot antenna */
+
+.robot-face::before {
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+    height: 6px;
+
+    background: white;
+
+    top: -6px;
+    left: 13px;
+
+    border-radius: 2px;
+}
+
+
+/* Gold antenna tip */
+
+.robot-face::after {
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: #B28B5D;
+
+    border-radius: 50%;
+
+    top: -10px;
+    left: 12px;
+}
+
+
+/* Robot eyes */
+
+.robot-eyes {
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 5px;
+}
+
+.robot-eyes span {
+    width: 5px;
+    height: 5px;
+
+    background: #004681;
+
+    border-radius: 50%;
+}
+
+
+/* Robot mouth */
+
+.robot-mouth {
+    width: 14px;
+    height: 4px;
+
+    border-radius: 3px;
+
+    background: #0E204A;
+}
