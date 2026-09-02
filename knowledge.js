@@ -39,6 +39,23 @@ const knowledge = [
 // COMPUTING
 // -----------------------------------------
 
+
+{
+    topic: "Computing — Computer",
+
+    keywords: [
+        "what is a computer",
+        "what is a computer?",
+        "tell me about computers",
+        "what does a computer do",
+        "what is a computer used for",
+        "computer"
+    ],
+
+    answer:
+        "A computer is an electronic device that can receive, process, store and output information."
+},
+    
 {
     topic: "Computing",
 
