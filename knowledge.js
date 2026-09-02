@@ -523,12 +523,362 @@ const knowledge = [
         "Network security is the protection of a network from unwanted or harmful access and information."
 },
 
+
+// =========================================
+// LESSON 2 — WHAT IS THE INTERNET MADE OF?
+// =========================================
+
+
 // -----------------------------------------
-// UNIT 1 — [ComputerNetworks]
+// NETWORKED DEVICES
 // -----------------------------------------
 
-// Add knowledge entries here
+{
+    topic: "Networks — Networked devices",
 
+    keywords: [
+        "what are networked devices",
+        "what is a networked device",
+        "what devices are connected to a network",
+        "how do devices connect to the internet",
+        "networked devices"
+    ],
+
+    answer:
+        "Networked devices are devices that are connected to a network so they can communicate and share information. Computers, servers, switches, wireless access points, and routers can all be part of a network."
+},
+
+
+// -----------------------------------------
+// SERVER
+// -----------------------------------------
+
+{
+    topic: "Networks — Server",
+
+    keywords: [
+        "what is a server",
+        "what does a server do",
+        "what is a computer server",
+        "what is the job of a server",
+        "server"
+    ],
+
+    answer:
+        "A server is a computer that manages a network and stores files or other information."
+},
+
+
+// -----------------------------------------
+// WIRELESS ACCESS POINT
+// -----------------------------------------
+
+{
+    topic: "Networks — Wireless access point",
+
+    keywords: [
+        "what is a wireless access point",
+        "what is a wap",
+        "what does a wireless access point do",
+        "what does a wap do",
+        "how does wifi connect to a network",
+        "wireless access point",
+        "wap"
+    ],
+
+    answer:
+        "A wireless access point, or WAP, is a device connected to a wired network that sends and receives wireless signals so devices can connect using Wi-Fi."
+},
+
+
+// -----------------------------------------
+// ROUTING
+// -----------------------------------------
+
+{
+    topic: "Networks — Routing",
+
+    keywords: [
+        "what is routing",
+        "what does routing mean",
+        "how does routing work",
+        "how is information routed",
+        "what is a route in networking",
+        "routing"
+    ],
+
+    answer:
+        "Routing is the process of finding and using a route to get information from one place to another. There can be many different routes between two places."
+},
+
+
+// -----------------------------------------
+// DIFFERENT ROUTES
+// -----------------------------------------
+
+{
+    topic: "Networks — Different routes",
+
+    keywords: [
+        "can information take different routes",
+        "can a message take different routes",
+        "why are there different routes",
+        "are there different routes on the internet",
+        "can there be more than one route",
+        "different routes"
+    ],
+
+    answer:
+        "Yes. Information can travel along different routes to reach its destination. A route is a way of getting from one place to another."
+},
+
+
+// -----------------------------------------
+// ROUTE IF ONE PATH IS BLOCKED
+// -----------------------------------------
+
+{
+    topic: "Networks — Alternative route",
+
+    keywords: [
+        "what happens if a route is blocked",
+        "what happens if one route stops working",
+        "can information take another route",
+        "can a message use another route",
+        "what if a route is blocked"
+    ],
+
+    answer:
+        "If one route is blocked or unavailable, information may be able to travel using another route to reach its destination."
+},
+
+
+// -----------------------------------------
+// INTERNET SERVICES
+// -----------------------------------------
+
+{
+    topic: "Networks — Internet services",
+
+    keywords: [
+        "what can the internet be used for",
+        "what services does the internet provide",
+        "what can we do on the internet",
+        "what are internet services",
+        "what is the internet used for",
+        "internet services"
+    ],
+
+    answer:
+        "The internet provides many different services. For example, it can be used to access the World Wide Web, send emails, and share files."
+},
+
+
+// -----------------------------------------
+// WORLD WIDE WEB
+// -----------------------------------------
+
+{
+    topic: "Networks — World Wide Web",
+
+    keywords: [
+        "what is the world wide web",
+        "what is the www",
+        "what does www mean",
+        "what does world wide web mean",
+        "tell me about the world wide web",
+        "world wide web",
+        "www"
+    ],
+
+    answer:
+        "The World Wide Web, or WWW, is a part of the internet that contains websites and web pages."
+},
+
+
+// -----------------------------------------
+// INTERNET VS WORLD WIDE WEB
+// -----------------------------------------
+
+{
+    topic: "Networks — Internet and World Wide Web",
+
+    keywords: [
+        "is the internet the same as the world wide web",
+        "is the internet the same as the www",
+        "what is the difference between the internet and the world wide web",
+        "difference between internet and world wide web",
+        "difference between internet and www",
+        "internet and world wide web"
+    ],
+
+    answer:
+        "The internet and the World Wide Web are not the same thing. The World Wide Web is one part of the internet. The internet also provides other services, such as email and file sharing."
+},
+
+
+// -----------------------------------------
+// WEBSITE
+// -----------------------------------------
+
+{
+    topic: "Networks — Website",
+
+    keywords: [
+        "what is a website",
+        "what does website mean",
+        "what is the meaning of website",
+        "tell me about websites",
+        "website"
+    ],
+
+    answer:
+        "A website is a collection of web pages under one name."
+},
+
+
+// -----------------------------------------
+// WEB PAGE
+// -----------------------------------------
+
+{
+    topic: "Networks — Web page",
+
+    keywords: [
+        "what is a web page",
+        "what does web page mean",
+        "what is the meaning of web page",
+        "tell me about web pages",
+        "web page",
+        "webpage"
+    ],
+
+    answer:
+        "A web page is a single page or document on the World Wide Web."
+},
+
+
+// -----------------------------------------
+// WEBSITE VS WEB PAGE
+// -----------------------------------------
+
+{
+    topic: "Networks — Website and web page",
+
+    keywords: [
+        "what is the difference between a website and a web page",
+        "difference between website and web page",
+        "are websites and web pages the same",
+        "website and web page",
+        "website vs web page"
+    ],
+
+    answer:
+        "A website is a collection of web pages under one name. A web page is one individual page or document on the World Wide Web."
+},
+
+
+// -----------------------------------------
+// WEB PAGES ARE PART OF THE WORLD WIDE WEB
+// -----------------------------------------
+
+{
+    topic: "Networks — Web pages and the World Wide Web",
+
+    keywords: [
+        "where are web pages found",
+        "where do websites exist",
+        "are websites part of the world wide web",
+        "are web pages part of the world wide web",
+        "web pages and the world wide web"
+    ],
+
+    answer:
+        "Websites and web pages are part of the World Wide Web, which is itself part of the internet."
+},
+
+
+// -----------------------------------------
+// FILE SHARING
+// -----------------------------------------
+
+{
+    topic: "Networks — File sharing",
+
+    keywords: [
+        "can files be shared on the internet",
+        "how can files be shared on the internet",
+        "can we share files online",
+        "what can we share on the internet",
+        "file sharing",
+        "sharing files"
+    ],
+
+    answer:
+        "Yes. Files can be shared over the internet. The information is routed through networks and routers to reach its destination."
+},
+
+
+// -----------------------------------------
+// EMAIL
+// -----------------------------------------
+
+{
+    topic: "Networks — Email",
+
+    keywords: [
+        "can emails be sent over the internet",
+        "how are emails sent",
+        "can we send emails using the internet",
+        "does email use the internet",
+        "email and the internet",
+        "sending emails"
+    ],
+
+    answer:
+        "Yes. Emails can be sent over the internet. The information travels through connected networks and routers to reach its destination."
+},
+
+
+// -----------------------------------------
+// ACCESSING THE WORLD WIDE WEB
+// -----------------------------------------
+
+{
+    topic: "Networks — Accessing the World Wide Web",
+
+    keywords: [
+        "how do we access the world wide web",
+        "how do we access websites",
+        "how can we visit a website",
+        "how do we get to a web page",
+        "how do computers access the web",
+        "access the world wide web"
+    ],
+
+    answer:
+        "When you access a website or web page, your device connects through networks and routers to reach the information on the World Wide Web."
+},
+
+
+// -----------------------------------------
+// LESSON SUMMARY
+// -----------------------------------------
+
+{
+    topic: "Networks — Lesson 2 summary",
+
+    keywords: [
+        "what did we learn about the internet",
+        "what did we learn in lesson 2",
+        "what is the internet made of",
+        "summarise lesson 2",
+        "lesson 2 networks"
+    ],
+
+    answer:
+        "The internet is made from many connected networks and devices. Routers help information travel between networks. The internet provides many services, including the World Wide Web, email, and file sharing. The World Wide Web is one part of the internet and contains websites and web pages."
+},
 
 // -----------------------------------------
 // UNIT 2 — [UNIT NAME]
