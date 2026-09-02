@@ -111,16 +111,16 @@ const knowledge = [
     topic: "Networks — What is a network?",
 
     keywords: [
-        "what is a network",
         "what is a computer network",
-        "what does network mean",
-        "what are networks",
-        "tell me about networks",
+        "what is a network",
+        "what is a network of computers",
+        "what does computer network mean",
+        "computer network",
         "network"
     ],
 
     answer:
-        "A computer network is a group of computers and other devices that are connected so they can communicate and share information."
+        "A computer network is a group of connected devices that can communicate and share information with each other."
 },
 
 
