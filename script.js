@@ -29,29 +29,39 @@ function cleanQuestion(question) {
 // =========================================
 
 function findAnswer(question) {
-
     const cleanedQuestion = cleanQuestion(question);
 
-    // Look through the knowledge stored in knowledge.js
+    let bestAnswer = null;
+    let bestScore = 0;
 
     for (const item of knowledge) {
-
         for (const keyword of item.keywords) {
-
             const cleanedKeyword = cleanQuestion(keyword);
 
-            // Check whether the question contains the keyword
+            if (!cleanedQuestion.includes(cleanedKeyword)) {
+                continue;
+            }
 
-            if (cleanedQuestion.includes(cleanedKeyword)) {
+            let score = cleanedKeyword.length;
 
-                return item.answer;
+            // Give multi-word phrases priority
+            if (cleanedKeyword.includes(" ")) {
+                score += 100;
+            }
 
+            // Give longer phrases an additional advantage
+            score += cleanedKeyword.split(" ").length * 20;
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestAnswer = item.answer;
             }
         }
     }
 
-
-    // If GeorgeBot cannot find a matching resource
+    if (bestAnswer !== null) {
+        return bestAnswer;
+    }
 
     return "🤔 I can't find this information in my learning resources. Ask your teacher!";
 }
