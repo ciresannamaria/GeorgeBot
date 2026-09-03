@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +22,80 @@
          ===================================== -->
 
     <div class="chat-container">
+
+
+        <!-- =================================
+             SEASONAL DECORATION
+             ================================= -->
+
+        <div class="seasonal-leaves" aria-hidden="true">
+
+            <!-- Left corner -->
+            <svg class="leaves-left" viewBox="0 0 180 260">
+
+                <path class="vine"
+                      d="M25 0 C35 45, 20 80, 55 120 C80 150, 45 190, 75 250" />
+
+                <ellipse class="leaf"
+                         cx="42" cy="38" rx="12" ry="25"
+                         transform="rotate(-35 42 38)" />
+
+                <ellipse class="leaf"
+                         cx="73" cy="68" rx="12" ry="25"
+                         transform="rotate(35 73 68)" />
+
+                <ellipse class="leaf"
+                         cx="38" cy="91" rx="11" ry="23"
+                         transform="rotate(-45 38 91)" />
+
+                <ellipse class="leaf"
+                         cx="72" cy="125" rx="12" ry="25"
+                         transform="rotate(40 72 125)" />
+
+                <ellipse class="leaf"
+                         cx="53" cy="158" rx="11" ry="23"
+                         transform="rotate(-40 53 158)" />
+
+                <ellipse class="leaf"
+                         cx="82" cy="195" rx="12" ry="25"
+                         transform="rotate(40 82 195)" />
+
+            </svg>
+
+
+            <!-- Right corner -->
+            <svg class="leaves-right" viewBox="0 0 180 260">
+
+                <path class="vine"
+                      d="M155 0 C145 45, 160 80, 125 120 C100 150, 135 190, 105 250" />
+
+                <ellipse class="leaf"
+                         cx="138" cy="38" rx="12" ry="25"
+                         transform="rotate(35 138 38)" />
+
+                <ellipse class="leaf"
+                         cx="107" cy="68" rx="12" ry="25"
+                         transform="rotate(-35 107 68)" />
+
+                <ellipse class="leaf"
+                         cx="142" cy="91" rx="11" ry="23"
+                         transform="rotate(45 142 91)" />
+
+                <ellipse class="leaf"
+                         cx="108" cy="125" rx="12" ry="25"
+                         transform="rotate(-40 108 125)" />
+
+                <ellipse class="leaf"
+                         cx="127" cy="158" rx="11" ry="23"
+                         transform="rotate(40 127 158)" />
+
+                <ellipse class="leaf"
+                         cx="98" cy="195" rx="12" ry="25"
+                         transform="rotate(-40 98 195)" />
+
+            </svg>
+
+        </div>
 
 
         <!-- =================================
@@ -112,25 +187,6 @@
          JAVASCRIPT
          ===================================== -->
 
-    <!--
-        IMPORTANT:
-        knowledge.js must come FIRST.
-        It contains everything GeorgeBot knows.
-    -->
-
-    <script src="knowledge.js"></script>
-
-
-    <!--
-        script.js comes SECOND.
-        It controls how GeorgeBot behaves.
-    -->
-
-
-    <!-- =====================================
-         JAVASCRIPT
-         ===================================== -->
-
     <!-- knowledge.js must come first -->
     <script src="knowledge.js"></script>
 
@@ -140,3 +196,6 @@
 </body>
 
 </html>
+```
+
+You will also need to add the **small CSS section** I gave you to `style.css`, otherwise the leaves won't be positioned correctly.
