@@ -428,3 +428,59 @@ body {
 
     background: #0E204A;
 }
+
+
+
+```css
+/* =====================================
+   SEASONAL LEAVES
+   ===================================== */
+
+.chat-container {
+    position: relative;
+}
+
+.seasonal-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.seasonal-leaves svg {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 220px;
+}
+
+.leaves-left {
+    left: 0;
+}
+
+.leaves-right {
+    right: 0;
+}
+
+.vine {
+    fill: none;
+    stroke: #6b7d45;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.leaf {
+    fill: #91a94d;
+    stroke: #657c35;
+    stroke-width: 1;
+}
+
+.chat-header {
+    position: relative;
+    z-index: 10;
+}
+```
