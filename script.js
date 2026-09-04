@@ -3,12 +3,72 @@
 // Chatbot behaviour
 // =========================================
 
-
-// Find the elements we need from the webpage
-
 const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
+
+
+// =========================================
+// GAME ELEMENTS
+// =========================================
+
+const ticTacToeButton = document.getElementById("tic-tac-toe-button");
+const gameModal = document.getElementById("game-modal");
+const gameContainer = document.getElementById("game-container");
+const closeGameButton = document.getElementById("close-game-button");
+
+let ticTacToeLoaded = false;
+
+
+// =========================================
+// LOAD TIC-TAC-TOE
+// =========================================
+
+function loadTicTacToe() {
+
+    if (ticTacToeLoaded) {
+        window.initTicTacToe(gameContainer);
+        return;
+    }
+
+    const gameStyle = document.createElement("link");
+    gameStyle.rel = "stylesheet";
+    gameStyle.href = "games/tic-tac-toe/style.css";
+    document.head.appendChild(gameStyle);
+
+    const gameScript = document.createElement("script");
+    gameScript.src = "games/tic-tac-toe/script.js";
+
+    gameScript.onload = function() {
+        ticTacToeLoaded = true;
+        window.initTicTacToe(gameContainer);
+    };
+
+    gameContainer.innerHTML = "<p>Loading game...</p>";
+    document.body.appendChild(gameScript);
+}
+
+
+function openTicTacToe() {
+    gameModal.hidden = false;
+    loadTicTacToe();
+}
+
+
+function closeGame() {
+    gameModal.hidden = true;
+}
+
+
+ticTacToeButton.addEventListener("click", openTicTacToe);
+closeGameButton.addEventListener("click", closeGame);
+
+
+gameModal.addEventListener("click", function(event) {
+    if (event.target === gameModal) {
+        closeGame();
+    }
+});
 
 
 // =========================================
@@ -19,7 +79,7 @@ function cleanQuestion(question) {
 
     return question
         .toLowerCase()
-        .replace(/[?!.,:;'"]/g, "")
+        .replace(/[?!.,:;'\"]/g, "")
         .trim();
 }
 
@@ -44,12 +104,10 @@ function findAnswer(question) {
 
             let score = cleanedKeyword.length;
 
-            // Give multi-word phrases priority
             if (cleanedKeyword.includes(" ")) {
                 score += 100;
             }
 
-            // Give longer phrases an additional advantage
             score += cleanedKeyword.split(" ").length * 20;
 
             if (score > bestScore) {
@@ -65,7 +123,6 @@ function findAnswer(question) {
 
     return "🤔 I can't find this information in my learning resources. Ask your teacher!";
 }
-
 
 
 // =========================================
@@ -84,9 +141,6 @@ function addMessage(sender, text, className) {
     `;
 
     chat.appendChild(message);
-
-    // Scroll to the newest message
-
     chat.scrollTop = chat.scrollHeight;
 }
 
@@ -101,15 +155,9 @@ form.addEventListener("submit", function(event) {
 
     const question = input.value.trim();
 
-
-    // Do nothing if the input is empty
-
     if (question === "") {
         return;
     }
-
-
-    // Show the student's question
 
     addMessage(
         "You",
@@ -117,13 +165,7 @@ form.addEventListener("submit", function(event) {
         "user-message"
     );
 
-
-    // Clear the input box
-
     input.value = "";
-
-
-    // Give GeorgeBot a short thinking time
 
     setTimeout(function() {
 
