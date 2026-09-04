@@ -3,138 +3,115 @@
 
 <head>
  <meta charset="UTF-8">
-
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
  <title>GeorgeBot</title>
-
  <link rel="stylesheet" href="style.css">
-
  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
-
 <body>
-
- <!-- =====================================
- MAIN GEORGE BOT WINDOW
- ===================================== -->
 
  <div class="chat-container">
 
+  <!-- =================================
+       GEORGE BOT HEADER
+       ================================= -->
 
- <!-- =================================
- GEORGE BOT HEADER
- ================================= -->
+  <header class="chat-header">
 
- <header class="chat-header">
+   <div class="bot-icon">
+    <div class="robot-face">
+     <div class="robot-eyes">
+      <span></span>
+      <span></span>
+     </div>
+     <div class="robot-mouth"></div>
+    </div>
+   </div>
 
- <!-- Custom GeorgeBot icon -->
- <div class="bot-icon">
+   <div>
+    <h1>GeorgeBot</h1>
+    <p>Your Computing Learning Buddy</p>
+    <small>Not an AI chatbot — follows programmed rules.</small>
+   </div>
 
- <div class="robot-face">
+  </header>
 
- <div class="robot-eyes">
- <span></span>
- <span></span>
+
+  <!-- =================================
+       CHAT AREA
+       ================================= -->
+
+  <main id="chat">
+
+   <div class="message bot-message">
+    <strong>GeorgeBot</strong>
+    <p>
+     Hello! 👋 I'm GeorgeBot.
+     Ask me something about Computing!
+    </p>
+   </div>
+
+  </main>
+
+
+  <!-- =================================
+       GAMES
+       ================================= -->
+
+  <div class="games-area">
+   <button id="tic-tac-toe-button" type="button">
+    🎮 Play Tic-Tac-Toe
+   </button>
+  </div>
+
+
+  <!-- =================================
+       TIC-TAC-TOE GAME WINDOW
+       ================================= -->
+
+  <div id="game-modal" class="game-modal" hidden>
+
+   <div class="game-modal-content">
+
+    <button id="close-game-button" class="close-game-button" type="button" aria-label="Close game">
+     ×
+    </button>
+
+    <div id="game-container"></div>
+
+   </div>
+
+  </div>
+
+
+  <!-- =================================
+       QUESTION / INPUT AREA
+       ================================= -->
+
+  <form id="chat-form">
+
+   <input
+    type="text"
+    id="user-input"
+    placeholder="Ask GeorgeBot something..."
+    autocomplete="off"
+   >
+
+   <button type="submit" aria-label="Send message">
+    ➤
+   </button>
+
+  </form>
+
  </div>
-
- <div class="robot-mouth"></div>
-
- </div>
-
- </div>
-
-
- <!-- Bot name and description -->
- <div>
-
- <h1>GeorgeBot</h1>
-
- <p>Your Computing Learning Buddy</p>
-   <small>Not an AI chatbot — follows programmed rules.</small>
- </div>
-
- </header>
-
-
-
- <!-- =================================
- CHAT AREA
- ================================= -->
-
- <main id="chat">
-
- <!-- First message shown when the page opens -->
-
- <div class="message bot-message">
-
- <strong>GeorgeBot</strong>
-
- <p>
- Hello! 👋 I'm GeorgeBot.
- Ask me something about Computing!
- </p>
-
- </div>
-
- </main>
-
-
-
- <!-- =================================
- QUESTION / INPUT AREA
- ================================= -->
-
- <form id="chat-form">
-
- <input
- type="text"
- id="user-input"
- placeholder="Ask GeorgeBot something..."
- autocomplete="off"
- >
-
- <button
- type="submit"
- aria-label="Send message"
- >
- ➤
- </button>
-
- </form>
-
- </div>
-
 
 
  <!-- =====================================
- JAVASCRIPT
- ===================================== -->
-
- <!--
- IMPORTANT:
- knowledge.js must come FIRST.
- It contains everything GeorgeBot knows.
- -->
+      JAVASCRIPT
+      ===================================== -->
 
  <script src="knowledge.js"></script>
-
-
- <!--
- script.js comes SECOND.
- It controls how GeorgeBot behaves.
- -->
-
-
- <!-- =====================================
- JAVASCRIPT
- ===================================== -->
-
- <!-- knowledge.js must come first -->
- <script src="knowledge.js"></script>
-
- <!-- script.js controls GeorgeBot -->
  <script src="script.js"></script>
 
 </body>
