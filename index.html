@@ -56,14 +56,33 @@
 
 
   <!-- =================================
-       GAMES
+       ACTIVITIES MENU
        ================================= -->
 
-  <div class="games-area">
-   <button id="tic-tac-toe-button" type="button">
-    🎮 Play Tic-Tac-Toe
+  <button id="activities-button" class="activities-button" type="button" aria-label="Open Activities menu" aria-expanded="false">
+   🎮
+  </button>
+
+  <aside id="activities-menu" class="activities-menu" hidden>
+
+   <div class="activities-menu-header">
+    <strong>Activities</strong>
+    <button id="close-activities-button" type="button" aria-label="Close Activities menu">×</button>
+   </div>
+
+   <button id="tic-tac-toe-button" class="activity-button" type="button">
+    Tic-Tac-Toe
    </button>
-  </div>
+
+   <button class="activity-button activity-coming-soon" type="button" disabled>
+    Chess
+   </button>
+
+   <button class="activity-button activity-coming-soon" type="button" disabled>
+    More coming soon...
+   </button>
+
+  </aside>
 
 
   <!-- =================================
