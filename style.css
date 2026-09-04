@@ -29,6 +29,7 @@ body {
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(14, 32, 74, 0.15);
     overflow: hidden;
+    position: relative;
 }
 
 .chat-header {
@@ -210,27 +211,92 @@ body {
 }
 
 /* =========================================
-   GAMES BUTTON
+   ACTIVITIES BUTTON
    ========================================= */
 
-.games-area {
-    padding: 0 20px 12px;
-    text-align: center;
-}
-
-#tic-tac-toe-button {
+.activities-button {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
     border: none;
-    border-radius: 10px;
-    padding: 9px 16px;
+    border-radius: 50%;
     background: #B28B5D;
     color: #0E204A;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(14, 32, 74, 0.18);
+    z-index: 20;
+}
+
+.activities-button:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* =========================================
+   ACTIVITIES MENU
+   ========================================= */
+
+.activities-menu {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    width: 210px;
+    padding: 12px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(14, 32, 74, 0.2);
+    z-index: 30;
+}
+
+.activities-menu[hidden] {
+    display: none;
+}
+
+.activities-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #0E204A;
+}
+
+.activities-menu-header button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: #eef2f6;
+    color: #0E204A;
+    font-size: 20px;
+    line-height: 1;
     cursor: pointer;
 }
 
-#tic-tac-toe-button:hover {
-    transform: scale(1.03);
+.activity-button {
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 12px;
+    margin-top: 7px;
+    background: #eef2f6;
+    color: #0E204A;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.activity-button:hover:not(:disabled) {
+    background: #dfe5eb;
+}
+
+.activity-coming-soon {
+    opacity: 0.5;
+    cursor: default;
 }
 
 /* =========================================
@@ -329,5 +395,17 @@ body {
 
     #user-input {
         font-size: 16px;
+    }
+
+    .activities-button {
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    .activities-menu {
+        right: 10px;
+        width: 190px;
     }
 }
