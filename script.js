@@ -42,11 +42,13 @@ closeActivitiesButton.addEventListener("click", closeActivities);
 // =========================================
 
 const ticTacToeButton = document.getElementById("tic-tac-toe-button");
+const chessButton = document.getElementById("chess-button");
 const gameModal = document.getElementById("game-modal");
 const gameContainer = document.getElementById("game-container");
 const closeGameButton = document.getElementById("close-game-button");
 
 let ticTacToeLoaded = false;
+let chessLoaded = false;
 
 
 // =========================================
@@ -77,10 +79,45 @@ function loadTicTacToe() {
     document.body.appendChild(gameScript);
 }
 
+
+// =========================================
+// LOAD CHESS
+// =========================================
+
+function loadChess() {
+
+    if (chessLoaded) {
+        window.initChess(gameContainer);
+        return;
+    }
+
+    const gameStyle = document.createElement("link");
+    gameStyle.rel = "stylesheet";
+    gameStyle.href = "games/chess/style.css";
+    document.head.appendChild(gameStyle);
+
+    const gameScript = document.createElement("script");
+    gameScript.src = "games/chess/script.js";
+
+    gameScript.onload = function() {
+        chessLoaded = true;
+        window.initChess(gameContainer);
+    };
+
+    gameContainer.innerHTML = "<p>Loading chess...</p>";
+    document.body.appendChild(gameScript);
+}
+
 function openTicTacToe() {
     closeActivities();
     gameModal.hidden = false;
     loadTicTacToe();
+}
+
+function openChess() {
+    closeActivities();
+    gameModal.hidden = false;
+    loadChess();
 }
 
 function closeGame() {
@@ -88,6 +125,7 @@ function closeGame() {
 }
 
 ticTacToeButton.addEventListener("click", openTicTacToe);
+chessButton.addEventListener("click", openChess);
 closeGameButton.addEventListener("click", closeGame);
 
 gameModal.addEventListener("click", function(event) {
