@@ -3,12 +3,11 @@
 // =========================================
 
 window.initTicTacToe = function (container) {
-
     container.innerHTML = `
         <div class="tic-tac-toe-game">
             <div class="tic-tac-toe-header">
                 <h2>🎮 Tic-Tac-Toe</h2>
-                <p id="tic-tac-toe-status">Your turn — you are X</p>
+                <p class="tic-tac-toe-status">Your turn — you are X</p>
             </div>
 
             <div class="tic-tac-toe-board" aria-label="Tic-Tac-Toe board">
@@ -27,22 +26,18 @@ window.initTicTacToe = function (container) {
         </div>
     `;
 
-    const cells = container.querySelectorAll(".tic-cell");
-    const status = container.querySelector("#tic-tac-toe-status");
-    const restartButton = container.querySelector(".tic-restart");
+    const cells = container.querySelectorAll('.tic-cell');
+    const status = container.querySelector('.tic-tac-toe-status');
+    const restartButton = container.querySelector('.tic-restart');
 
-    let board = ["", "", "", "", "", "", "", "", ""];
+    let board = ['', '', '', '', '', '', '', '', ''];
     let gameOver = false;
+    let computerThinking = false;
 
     const winningLines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
     ];
 
     function checkWinner(player) {
@@ -52,77 +47,90 @@ window.initTicTacToe = function (container) {
     }
 
     function checkDraw() {
-        return board.every(cell => cell !== "");
-    }
-
-    function endGame(message) {
-        gameOver = true;
-        status.textContent = message;
-        cells.forEach(cell => cell.disabled = true);
-    }
-
-    function computerMove() {
-        const emptyCells = board
-            .map((value, index) => value === "" ? index : null)
-            .filter(index => index !== null);
-
-        if (emptyCells.length === 0 || gameOver) return;
-
-        // Try to win.
-        for (const index of emptyCells) {
-            board[index] = "O";
-            if (checkWinner("O")) {
-                renderBoard();
-                endGame("GeorgeBot wins! 🤖");
-                return;
-            }
-            board[index] = "";
-        }
-
-        // Try to block the player.
-        for (const index of emptyCells) {
-            board[index] = "X";
-            if (checkWinner("X")) {
-                board[index] = "O";
-                renderBoard();
-                status.textContent = "Your turn — you are X";
-                return;
-            }
-            board[index] = "";
-        }
-
-        // Otherwise choose a random empty square.
-        const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        board[randomIndex] = "O";
-        renderBoard();
-
-        if (checkWinner("O")) {
-            endGame("GeorgeBot wins! 🤖");
-        } else if (checkDraw()) {
-            endGame("It's a draw! 🤝");
-        } else {
-            status.textContent = "Your turn — you are X";
-        }
+        return board.every(cell => cell !== '');
     }
 
     function renderBoard() {
         cells.forEach((cell, index) => {
             cell.textContent = board[index];
-            cell.classList.toggle("x", board[index] === "X");
-            cell.classList.toggle("o", board[index] === "O");
+            cell.classList.toggle('x', board[index] === 'X');
+            cell.classList.toggle('o', board[index] === 'O');
+            cell.disabled = board[index] !== '' || gameOver || computerThinking;
         });
     }
 
-    function playerMove(event) {
-        const index = Number(event.currentTarget.dataset.index);
+    function endGame(message) {
+        gameOver = true;
+        computerThinking = false;
+        status.textContent = message;
+        renderBoard();
+    }
 
-        if (gameOver || board[index] !== "") return;
+    function findWinningMove(player) {
+        const emptyCells = board
+            .map((value, index) => value === '' ? index : null)
+            .filter(index => index !== null);
 
-        board[index] = "X";
+        for (const index of emptyCells) {
+            board[index] = player;
+            const wins = checkWinner(player);
+            board[index] = '';
+
+            if (wins) return index;
+        }
+
+        return null;
+    }
+
+    function computerMove() {
+        if (gameOver) return;
+
+        let move = findWinningMove('O');
+
+        if (move === null) {
+            move = findWinningMove('X');
+        }
+
+        if (move === null && board[4] === '') {
+            move = 4;
+        }
+
+        if (move === null) {
+            const emptyCells = board
+                .map((value, index) => value === '' ? index : null)
+                .filter(index => index !== null);
+
+            move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        }
+
+        if (move !== undefined && move !== null) {
+            board[move] = 'O';
+        }
+
+        computerThinking = false;
         renderBoard();
 
-        if (checkWinner("X")) {
-            endGame("You win! 🎉");
+        if (checkWinner('O')) {
+            endGame('GeorgeBot wins! 🤖');
+        } else if (checkDraw()) {
+            endGame("It's a draw! 🤝");
+        } else {
+            status.textContent = 'Your turn — you are X';
+        }
+    }
+
+    function playerMove(event) {
+        if (gameOver || computerThinking) return;
+
+        const index = Number(event.currentTarget.dataset.index);
+
+        if (board[index] !== '') return;
+
+        board[index] = 'X';
+        renderBoard();
+
+        if (checkWinner('X')) {
+            endGame('You win! 🎉');
             return;
         }
 
@@ -131,20 +139,23 @@ window.initTicTacToe = function (container) {
             return;
         }
 
-        status.textContent = "GeorgeBot is thinking... 🤖";
-        setTimeout(computerMove, 400);
+        computerThinking = true;
+        status.textContent = 'GeorgeBot is thinking... 🤖';
+        renderBoard();
+
+        setTimeout(computerMove, 450);
     }
 
     function restartGame() {
-        board = ["", "", "", "", "", "", "", "", ""];
+        board = ['', '', '', '', '', '', '', '', ''];
         gameOver = false;
-        cells.forEach(cell => cell.disabled = false);
-        status.textContent = "Your turn — you are X";
+        computerThinking = false;
+        status.textContent = 'Your turn — you are X';
         renderBoard();
     }
 
-    cells.forEach(cell => cell.addEventListener("click", playerMove));
-    restartButton.addEventListener("click", restartGame);
+    cells.forEach(cell => cell.addEventListener('click', playerMove));
+    restartButton.addEventListener('click', restartGame);
 
     renderBoard();
 };
