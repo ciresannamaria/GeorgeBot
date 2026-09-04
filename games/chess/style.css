@@ -1,5 +1,167 @@
 /* =====================================
    GEORGE BOT - CHESS
-   =====================================
-   Chess game styling will be added here in the future.
-*/
+   ===================================== */
+
+.chess-game {
+    width: min(100%, 560px);
+    margin: 0 auto;
+    text-align: center;
+    font-family: inherit;
+}
+
+.chess-heading h2 {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.chess-heading p {
+    margin: 5px 0 14px;
+    opacity: 0.75;
+    font-size: 0.95rem;
+}
+
+.chess-board {
+    width: min(88vw, 480px);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border: 4px solid #5d4633;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.chess-square {
+    border: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    font-family: "Times New Roman", "DejaVu Serif", serif;
+    font-size: clamp(1.7rem, 8vw, 3.2rem);
+    line-height: 1;
+    transition: filter 0.12s ease, box-shadow 0.12s ease;
+}
+
+.chess-square.light {
+    background: #f0d9b5;
+}
+
+.chess-square.dark {
+    background: #b58863;
+}
+
+.chess-square:hover {
+    filter: brightness(1.08);
+}
+
+.chess-square.piece-w {
+    color: #fff;
+    text-shadow: 0 1px 2px #333, 1px 0 2px #333, -1px 0 2px #333;
+}
+
+.chess-square.piece-b {
+    color: #222;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.chess-square.selected {
+    box-shadow: inset 0 0 0 4px #d59b32;
+}
+
+.chess-square.move-target::after,
+.chess-square.capture-target::after {
+    content: "";
+    position: absolute;
+    width: 22%;
+    height: 22%;
+    border-radius: 50%;
+    background: rgba(40, 90, 55, 0.55);
+}
+
+.chess-square.capture-target::after {
+    width: 76%;
+    height: 76%;
+    background: transparent;
+    border: 4px solid rgba(170, 55, 45, 0.75);
+}
+
+.chess-square.in-check {
+    box-shadow: inset 0 0 0 5px rgba(190, 45, 45, 0.9);
+}
+
+.chess-status {
+    min-height: 1.5em;
+    margin: 13px auto 10px;
+    font-weight: 600;
+    font-size: 0.98rem;
+}
+
+.chess-controls {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.chess-controls button,
+.chess-promotion-button {
+    border: 0;
+    border-radius: 8px;
+    background: #b28b5d;
+    color: white;
+    padding: 9px 15px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.chess-controls button:hover,
+.chess-promotion-button:hover {
+    filter: brightness(0.94);
+}
+
+.chess-help-panel {
+    margin: 14px auto 0;
+    padding: 13px 16px;
+    max-width: 450px;
+    border-radius: 10px;
+    background: #f7f2e9;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.chess-help-panel p {
+    margin: 7px 0 0;
+}
+
+.chess-promotion {
+    margin: 8px auto 10px;
+}
+
+.chess-promotion-title {
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.chess-promotion-button {
+    width: 52px;
+    height: 52px;
+    margin: 0 3px;
+    padding: 0;
+    font-family: "Times New Roman", "DejaVu Serif", serif;
+    font-size: 2rem;
+}
+
+@media (max-width: 520px) {
+    .chess-board {
+        border-width: 3px;
+    }
+
+    .chess-square {
+        font-size: clamp(1.5rem, 9vw, 2.5rem);
+    }
+}
