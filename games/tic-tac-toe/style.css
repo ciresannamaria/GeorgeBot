@@ -1,1 +1,79 @@
+/* =========================================
+   TIC-TAC-TOE GAME
+   ========================================= */
 
+.tic-tac-toe-game {
+    text-align: center;
+    padding: 20px;
+    background: #f5f7fa;
+    border-radius: 14px;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.tic-tac-toe-header h2 {
+    color: #0E204A;
+    margin-bottom: 6px;
+}
+
+.tic-tac-toe-header p {
+    color: #004681;
+    margin-bottom: 16px;
+}
+
+.tic-tac-toe-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.tic-cell {
+    border: 2px solid #0E204A;
+    border-radius: 8px;
+    background: white;
+    font-size: 34px;
+    font-weight: bold;
+    color: #0E204A;
+    cursor: pointer;
+}
+
+.tic-cell:hover:not(:disabled) {
+    background: #eef2f6;
+}
+
+.tic-cell.x {
+    color: #004681;
+}
+
+.tic-cell.o {
+    color: #B28B5D;
+}
+
+.tic-cell:disabled {
+    cursor: default;
+}
+
+.tic-restart {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    background: #B28B5D;
+    color: #0E204A;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tic-restart:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 500px) {
+    .tic-tac-toe-board {
+        grid-template-columns: repeat(3, 70px);
+        grid-template-rows: repeat(3, 70px);
+    }
+}
