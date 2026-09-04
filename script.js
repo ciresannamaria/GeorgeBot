@@ -9,6 +9,35 @@ const input = document.getElementById("user-input");
 
 
 // =========================================
+// ACTIVITIES MENU
+// =========================================
+
+const activitiesButton = document.getElementById("activities-button");
+const activitiesMenu = document.getElementById("activities-menu");
+const closeActivitiesButton = document.getElementById("close-activities-button");
+
+function openActivities() {
+    activitiesMenu.hidden = false;
+    activitiesButton.setAttribute("aria-expanded", "true");
+}
+
+function closeActivities() {
+    activitiesMenu.hidden = true;
+    activitiesButton.setAttribute("aria-expanded", "false");
+}
+
+activitiesButton.addEventListener("click", function() {
+    if (activitiesMenu.hidden) {
+        openActivities();
+    } else {
+        closeActivities();
+    }
+});
+
+closeActivitiesButton.addEventListener("click", closeActivities);
+
+
+// =========================================
 // GAME ELEMENTS
 // =========================================
 
@@ -48,21 +77,18 @@ function loadTicTacToe() {
     document.body.appendChild(gameScript);
 }
 
-
 function openTicTacToe() {
+    closeActivities();
     gameModal.hidden = false;
     loadTicTacToe();
 }
-
 
 function closeGame() {
     gameModal.hidden = true;
 }
 
-
 ticTacToeButton.addEventListener("click", openTicTacToe);
 closeGameButton.addEventListener("click", closeGame);
-
 
 gameModal.addEventListener("click", function(event) {
     if (event.target === gameModal) {
