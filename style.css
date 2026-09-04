@@ -320,12 +320,12 @@ body {
 
 .game-modal-content {
     position: relative;
-    width: min(420px, 100%);
-    max-height: 90vh;
+    width: min(680px, calc(100vw - 40px));
+    max-height: calc(100vh - 40px);
     overflow-y: auto;
     background: white;
     border-radius: 16px;
-    padding: 12px;
+    padding: 18px;
     box-shadow: 0 12px 40px rgba(14, 32, 74, 0.25);
 }
 
@@ -407,5 +407,15 @@ body {
     .activities-menu {
         right: 10px;
         width: 190px;
+    }
+
+    .game-modal {
+        padding: 10px;
+    }
+
+    .game-modal-content {
+        width: 100%;
+        max-height: calc(100vh - 20px);
+        padding: 12px;
     }
 }
