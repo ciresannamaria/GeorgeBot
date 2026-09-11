@@ -38,10 +38,41 @@
 
 
   <!-- =================================
+       START SCREEN
+       ================================= -->
+
+  <main id="start-screen" class="start-screen">
+
+   <div class="start-message">
+    <div class="message bot-message">
+     <strong>GeorgeBot</strong>
+     <p>Hi! I'm GeorgeBot 🤖</p>
+     <p>What would you like to do today?</p>
+    </div>
+   </div>
+
+   <div class="start-options">
+    <button id="ask-george-button" class="start-option" type="button">
+     <span class="start-option-icon">💬</span>
+     <span class="start-option-title">Ask George</span>
+     <span class="start-option-description">Ask a Computing question</span>
+    </button>
+
+    <button id="activities-start-button" class="start-option" type="button">
+     <span class="start-option-icon">🚀</span>
+     <span class="start-option-title">Activities</span>
+     <span class="start-option-description">Explore Computing activities</span>
+    </button>
+   </div>
+
+  </main>
+
+
+  <!-- =================================
        CHAT AREA
        ================================= -->
 
-  <main id="chat">
+  <main id="chat" hidden>
 
    <div class="message bot-message">
     <strong>GeorgeBot</strong>
@@ -103,7 +134,7 @@
        QUESTION / INPUT AREA
        ================================= -->
 
-  <form id="chat-form">
+  <form id="chat-form" hidden>
 
    <input
     type="text"
