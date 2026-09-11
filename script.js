@@ -6,6 +6,9 @@
 const startScreen = document.getElementById("start-screen");
 const askGeorgeButton = document.getElementById("ask-george-button");
 const activitiesStartButton = document.getElementById("activities-start-button");
+const activitiesHub = document.getElementById("activities-hub");
+const codingGamesList = document.getElementById("coding-games-list");
+const backToStartButton = document.getElementById("back-to-start-button");
 const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
@@ -17,12 +20,59 @@ const input = document.getElementById("user-input");
 
 function showChat() {
     startScreen.hidden = true;
+    activitiesHub.hidden = true;
     chat.hidden = false;
     form.hidden = false;
     input.focus();
 }
 
+function showActivitiesHub() {
+    startScreen.hidden = true;
+    chat.hidden = true;
+    form.hidden = true;
+    activitiesHub.hidden = false;
+    renderActivities();
+}
+
+function showStartScreen() {
+    activitiesHub.hidden = true;
+    chat.hidden = true;
+    form.hidden = true;
+    startScreen.hidden = false;
+}
+
 askGeorgeButton.addEventListener("click", showChat);
+activitiesStartButton.addEventListener("click", showActivitiesHub);
+backToStartButton.addEventListener("click", showStartScreen);
+
+
+// =========================================
+// ACTIVITY HUB
+// =========================================
+
+function renderActivities() {
+    codingGamesList.innerHTML = "";
+
+    const codingGames = activities.filter(function(activity) {
+        return activity.category === "Coding Games";
+    });
+
+    codingGames.forEach(function(activity) {
+        const card = document.createElement("a");
+        card.className = "activity-card";
+        card.href = activity.link;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+
+        card.innerHTML = `
+            <span class="activity-card-icon">${activity.icon}</span>
+            <span class="activity-card-title">${activity.title}</span>
+            <span class="activity-card-description">${activity.description}</span>
+        `;
+
+        codingGamesList.appendChild(card);
+    });
+}
 
 
 // =========================================
@@ -52,12 +102,6 @@ activitiesButton.addEventListener("click", function() {
 });
 
 closeActivitiesButton.addEventListener("click", closeActivities);
-
-// The Activities choice on the start screen will be connected
-// to the Activity Hub in a later step.
-activitiesStartButton.addEventListener("click", function() {
-    // Activity Hub to be added later.
-});
 
 
 // =========================================
