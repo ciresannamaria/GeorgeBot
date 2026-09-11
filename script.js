@@ -3,9 +3,26 @@
 // Chatbot behaviour
 // =========================================
 
+const startScreen = document.getElementById("start-screen");
+const askGeorgeButton = document.getElementById("ask-george-button");
+const activitiesStartButton = document.getElementById("activities-start-button");
 const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
+
+
+// =========================================
+// START SCREEN
+// =========================================
+
+function showChat() {
+    startScreen.hidden = true;
+    chat.hidden = false;
+    form.hidden = false;
+    input.focus();
+}
+
+askGeorgeButton.addEventListener("click", showChat);
 
 
 // =========================================
@@ -35,6 +52,12 @@ activitiesButton.addEventListener("click", function() {
 });
 
 closeActivitiesButton.addEventListener("click", closeActivities);
+
+// The Activities choice on the start screen will be connected
+// to the Activity Hub in a later step.
+activitiesStartButton.addEventListener("click", function() {
+    // Activity Hub to be added later.
+});
 
 
 // =========================================
