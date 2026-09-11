@@ -13,10 +13,6 @@
 
  <div class="chat-container">
 
-  <!-- =================================
-       GEORGE BOT HEADER
-       ================================= -->
-
   <header class="chat-header">
 
    <button id="activities-button" class="bot-icon" type="button" aria-label="Open Activities menu" aria-expanded="false">
@@ -35,11 +31,6 @@
    </div>
 
   </header>
-
-
-  <!-- =================================
-       START SCREEN
-       ================================= -->
 
   <main id="start-screen" class="start-screen">
 
@@ -67,10 +58,28 @@
 
   </main>
 
+  <main id="activities-hub" class="activities-hub" hidden>
 
-  <!-- =================================
-       CHAT AREA
-       ================================= -->
+   <div class="activities-hub-header">
+    <h2>🚀 Activities</h2>
+    <p>Choose something to explore.</p>
+   </div>
+
+   <section class="activity-category">
+    <h3>💻 Coding Games</h3>
+    <div id="coding-games-list" class="activity-grid"></div>
+   </section>
+
+   <section class="activity-category">
+    <h3>🎨 Create &amp; Design</h3>
+    <div class="activity-empty">
+     <p>More activities coming soon!</p>
+    </div>
+   </section>
+
+   <button id="back-to-start-button" class="back-to-start-button" type="button">← Back</button>
+
+  </main>
 
   <main id="chat" hidden>
 
@@ -84,11 +93,6 @@
 
   </main>
 
-
-  <!-- =================================
-       ACTIVITIES MENU
-       ================================= -->
-
   <aside id="activities-menu" class="activities-menu" hidden>
 
    <div class="activities-menu-header">
@@ -96,43 +100,23 @@
     <button id="close-activities-button" type="button" aria-label="Close Activities menu">×</button>
    </div>
 
-   <button id="tic-tac-toe-button" class="activity-button" type="button">
-    Tic-Tac-Toe
-   </button>
-
-   <button id="chess-button" class="activity-button" type="button">
-    ♟️ Chess
-   </button>
-
-   <button class="activity-button activity-coming-soon" type="button" disabled>
-    More coming soon...
-   </button>
+   <button id="tic-tac-toe-button" class="activity-button" type="button">Tic-Tac-Toe</button>
+   <button id="chess-button" class="activity-button" type="button">♟️ Chess</button>
+   <button class="activity-button activity-coming-soon" type="button" disabled>More coming soon...</button>
 
   </aside>
-
-
-  <!-- =================================
-       GAME WINDOW
-       ================================= -->
 
   <div id="game-modal" class="game-modal" hidden>
 
    <div class="game-modal-content">
 
-    <button id="close-game-button" class="close-game-button" type="button" aria-label="Close game">
-     ×
-    </button>
+    <button id="close-game-button" class="close-game-button" type="button" aria-label="Close game">×</button>
 
     <div id="game-container"></div>
 
    </div>
 
   </div>
-
-
-  <!-- =================================
-       QUESTION / INPUT AREA
-       ================================= -->
 
   <form id="chat-form" hidden>
 
@@ -143,21 +127,15 @@
     autocomplete="off"
    >
 
-   <button type="submit" aria-label="Send message">
-    ➤
-   </button>
+   <button type="submit" aria-label="Send message">➤</button>
 
   </form>
 
  </div>
 
-
- <!-- =====================================
-      JAVASCRIPT
-      ===================================== -->
-
  <script src="knowledge.js"></script>
  <script src="knowledge/year4/the-internet/knowledge.js"></script>
+ <script src="activities.js"></script>
  <script src="script.js"></script>
 
 </body>
