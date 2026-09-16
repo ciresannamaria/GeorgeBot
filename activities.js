@@ -9,6 +9,7 @@ const activities = [
         description: "",
         icon: "🐱",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://codejr.org/"
@@ -18,6 +19,7 @@ const activities = [
         description: "",
         icon: "🖱️",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/2/levels/1?viewAs=Instructor"
@@ -27,6 +29,7 @@ const activities = [
         description: "",
         icon: "🧩",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/4/levels/2?viewAs=Instructor"
@@ -36,6 +39,7 @@ const activities = [
         description: "",
         icon: "🐿️",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/5/levels/2?viewAs=Instructor"
@@ -45,6 +49,7 @@ const activities = [
         description: "",
         icon: "🤖",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/6/levels/2?viewAs=Instructor"
@@ -54,6 +59,7 @@ const activities = [
         description: "",
         icon: "🔁",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/8/levels/1?viewAs=Instructor"
@@ -63,6 +69,7 @@ const activities = [
         description: "",
         icon: "🌳",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/9/levels/2?viewAs=Instructor"
@@ -72,6 +79,7 @@ const activities = [
         description: "",
         icon: "🌊",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/10/levels/2?viewAs=Instructor"
@@ -81,6 +89,7 @@ const activities = [
         description: "",
         icon: "🎮",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/12/levels/1?viewAs=Instructor"
@@ -90,9 +99,90 @@ const activities = [
         description: "",
         icon: "🏆",
         category: "Coding Games",
+        level: 1,
         yearGroups: ["years1-2"],
         type: "external",
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/13/levels/1"
+    },
+    {
+        title: "Sequencing with Angry Birds",
+        description: "",
+        icon: "🐦",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/3/levels/1?viewAs=Instructor"
+    },
+    {
+        title: "Programming with Angry Birds",
+        description: "",
+        icon: "🐦",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/4/levels/1"
+    },
+    {
+        title: "Programming with Harvester",
+        description: "",
+        icon: "🚜",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/5/levels/1"
+    },
+    {
+        title: "Loops with Harvester",
+        description: "",
+        icon: "🔁",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/7/levels/1?viewAs=Instructor"
+    },
+    {
+        title: "Loops with Laurel",
+        description: "",
+        icon: "🌳",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/8/levels/1"
+    },
+    {
+        title: "Drawing Gardens with Loops",
+        description: "",
+        icon: "🌷",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/9/levels/1"
+    },
+    {
+        title: "Mini-Project: A Royal Battle with Events",
+        description: "",
+        icon: "👑",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/12/levels/1"
+    },
+    {
+        title: "End of Course Project",
+        description: "",
+        icon: "🏆",
+        category: "Coding Games",
+        level: 2,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/13/levels/1"
     },
     {
         title: "Pixel Art",
