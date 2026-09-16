@@ -32,7 +32,7 @@ const activities = [
         level: 1,
         yearGroups: ["years1-2"],
         type: "external",
-        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/4/levels/2?viewAs=Instructor"
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/4/levels/1"
     },
     {
         title: "Programming with Scrat",
@@ -42,7 +42,7 @@ const activities = [
         level: 1,
         yearGroups: ["years1-2"],
         type: "external",
-        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/5/levels/2?viewAs=Instructor"
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/5/levels/1"
     },
     {
         title: "Programming with Rey and BB-8",
@@ -52,7 +52,7 @@ const activities = [
         level: 1,
         yearGroups: ["years1-2"],
         type: "external",
-        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/6/levels/2?viewAs=Instructor"
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/6/levels/1"
     },
     {
         title: "Loops with Scrat",
@@ -72,7 +72,7 @@ const activities = [
         level: 1,
         yearGroups: ["years1-2"],
         type: "external",
-        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/9/levels/2?viewAs=Instructor"
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/9/levels/1"
     },
     {
         title: "Ocean Scene with Loops",
@@ -82,7 +82,7 @@ const activities = [
         level: 1,
         yearGroups: ["years1-2"],
         type: "external",
-        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/10/levels/2?viewAs=Instructor"
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/10/levels/1"
     },
     {
         title: "Mini-Project: On the Move with Play Lab",
@@ -92,7 +92,7 @@ const activities = [
         level: 1,
         yearGroups: ["years1-2"],
         type: "external",
-        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/12/levels/1?viewAs=Instructor"
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/12/levels/1"
     },
     {
         title: "End of Course Project",
