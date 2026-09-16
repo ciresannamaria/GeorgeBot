@@ -46,7 +46,7 @@ const knowledge = [
         "is georgebot artificial intelligence"
     ],
     answer:
-        "No! 🤖 I'm not an AI chatbot. I'm a programmed chatbot. I follow rules and use information that my teacher has added to my knowledge base. I can answer questions that I have been programmed to recognise, but I don't think or learn like an AI system."
+        "No! 🤖 I'm not an AI chatbot. I'm a programmed chatbot. I follow rules and use information that Ms Cires has added to my knowledge base. I can answer questions that I have been programmed to recognise, but I don't think or learn like an AI system."
 },
 
 // -----------------------------------------
