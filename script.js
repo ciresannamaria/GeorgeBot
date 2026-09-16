@@ -319,9 +319,8 @@ function findAnswer(question) {
 
 const QUESTION_LOG_KEY = "georgebot-question-log";
 
-// Paste the Google Apps Script Web App URL here after deployment.
-// Example: https://script.google.com/macros/s/XXXXXXXX/exec
-const QUESTION_LOG_ENDPOINT = "";
+// Google Apps Script Web App endpoint for central question logging.
+const QUESTION_LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbzMnabJC4lyR65aO4KE9tvJWbAIICI_XxFtLoDO0PorOJVPPEDHEXmGWLGCFs2VLyjDYg/exec";
 
 function getQuestionLog() {
     try {
@@ -350,7 +349,7 @@ function saveQuestionToLog(question, answer) {
         console.warn("GeorgeBot could not save the local question log.", error);
     }
 
-    // Send the same question to the central Google Sheet when configured.
+    // Send the same question to the central Google Sheet.
     if (QUESTION_LOG_ENDPOINT) {
         fetch(QUESTION_LOG_ENDPOINT, {
             method: "POST",
