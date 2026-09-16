@@ -69,6 +69,21 @@ yearGroupButtons.forEach(function(button) {
 // ACTIVITY HUB
 // =========================================
 
+function createActivityCard(activity) {
+    const card = document.createElement("a");
+    card.className = "activity-card";
+    card.href = activity.link;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+
+    card.innerHTML = `
+        <span class="activity-card-icon">${activity.icon}</span>
+        <span class="activity-card-title">${activity.title}</span>
+    `;
+
+    return card;
+}
+
 function renderActivities(yearGroupId) {
     const section = document.getElementById(yearGroupId);
 
@@ -94,20 +109,38 @@ function renderActivities(yearGroupId) {
             return activity.category === categoryName && activity.yearGroups.includes(yearGroupId);
         });
 
-        matchingActivities.forEach(function(activity) {
-            const card = document.createElement("a");
-            card.className = "activity-card";
-            card.href = activity.link;
-            card.target = "_blank";
-            card.rel = "noopener noreferrer";
+        if (categoryName === "Coding Games" && yearGroupId === "years1-2") {
+            [1, 2].forEach(function(level) {
+                const levelActivities = matchingActivities.filter(function(activity) {
+                    return activity.level === level;
+                });
 
-            card.innerHTML = `
-                <span class="activity-card-icon">${activity.icon}</span>
-                <span class="activity-card-title">${activity.title}</span>
-            `;
+                if (levelActivities.length === 0) {
+                    return;
+                }
 
-            list.appendChild(card);
-        });
+                const levelSection = document.createElement("div");
+                levelSection.className = "coding-level";
+
+                const levelTitle = document.createElement("h5");
+                levelTitle.textContent = "Level " + level;
+                levelSection.appendChild(levelTitle);
+
+                const levelGrid = document.createElement("div");
+                levelGrid.className = "activity-grid";
+
+                levelActivities.forEach(function(activity) {
+                    levelGrid.appendChild(createActivityCard(activity));
+                });
+
+                levelSection.appendChild(levelGrid);
+                list.appendChild(levelSection);
+            });
+        } else {
+            matchingActivities.forEach(function(activity) {
+                list.appendChild(createActivityCard(activity));
+            });
+        }
 
         if (placeholder) {
             placeholder.hidden = matchingActivities.length !== 0;
