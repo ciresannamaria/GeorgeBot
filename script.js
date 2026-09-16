@@ -100,7 +100,7 @@ function renderActivities(yearGroupId) {
         });
 
         if (categoryName === "Coding Games" && yearGroupId === "years1-2") {
-            [1, 2].forEach(function(level) {
+            [1, 2, 3].forEach(function(level) {
                 const levelActivities = matchingActivities.filter(function(activity) {
                     return activity.level === level;
                 });
