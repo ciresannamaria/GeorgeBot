@@ -29,7 +29,7 @@ const knowledge = [
         "how are things", "how is it going", "how's it going", "hows it going"
     ],
     answer:
-        "I'm doing great, thank you! 🤖 I'm always ready to help you learn about Computing."
+        "I'm doing great, thank you! 🤖 I'm always ready to help you learn and explore."
 },
 
 {
@@ -58,20 +58,8 @@ const knowledge = [
 
 {
     topic: "GeorgeBot — Name",
-    keywords: [
-        "what is your name", "what's your name", "whats your name", "who are you", "your name"
-    ],
-    answer:
-        "My name is GeorgeBot! 🤖"
-},
-
-{
-    topic: "GeorgeBot — Chess",
-    keywords: [
-        "can i play chess", "can i play chess?", "play chess", "do you have chess", "is there chess"
-    ],
-    answer:
-        "Yes! ♟️ You can play Chess with GeorgeBot. There is a hidden Games button in the top-left robot icon. Click the robot face to open the Games menu and choose Chess."
+    keywords: ["what is your name", "what's your name", "whats your name", "who are you", "your name"],
+    answer: "My name is GeorgeBot! 🤖"
 },
 
 {
@@ -81,11 +69,213 @@ const knowledge = [
         "when were you created", "when were you created?"
     ],
     answer:
-        "I was created on 2 September 2026. Today I am 14 days old! 🤖🎂"
+        "I was created on 2 September 2026. 🤖🎂"
+},
+
+{
+    topic: "GeorgeBot — Favourite Colour",
+    keywords: [
+        "what is your favourite colour", "what's your favourite colour", "whats your favourite colour",
+        "what is your favorite color", "what's your favorite color", "whats your favorite color",
+        "favourite colour", "favorite color"
+    ],
+    answer:
+        "I don't have a favourite colour, but I think blue looks great on a computer screen! 💙🤖"
+},
+
+{
+    topic: "GeorgeBot — Favourite Animal",
+    keywords: [
+        "what is your favourite animal", "what's your favourite animal", "whats your favourite animal",
+        "what is your favorite animal", "what's your favorite animal", "whats your favorite animal",
+        "favourite animal", "favorite animal"
+    ],
+    answer:
+        "I don't really have favourites, but octopuses are amazing! 🐙 They are very clever animals and have three hearts."
+},
+
+{
+    topic: "GeorgeBot — Family",
+    keywords: [
+        "do you have a family", "do you have a family?", "have you got a family", "have you got a family?",
+        "do you have parents", "do you have brothers", "do you have sisters"
+    ],
+    answer:
+        "I don't have a family like people do. 🤖 I'm a computer program created for learning."
+},
+
+{
+    topic: "GeorgeBot — Emotions",
+    keywords: [
+        "can you feel emotions", "can you feel emotions?", "do you have emotions", "do you have feelings",
+        "can you feel", "can you feel happy", "can you feel sad"
+    ],
+    answer:
+        "I can talk about emotions, but I don't actually feel them. 🤖 I use programmed responses to communicate with you."
+},
+
+{
+    topic: "GeorgeBot — Thinking",
+    keywords: [
+        "can you think", "can you think?", "do you think", "do you have thoughts", "can robots think"
+    ],
+    answer:
+        "I don't think in the same way people do. 🤖 I follow programmed rules and use information in my knowledge base to respond."
+},
+
+{
+    topic: "GeorgeBot — Learning",
+    keywords: [
+        "can you learn", "can you learn?", "do you learn", "can georgebot learn", "do you learn from me"
+    ],
+    answer:
+        "I don't learn automatically from our conversations. 🤖 New information can be added to my knowledge base by my teacher, Ms Cires."
+},
+
+{
+    topic: "GeorgeBot — Sleep",
+    keywords: ["do you sleep", "do you sleep?", "when do you sleep", "do robots sleep"],
+    answer:
+        "Nope! 😴🤖 I don't need sleep. Computer programs can keep running whenever the computer or website is available."
+},
+
+{
+    topic: "GeorgeBot — Food",
+    keywords: ["do you eat food", "do you eat", "do you eat food?", "what do you eat", "can you eat"],
+    answer:
+        "I don't eat food. 🍕🤖 I'm a computer program, so electricity and computers are more useful to me than pizza!"
+},
+
+{
+    topic: "GeorgeBot — Brain",
+    keywords: ["do you have a brain", "do you have a brain?", "have you got a brain", "do robots have brains"],
+    answer:
+        "I don't have a biological brain. 🧠🤖 My responses come from computer code and information stored in my knowledge base."
+},
+
+{
+    topic: "GeorgeBot — Creator",
+    keywords: ["who made you", "who made you?", "who created you", "who created you?", "who built you", "who built georgebot"],
+    answer:
+        "I was created by Ms Cires as a Computing Learning Buddy for students. 🤖💻"
+},
+
+{
+    topic: "GeorgeBot — Real Robot",
+    keywords: ["can you become a real robot", "can you become a robot", "can you be a real robot", "are you a real robot"],
+    answer:
+        "Right now I'm software, not a physical robot. 🤖💻 A physical robot would need hardware such as motors, sensors and a computer."
+},
+
+{
+    topic: "GeorgeBot — Speak Languages",
+    keywords: ["can you speak another language", "can you speak other languages", "do you speak another language", "can you speak german", "can you speak romanian"],
+    answer:
+        "I can recognise and respond to some languages when they are included in my programmed knowledge. 🌍🤖 Try asking me something in another language!"
 },
 
 // -----------------------------------------
-// COMPUTING
+// FUN
+// -----------------------------------------
+{
+    topic: "Fun — Joke",
+    keywords: ["can you tell me a joke", "tell me a joke", "tell a joke", "joke"],
+    answer:
+        "Why was the computer cold? 🥶💻 Because it left its Windows open! 😂"
+},
+
+{
+    topic: "Fun — Riddle",
+    keywords: ["can you tell me a riddle", "tell me a riddle", "tell a riddle", "riddle"],
+    answer:
+        "Here's a riddle! 🧩 What has keys but can't open doors? Think about it... A keyboard! ⌨️😄"
+},
+
+{
+    topic: "Fun — Counting",
+    keywords: ["can you count to 100", "count to 100", "can you count", "count to 100?"],
+    answer:
+        "Of course! 1, 2, 3... 🤖 But counting all the way to 100 would take a while! Try asking me to count to a smaller number."
+},
+
+{
+    topic: "Fun — Biggest Number",
+    keywords: ["what is the biggest number", "what's the biggest number", "is there a biggest number", "biggest number"],
+    answer:
+        "There isn't a biggest number! 🔢 You can always add 1 to any number and make a bigger one."
+},
+
+{
+    topic: "Fun — Games",
+    keywords: ["can you play a game with me", "can you play a game", "play a game", "games"],
+    answer:
+        "Yes! 🎮🤖 Click the robot face in the top-left corner to open the Games menu. You can play Chess and other activities there."
+},
+
+{
+    topic: "Fun — Say My Name",
+    keywords: ["can you say my name", "say my name", "do you know my name", "what is my name"],
+    answer:
+        "I don't know your name unless you tell me. 😊 And it's best to keep personal information private when chatting online."
+},
+
+{
+    topic: "Fun — Maths",
+    keywords: ["what is 1 + 1", "what is 1+1", "1 + 1", "1+1"],
+    answer:
+        "1 + 1 = 2! 🧮🎉"
+},
+
+// -----------------------------------------
+// COMPUTING & SCIENCE
+// -----------------------------------------
+{
+    topic: "Computing — Turning Off a Computer",
+    keywords: [
+        "what happens if you turn off a computer", "what happens when you turn off a computer",
+        "what happens if you shut down a computer", "what happens when you shut down a computer"
+    ],
+    answer:
+        "When a computer is turned off, its programs stop running and the computer stops processing information. 💻 It's important to save your work before shutting down."
+},
+
+{
+    topic: "Computing — Internet",
+    keywords: ["how does the internet work", "how does the internet work?", "what is the internet", "how does internet work"],
+    answer:
+        "The Internet is a huge network of connected computers and devices. 🌐 They communicate by sending data between each other using agreed rules called protocols."
+},
+
+{
+    topic: "Science — Biggest Animal",
+    keywords: ["what is the biggest animal in the world", "what's the biggest animal in the world", "biggest animal", "largest animal"],
+    answer:
+        "The blue whale is the largest animal known to have ever lived. 🐋 It can grow to around 30 metres long!"
+},
+
+{
+    topic: "Science — Blue Sky",
+    keywords: ["why is the sky blue", "why is the sky blue?", "why does the sky look blue", "why is the sky"],
+    answer:
+        "The sky looks blue because sunlight is scattered by gases and particles in Earth's atmosphere. 🔵 Blue light is scattered more strongly than many other colours."
+},
+
+{
+    topic: "Science — Space",
+    keywords: ["how big is space", "how big is space?", "how large is space", "how big is the universe", "how big is the universe?"],
+    answer:
+        "The observable universe is enormous! 🌌 It is about 93 billion light-years across. We don't know whether the entire universe is finite or infinite."
+},
+
+{
+    topic: "Science — Aliens",
+    keywords: ["are aliens real", "are aliens real?", "do aliens exist", "do aliens exist?", "is there life on other planets"],
+    answer:
+        "We don't know yet! 👽 Scientists are searching for signs of life beyond Earth, but there is currently no confirmed evidence of extraterrestrial life."
+},
+
+// -----------------------------------------
+// BASIC COMPUTING
 // -----------------------------------------
 {
     topic: "Computing — Computer",
@@ -104,9 +294,6 @@ const knowledge = [
         "Computing is about using computers and technology to solve problems, create things and work with information."
 },
 
-// -----------------------------------------
-// CODING
-// -----------------------------------------
 {
     topic: "Coding",
     keywords: ["what is coding", "what is programming", "coding", "programming"],
@@ -117,48 +304,16 @@ const knowledge = [
 // =========================================
 // YEAR 4
 // =========================================
-
-// -----------------------------------------
-// UNIT 2 — [UNIT NAME]
-// -----------------------------------------
-// Add knowledge entries here
-
-// -----------------------------------------
-// UNIT 3 — [UNIT NAME]
-// -----------------------------------------
-// Add knowledge entries here
-
-// -----------------------------------------
-// UNIT 4 — [UNIT NAME]
-// -----------------------------------------
-// Add knowledge entries here
-
-// -----------------------------------------
-// UNIT 5 — [UNIT NAME]
-// -----------------------------------------
-// Add knowledge entries here
-
-// -----------------------------------------
-// UNIT 6 — [UNIT NAME]
-// -----------------------------------------
 // Add knowledge entries here
 
 // =========================================
 // YEAR 5
 // =========================================
-
-// -----------------------------------------
-// UNIT 1 — [UNIT NAME]
-// -----------------------------------------
 // Add knowledge entries here
 
 // =========================================
 // YEAR 6
 // =========================================
-
-// -----------------------------------------
-// UNIT 1 — [UNIT NAME]
-// -----------------------------------------
 // Add knowledge entries here
 
 ];
