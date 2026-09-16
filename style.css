@@ -50,6 +50,8 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
 .year-section[hidden] { display: none; }
 .activity-category { margin-bottom: 24px; }
 .activity-category h4 { font-size: 17px; margin-bottom: 11px; color: #0E204A; }
+.coding-level { margin-bottom: 22px; }
+.coding-level h5 { font-size: 15px; margin-bottom: 10px; color: #52606d; padding-left: 2px; }
 .year-placeholder { border: 2px dashed #d5dce2; border-radius: 14px; padding: 20px; text-align: center; color: #697783; background: #fafbfc; font-size: 14px; }
 .activity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
 .activity-card { text-decoration: none; color: #0E204A; border: 2px solid #d5dce2; border-radius: 14px; background: white; min-height: 125px; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; }
