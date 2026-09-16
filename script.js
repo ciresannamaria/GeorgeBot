@@ -319,6 +319,10 @@ function findAnswer(question) {
 
 const QUESTION_LOG_KEY = "georgebot-question-log";
 
+// Paste the Google Apps Script Web App URL here after deployment.
+// Example: https://script.google.com/macros/s/XXXXXXXX/exec
+const QUESTION_LOG_ENDPOINT = "";
+
 function getQuestionLog() {
     try {
         return JSON.parse(localStorage.getItem(QUESTION_LOG_KEY)) || [];
@@ -329,19 +333,35 @@ function getQuestionLog() {
 
 function saveQuestionToLog(question, answer) {
     const match = findKnowledgeMatch(question);
-    const log = getQuestionLog();
-
-    log.push({
+    const entry = {
         date: new Date().toISOString(),
         question: question,
         answered: match !== null,
         topic: match ? match.topic : "Unknown"
-    });
+    };
+
+    // Keep a local copy as a backup.
+    const log = getQuestionLog();
+    log.push(entry);
 
     try {
         localStorage.setItem(QUESTION_LOG_KEY, JSON.stringify(log));
     } catch (error) {
-        console.warn("GeorgeBot could not save the question log.", error);
+        console.warn("GeorgeBot could not save the local question log.", error);
+    }
+
+    // Send the same question to the central Google Sheet when configured.
+    if (QUESTION_LOG_ENDPOINT) {
+        fetch(QUESTION_LOG_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(entry),
+            keepalive: true
+        }).catch(function(error) {
+            console.warn("GeorgeBot could not send the question to Google Sheets.", error);
+        });
     }
 }
 
