@@ -274,6 +274,57 @@ function cleanQuestion(question) {
         .trim();
 }
 
+
+// =========================================
+// SIMPLE CALCULATOR
+// =========================================
+
+function solveCalculation(question) {
+    let expression = question
+        .toLowerCase()
+        .replace(/what is|calculate|work out|solve|please|can you|could you/g, "")
+        .replace(/divided by/g, "/")
+        .replace(/divide by/g, "/")
+        .replace(/multiplied by/g, "*")
+        .replace(/times/g, "*")
+        .replace(/plus/g, "+")
+        .replace(/minus/g, "-")
+        .replace(/x/g, "*")
+        .replace(/÷/g, "/")
+        .replace(/×/g, "*")
+        .replace(/=/g, "")
+        .replace(/\s+/g, "")
+        .trim();
+
+    if (!/^[0-9+*/().%\-]+$/.test(expression)) {
+        return null;
+    }
+
+    if (!/[+*/%\-]/.test(expression)) {
+        return null;
+    }
+
+    if (expression.includes("%")) {
+        expression = expression.replace(/(\d+(?:\.\d+)?)%/g, "($1/100)");
+    }
+
+    try {
+        const result = Function("\"use strict\"; return (" + expression + ");")();
+
+        if (typeof result !== "number" || !Number.isFinite(result)) {
+            return null;
+        }
+
+        const roundedResult = Number.isInteger(result)
+            ? result
+            : Number(result.toFixed(10));
+
+        return "🧮 " + question.trim() + " = **" + roundedResult + "**";
+    } catch (error) {
+        return null;
+    }
+}
+
 function findKnowledgeMatch(question) {
     const cleanedQuestion = cleanQuestion(question);
     let bestMatch = null;
@@ -303,6 +354,12 @@ function findKnowledgeMatch(question) {
 }
 
 function findAnswer(question) {
+    const calculationAnswer = solveCalculation(question);
+
+    if (calculationAnswer !== null) {
+        return calculationAnswer;
+    }
+
     const match = findKnowledgeMatch(question);
 
     if (match !== null) {
@@ -335,11 +392,10 @@ function saveQuestionToLog(question, answer) {
     const entry = {
         date: new Date().toISOString(),
         question: question,
-        answered: match !== null,
-        topic: match ? match.topic : "Unknown"
+        answered: match !== null || solveCalculation(question) !== null,
+        topic: match ? match.topic : (solveCalculation(question) !== null ? "Calculator" : "Unknown")
     };
 
-    // Keep a local copy as a backup.
     const log = getQuestionLog();
     log.push(entry);
 
@@ -349,7 +405,6 @@ function saveQuestionToLog(question, answer) {
         console.warn("GeorgeBot could not save the local question log.", error);
     }
 
-    // Send the same question to the central Google Sheet.
     if (QUESTION_LOG_ENDPOINT) {
         fetch(QUESTION_LOG_ENDPOINT, {
             method: "POST",
