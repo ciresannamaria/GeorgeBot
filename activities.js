@@ -95,6 +95,15 @@ const activities = [
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/13/levels/1"
     },
     {
+        title: "Pixel Art",
+        description: "",
+        icon: "🎨",
+        category: "Create & Design",
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://www.pixilart.com/draw?ref=home-page"
+    },
+    {
         title: "Scratch",
         description: "",
         icon: "🐱",
