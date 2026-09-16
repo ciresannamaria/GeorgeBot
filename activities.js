@@ -5,10 +5,20 @@
 
 const activities = [
     {
-        title: "Scratch",
-        description: "Create your own interactive stories, games and animations.",
+        title: "ScratchJr",
+        description: "",
         icon: "🐱",
         category: "Coding Games",
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://codejr.org/"
+    },
+    {
+        title: "Scratch",
+        description: "",
+        icon: "🐱",
+        category: "Coding Games",
+        yearGroups: ["years3-4", "years5-6"],
         type: "external",
         link: "https://scratch.mit.edu/"
     }
