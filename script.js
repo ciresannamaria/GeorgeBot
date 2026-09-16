@@ -13,7 +13,6 @@ const backToStartButton = document.getElementById("back-to-start-button");
 const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
-const exportQuestionsButton = document.getElementById("export-questions-button");
 
 function showChat() {
     startScreen.hidden = true;
@@ -42,11 +41,6 @@ askGeorgeButton.addEventListener("click", showChat);
 activitiesStartButton.addEventListener("click", showActivitiesHub);
 backToStartButton.addEventListener("click", showStartScreen);
 
-
-// =========================================
-// YEAR GROUP SELECTION
-// =========================================
-
 function showYearGroup(yearGroupId) {
     yearSections.forEach(function(section) {
         section.hidden = section.id !== yearGroupId;
@@ -64,11 +58,6 @@ yearGroupButtons.forEach(function(button) {
         showYearGroup(button.dataset.yearGroup);
     });
 });
-
-
-// =========================================
-// ACTIVITY HUB
-// =========================================
 
 function createActivityCard(activity) {
     const card = document.createElement("a");
@@ -149,11 +138,6 @@ function renderActivities(yearGroupId) {
     });
 }
 
-
-// =========================================
-// ACTIVITIES MENU
-// =========================================
-
 const activitiesButton = document.getElementById("activities-button");
 const activitiesMenu = document.getElementById("activities-menu");
 const closeActivitiesButton = document.getElementById("close-activities-button");
@@ -177,11 +161,6 @@ activitiesButton.addEventListener("click", function() {
 });
 
 closeActivitiesButton.addEventListener("click", closeActivities);
-
-
-// =========================================
-// GAME ELEMENTS
-// =========================================
 
 const ticTacToeButton = document.getElementById("tic-tac-toe-button");
 const chessButton = document.getElementById("chess-button");
@@ -262,22 +241,12 @@ gameModal.addEventListener("click", function(event) {
     }
 });
 
-
-// =========================================
-// CLEAN UP THE STUDENT'S QUESTION
-// =========================================
-
 function cleanQuestion(question) {
     return question
         .toLowerCase()
         .replace(/[?!.,:;'\"]/g, "")
         .trim();
 }
-
-
-// =========================================
-// SIMPLE CALCULATOR
-// =========================================
 
 function solveCalculation(question) {
     let expression = question
@@ -369,14 +338,7 @@ function findAnswer(question) {
     return "🤔 I can't find this information in my learning resources. Ask your teacher!";
 }
 
-
-// =========================================
-// QUESTION LOG
-// =========================================
-
 const QUESTION_LOG_KEY = "georgebot-question-log";
-
-// Google Apps Script Web App endpoint for central question logging.
 const QUESTION_LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbzMnabJC4lyR65aO4KE9tvJWbAIICI_XxFtLoDO0PorOJVPPEDHEXmGWLGCFs2VLyjDYg/exec";
 
 function getQuestionLog() {
@@ -389,11 +351,12 @@ function getQuestionLog() {
 
 function saveQuestionToLog(question, answer) {
     const match = findKnowledgeMatch(question);
+    const calculationAnswer = solveCalculation(question);
     const entry = {
         date: new Date().toISOString(),
         question: question,
-        answered: match !== null || solveCalculation(question) !== null,
-        topic: match ? match.topic : (solveCalculation(question) !== null ? "Calculator" : "Unknown")
+        answered: match !== null || calculationAnswer !== null,
+        topic: match ? match.topic : (calculationAnswer !== null ? "Calculator" : "Unknown")
     };
 
     const log = getQuestionLog();
@@ -418,55 +381,6 @@ function saveQuestionToLog(question, answer) {
         });
     }
 }
-
-function csvEscape(value) {
-    return '"' + String(value).replace(/"/g, '""') + '"';
-}
-
-function exportQuestions() {
-    const log = getQuestionLog();
-
-    if (log.length === 0) {
-        alert("No questions have been saved on this device yet.");
-        return;
-    }
-
-    const rows = [
-        ["Date", "Question", "Answered?", "Topic"]
-    ];
-
-    log.forEach(function(item) {
-        rows.push([
-            new Date(item.date).toLocaleString(),
-            item.question,
-            item.answered ? "Yes" : "No",
-            item.topic
-        ]);
-    });
-
-    const csv = rows.map(function(row) {
-        return row.map(csvEscape).join(",");
-    }).join("\n");
-
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "georgebot-questions.csv";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
-}
-
-exportQuestionsButton.addEventListener("click", function() {
-    exportQuestions();
-});
-
-
-// =========================================
-// CHAT MESSAGES
-// =========================================
 
 function addMessage(sender, text, className) {
     const message = document.createElement("div");
