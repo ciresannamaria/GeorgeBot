@@ -30,6 +30,26 @@ const knowledge = [
 },
 
 // -----------------------------------------
+// GEORGE BOT
+// -----------------------------------------
+{
+    topic: "GeorgeBot — Is GeorgeBot AI?",
+    keywords: [
+        "are you ai",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you ai?",
+        "are you an ai?",
+        "are you artificial intelligence?",
+        "is georgebot ai",
+        "is georgebot an ai",
+        "is georgebot artificial intelligence"
+    ],
+    answer:
+        "No! 🤖 I'm not an AI chatbot. I'm a programmed chatbot. I follow rules and use information that my teacher has added to my knowledge base. I can answer questions that I have been programmed to recognise, but I don't think or learn like an AI system."
+},
+
+// -----------------------------------------
 // COMPUTING
 // -----------------------------------------
 {
