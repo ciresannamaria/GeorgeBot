@@ -14,11 +14,6 @@ const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
 
-
-// =========================================
-// START SCREEN
-// =========================================
-
 function showChat() {
     startScreen.hidden = true;
     activitiesHub.hidden = true;
@@ -75,12 +70,13 @@ yearGroupButtons.forEach(function(button) {
 // =========================================
 
 function renderActivities(yearGroupId) {
-    const list = document.querySelector("#" + yearGroupId + " .activity-grid");
+    const section = document.getElementById(yearGroupId);
 
-    if (!list) {
+    if (!section) {
         return;
     }
 
+    const list = section.querySelector(".activity-grid");
     list.innerHTML = "";
 
     const matchingActivities = activities.filter(function(activity) {
@@ -97,14 +93,13 @@ function renderActivities(yearGroupId) {
         card.innerHTML = `
             <span class="activity-card-icon">${activity.icon}</span>
             <span class="activity-card-title">${activity.title}</span>
-            <span class="activity-card-description">${activity.description}</span>
         `;
 
         list.appendChild(card);
     });
 
     if (matchingActivities.length === 0) {
-        list.innerHTML = '<p class="year-placeholder">Activities for this year group will appear here.</p>';
+        list.innerHTML = '<p class="year-placeholder">More coming soon!</p>';
     }
 }
 
@@ -151,11 +146,6 @@ const closeGameButton = document.getElementById("close-game-button");
 let ticTacToeLoaded = false;
 let chessLoaded = false;
 
-
-// =========================================
-// LOAD TIC-TAC-TOE
-// =========================================
-
 function loadTicTacToe() {
     if (ticTacToeLoaded) {
         window.initTicTacToe(gameContainer);
@@ -169,7 +159,6 @@ function loadTicTacToe() {
 
     const gameScript = document.createElement("script");
     gameScript.src = "games/tic-tac-toe/script.js";
-
     gameScript.onload = function() {
         ticTacToeLoaded = true;
         window.initTicTacToe(gameContainer);
@@ -178,11 +167,6 @@ function loadTicTacToe() {
     gameContainer.innerHTML = "<p>Loading game...</p>";
     document.body.appendChild(gameScript);
 }
-
-
-// =========================================
-// LOAD CHESS
-// =========================================
 
 function loadChess() {
     if (chessLoaded) {
@@ -197,7 +181,6 @@ function loadChess() {
 
     const gameScript = document.createElement("script");
     gameScript.src = "games/chess/script.js";
-
     gameScript.onload = function() {
         chessLoaded = true;
         window.initChess(gameContainer);
@@ -245,31 +228,22 @@ function cleanQuestion(question) {
         .trim();
 }
 
-
-// =========================================
-// FIND AN ANSWER
-// =========================================
-
 function findAnswer(question) {
     const cleanedQuestion = cleanQuestion(question);
-
     let bestAnswer = null;
     let bestScore = 0;
 
     for (const item of knowledge) {
         for (const keyword of item.keywords) {
             const cleanedKeyword = cleanQuestion(keyword);
-
             if (!cleanedQuestion.includes(cleanedKeyword)) {
                 continue;
             }
 
             let score = cleanedKeyword.length;
-
             if (cleanedKeyword.includes(" ")) {
                 score += 100;
             }
-
             score += cleanedKeyword.split(" ").length * 20;
 
             if (score > bestScore) {
@@ -286,32 +260,19 @@ function findAnswer(question) {
     return "🤔 I can't find this information in my learning resources. Ask your teacher!";
 }
 
-
-// =========================================
-// ADD A MESSAGE TO THE CHAT
-// =========================================
-
 function addMessage(sender, text, className) {
     const message = document.createElement("div");
     message.classList.add("message", className);
-
     message.innerHTML = `
         <strong>${sender}</strong>
         <p>${text}</p>
     `;
-
     chat.appendChild(message);
     chat.scrollTop = chat.scrollHeight;
 }
 
-
-// =========================================
-// WHEN THE STUDENT SENDS A QUESTION
-// =========================================
-
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-
     const question = input.value.trim();
 
     if (question === "") {
