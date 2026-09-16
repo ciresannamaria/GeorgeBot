@@ -76,31 +76,43 @@ function renderActivities(yearGroupId) {
         return;
     }
 
-    const list = section.querySelector(".activity-grid");
-    list.innerHTML = "";
+    const categories = section.querySelectorAll(".activity-category");
 
-    const matchingActivities = activities.filter(function(activity) {
-        return activity.category === "Coding Games" && activity.yearGroups.includes(yearGroupId);
+    categories.forEach(function(categorySection) {
+        const heading = categorySection.querySelector("h4");
+        const list = categorySection.querySelector(".activity-grid");
+        const placeholder = categorySection.querySelector(".year-placeholder");
+
+        if (!heading || !list) {
+            return;
+        }
+
+        const categoryName = heading.textContent.replace(/^\S+\s*/, "").trim();
+        list.innerHTML = "";
+
+        const matchingActivities = activities.filter(function(activity) {
+            return activity.category === categoryName && activity.yearGroups.includes(yearGroupId);
+        });
+
+        matchingActivities.forEach(function(activity) {
+            const card = document.createElement("a");
+            card.className = "activity-card";
+            card.href = activity.link;
+            card.target = "_blank";
+            card.rel = "noopener noreferrer";
+
+            card.innerHTML = `
+                <span class="activity-card-icon">${activity.icon}</span>
+                <span class="activity-card-title">${activity.title}</span>
+            `;
+
+            list.appendChild(card);
+        });
+
+        if (placeholder) {
+            placeholder.hidden = matchingActivities.length !== 0;
+        }
     });
-
-    matchingActivities.forEach(function(activity) {
-        const card = document.createElement("a");
-        card.className = "activity-card";
-        card.href = activity.link;
-        card.target = "_blank";
-        card.rel = "noopener noreferrer";
-
-        card.innerHTML = `
-            <span class="activity-card-icon">${activity.icon}</span>
-            <span class="activity-card-title">${activity.title}</span>
-        `;
-
-        list.appendChild(card);
-    });
-
-    if (matchingActivities.length === 0) {
-        list.innerHTML = '<p class="year-placeholder">More coming soon!</p>';
-    }
 }
 
 
