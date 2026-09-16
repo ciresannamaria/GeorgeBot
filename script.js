@@ -7,7 +7,8 @@ const startScreen = document.getElementById("start-screen");
 const askGeorgeButton = document.getElementById("ask-george-button");
 const activitiesStartButton = document.getElementById("activities-start-button");
 const activitiesHub = document.getElementById("activities-hub");
-const codingGamesList = document.getElementById("coding-games-list");
+const yearGroupButtons = document.querySelectorAll(".year-group-button");
+const yearSections = document.querySelectorAll(".year-section");
 const backToStartButton = document.getElementById("back-to-start-button");
 const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
@@ -31,7 +32,7 @@ function showActivitiesHub() {
     chat.hidden = true;
     form.hidden = true;
     activitiesHub.hidden = false;
-    renderActivities();
+    showYearGroup("years1-2");
 }
 
 function showStartScreen() {
@@ -47,17 +48,46 @@ backToStartButton.addEventListener("click", showStartScreen);
 
 
 // =========================================
+// YEAR GROUP SELECTION
+// =========================================
+
+function showYearGroup(yearGroupId) {
+    yearSections.forEach(function(section) {
+        section.hidden = section.id !== yearGroupId;
+    });
+
+    yearGroupButtons.forEach(function(button) {
+        button.classList.toggle("selected", button.dataset.yearGroup === yearGroupId);
+    });
+
+    renderActivities(yearGroupId);
+}
+
+yearGroupButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        showYearGroup(button.dataset.yearGroup);
+    });
+});
+
+
+// =========================================
 // ACTIVITY HUB
 // =========================================
 
-function renderActivities() {
-    codingGamesList.innerHTML = "";
+function renderActivities(yearGroupId) {
+    const list = document.querySelector("#" + yearGroupId + " .activity-grid");
 
-    const codingGames = activities.filter(function(activity) {
-        return activity.category === "Coding Games";
+    if (!list) {
+        return;
+    }
+
+    list.innerHTML = "";
+
+    const matchingActivities = activities.filter(function(activity) {
+        return activity.category === "Coding Games" && activity.yearGroups.includes(yearGroupId);
     });
 
-    codingGames.forEach(function(activity) {
+    matchingActivities.forEach(function(activity) {
         const card = document.createElement("a");
         card.className = "activity-card";
         card.href = activity.link;
@@ -70,8 +100,12 @@ function renderActivities() {
             <span class="activity-card-description">${activity.description}</span>
         `;
 
-        codingGamesList.appendChild(card);
+        list.appendChild(card);
     });
+
+    if (matchingActivities.length === 0) {
+        list.innerHTML = '<p class="year-placeholder">Activities for this year group will appear here.</p>';
+    }
 }
 
 
@@ -123,7 +157,6 @@ let chessLoaded = false;
 // =========================================
 
 function loadTicTacToe() {
-
     if (ticTacToeLoaded) {
         window.initTicTacToe(gameContainer);
         return;
@@ -152,7 +185,6 @@ function loadTicTacToe() {
 // =========================================
 
 function loadChess() {
-
     if (chessLoaded) {
         window.initChess(gameContainer);
         return;
@@ -207,7 +239,6 @@ gameModal.addEventListener("click", function(event) {
 // =========================================
 
 function cleanQuestion(question) {
-
     return question
         .toLowerCase()
         .replace(/[?!.,:;'\"]/g, "")
@@ -261,9 +292,7 @@ function findAnswer(question) {
 // =========================================
 
 function addMessage(sender, text, className) {
-
     const message = document.createElement("div");
-
     message.classList.add("message", className);
 
     message.innerHTML = `
@@ -281,7 +310,6 @@ function addMessage(sender, text, className) {
 // =========================================
 
 form.addEventListener("submit", function(event) {
-
     event.preventDefault();
 
     const question = input.value.trim();
@@ -290,24 +318,11 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    addMessage(
-        "You",
-        question,
-        "user-message"
-    );
-
+    addMessage("You", question, "user-message");
     input.value = "";
 
     setTimeout(function() {
-
         const answer = findAnswer(question);
-
-        addMessage(
-            "GeorgeBot",
-            answer,
-            "bot-message"
-        );
-
+        addMessage("GeorgeBot", answer, "bot-message");
     }, 600);
-
 });
