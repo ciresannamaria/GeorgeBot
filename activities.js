@@ -185,6 +185,106 @@ const activities = [
         link: "https://studio.code.org/courses/courseb-2025/units/1/lessons/13/levels/1"
     },
     {
+        title: "Programming with Angry Birds",
+        description: "",
+        icon: "🐦",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/3/levels/1"
+    },
+    {
+        title: "Debugging in Maze",
+        description: "",
+        icon: "🐞",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/4/levels/1"
+    },
+    {
+        title: "Collecting Treasure with Laurel",
+        description: "",
+        icon: "💎",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/5/levels/1"
+    },
+    {
+        title: "Creating Art with Code",
+        description: "",
+        icon: "🎨",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/6/levels/1"
+    },
+    {
+        title: "Loops with Rey and BB-8",
+        description: "",
+        icon: "🔁",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/8/levels/1"
+    },
+    {
+        title: "Harvesting Crops with Loops",
+        description: "",
+        icon: "🌾",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/9/levels/1"
+    },
+    {
+        title: "Mini-Project: Sticker Art",
+        description: "",
+        icon: "⭐",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/10/levels/1?viewAs=Instructor"
+    },
+    {
+        title: "Build a Flappy Game",
+        description: "",
+        icon: "🐦",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/12/levels/1"
+    },
+    {
+        title: "Mini-Project: Chase Game",
+        description: "",
+        icon: "🏃",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/13/levels/1"
+    },
+    {
+        title: "End of Course Project",
+        description: "",
+        icon: "🏆",
+        category: "Coding Games",
+        level: 3,
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursec-2025/units/1/lessons/17/levels/1"
+    },
+    {
         title: "Pixel Art",
         description: "",
         icon: "🎨",
