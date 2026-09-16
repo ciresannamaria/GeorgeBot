@@ -14,26 +14,19 @@
  <div class="chat-container">
 
   <header class="chat-header">
-
    <button id="activities-button" class="bot-icon" type="button" aria-label="Open Activities menu" aria-expanded="false">
     <div class="robot-face">
-     <div class="robot-eyes">
-      <span></span>
-      <span></span>
-     </div>
+     <div class="robot-eyes"><span></span><span></span></div>
      <div class="robot-mouth"></div>
     </div>
    </button>
-
    <div>
     <h1>GeorgeBot</h1>
     <small>Not an AI chatbot — follows programmed rules.</small>
    </div>
-
   </header>
 
   <main id="start-screen" class="start-screen">
-
    <div class="start-message">
     <div class="message bot-message">
      <strong>GeorgeBot</strong>
@@ -48,87 +41,73 @@
      <span class="start-option-title">Ask George</span>
      <span class="start-option-description">Ask a Computing question</span>
     </button>
-
     <button id="activities-start-button" class="start-option" type="button">
      <span class="start-option-icon">🚀</span>
      <span class="start-option-title">Activities</span>
      <span class="start-option-description">Explore Computing activities</span>
     </button>
    </div>
-
   </main>
 
   <main id="activities-hub" class="activities-hub" hidden>
-
    <div class="activities-hub-header">
     <h2>🚀 Activities</h2>
-    <p>Choose something to explore.</p>
+    <p>Choose your year group.</p>
    </div>
 
-   <section class="activity-category">
-    <h3>💻 Coding Games</h3>
-    <div id="coding-games-list" class="activity-grid"></div>
-   </section>
+   <div class="year-group-buttons" aria-label="Choose year group">
+    <button class="year-group-button year-group-green" type="button" data-year-group="years1-2">🟢 Years 1–2</button>
+    <button class="year-group-button year-group-blue" type="button" data-year-group="years3-4">🔵 Years 3–4</button>
+    <button class="year-group-button year-group-purple" type="button" data-year-group="years5-6">🟣 Years 5–6</button>
+   </div>
 
-   <section class="activity-category">
-    <h3>🎨 Create &amp; Design</h3>
-    <div class="activity-empty">
-     <p>More activities coming soon!</p>
-    </div>
-   </section>
+   <div id="year-group-content" class="year-group-content">
+    <section id="years1-2" class="year-section" hidden>
+     <h3>🟢 Years 1–2</h3>
+     <p class="year-placeholder">Activities for Years 1–2 will appear here.</p>
+    </section>
+
+    <section id="years3-4" class="year-section" hidden>
+     <h3>🔵 Years 3–4</h3>
+     <div id="coding-games-years3-4" class="activity-grid"></div>
+    </section>
+
+    <section id="years5-6" class="year-section" hidden>
+     <h3>🟣 Years 5–6</h3>
+     <p class="year-placeholder">Activities for Years 5–6 will appear here.</p>
+    </section>
+   </div>
 
    <button id="back-to-start-button" class="back-to-start-button" type="button">← Back</button>
-
   </main>
 
   <main id="chat" hidden>
-
    <div class="message bot-message">
     <strong>GeorgeBot</strong>
-    <p>
-     Hello! 👋 I'm GeorgeBot.
-     Ask me something about Computing!
-    </p>
+    <p>Hello! 👋 I'm GeorgeBot. Ask me something about Computing!</p>
    </div>
-
   </main>
 
   <aside id="activities-menu" class="activities-menu" hidden>
-
    <div class="activities-menu-header">
     <strong>Activities</strong>
     <button id="close-activities-button" type="button" aria-label="Close Activities menu">×</button>
    </div>
-
    <button id="tic-tac-toe-button" class="activity-button" type="button">Tic-Tac-Toe</button>
    <button id="chess-button" class="activity-button" type="button">♟️ Chess</button>
    <button class="activity-button activity-coming-soon" type="button" disabled>More coming soon...</button>
-
   </aside>
 
   <div id="game-modal" class="game-modal" hidden>
-
    <div class="game-modal-content">
-
     <button id="close-game-button" class="close-game-button" type="button" aria-label="Close game">×</button>
-
     <div id="game-container"></div>
-
    </div>
-
   </div>
 
   <form id="chat-form" hidden>
-
-   <input
-    type="text"
-    id="user-input"
-    placeholder="Ask GeorgeBot something..."
-    autocomplete="off"
-   >
-
+   <input type="text" id="user-input" placeholder="Ask GeorgeBot something..." autocomplete="off">
    <button type="submit" aria-label="Send message">➤</button>
-
   </form>
 
  </div>
@@ -139,5 +118,4 @@
  <script src="script.js"></script>
 
 </body>
-
 </html>
