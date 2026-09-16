@@ -99,7 +99,7 @@ function renderActivities(yearGroupId) {
             return activity.category === categoryName && activity.yearGroups.includes(yearGroupId);
         });
 
-        if (categoryName === "Coding Games" && yearGroupId === "years1-2") {
+        if (categoryName === "Coding" && yearGroupId === "years1-2") {
             [1, 2, 3].forEach(function(level) {
                 const levelActivities = matchingActivities.filter(function(activity) {
                     return activity.level === level;
