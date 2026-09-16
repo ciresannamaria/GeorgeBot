@@ -13,6 +13,7 @@ const backToStartButton = document.getElementById("back-to-start-button");
 const chat = document.getElementById("chat");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
+const exportQuestionsButton = document.getElementById("export-questions-button");
 
 function showChat() {
     startScreen.hidden = true;
@@ -273,9 +274,9 @@ function cleanQuestion(question) {
         .trim();
 }
 
-function findAnswer(question) {
+function findKnowledgeMatch(question) {
     const cleanedQuestion = cleanQuestion(question);
-    let bestAnswer = null;
+    let bestMatch = null;
     let bestScore = 0;
 
     for (const item of knowledge) {
@@ -293,17 +294,105 @@ function findAnswer(question) {
 
             if (score > bestScore) {
                 bestScore = score;
-                bestAnswer = item.answer;
+                bestMatch = item;
             }
         }
     }
 
-    if (bestAnswer !== null) {
-        return bestAnswer;
+    return bestMatch;
+}
+
+function findAnswer(question) {
+    const match = findKnowledgeMatch(question);
+
+    if (match !== null) {
+        return match.answer;
     }
 
     return "🤔 I can't find this information in my learning resources. Ask your teacher!";
 }
+
+
+// =========================================
+// QUESTION LOG
+// =========================================
+
+const QUESTION_LOG_KEY = "georgebot-question-log";
+
+function getQuestionLog() {
+    try {
+        return JSON.parse(localStorage.getItem(QUESTION_LOG_KEY)) || [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveQuestionToLog(question, answer) {
+    const match = findKnowledgeMatch(question);
+    const log = getQuestionLog();
+
+    log.push({
+        date: new Date().toISOString(),
+        question: question,
+        answered: match !== null,
+        topic: match ? match.topic : "Unknown"
+    });
+
+    try {
+        localStorage.setItem(QUESTION_LOG_KEY, JSON.stringify(log));
+    } catch (error) {
+        console.warn("GeorgeBot could not save the question log.", error);
+    }
+}
+
+function csvEscape(value) {
+    return '"' + String(value).replace(/"/g, '""') + '"';
+}
+
+function exportQuestions() {
+    const log = getQuestionLog();
+
+    if (log.length === 0) {
+        alert("No questions have been saved on this device yet.");
+        return;
+    }
+
+    const rows = [
+        ["Date", "Question", "Answered?", "Topic"]
+    ];
+
+    log.forEach(function(item) {
+        rows.push([
+            new Date(item.date).toLocaleString(),
+            item.question,
+            item.answered ? "Yes" : "No",
+            item.topic
+        ]);
+    });
+
+    const csv = rows.map(function(row) {
+        return row.map(csvEscape).join(",");
+    }).join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "georgebot-questions.csv";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+}
+
+exportQuestionsButton.addEventListener("click", function() {
+    exportQuestions();
+});
+
+
+// =========================================
+// CHAT MESSAGES
+// =========================================
 
 function addMessage(sender, text, className) {
     const message = document.createElement("div");
@@ -329,6 +418,7 @@ form.addEventListener("submit", function(event) {
 
     setTimeout(function() {
         const answer = findAnswer(question);
+        saveQuestionToLog(question, answer);
         addMessage("GeorgeBot", answer, "bot-message");
     }, 600);
 });
