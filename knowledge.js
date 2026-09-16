@@ -49,6 +49,46 @@ const knowledge = [
         "No! 🤖 I'm not an AI chatbot. I'm a programmed chatbot. I follow rules and use information that Ms Cires has added to my knowledge base. I can answer questions that I have been programmed to recognise, but I don't think or learn like an AI system."
 },
 
+{
+    topic: "GeorgeBot — Name",
+    keywords: [
+        "what is your name",
+        "what's your name",
+        "whats your name",
+        "who are you",
+        "your name"
+    ],
+    answer:
+        "My name is GeorgeBot! 🤖"
+},
+
+{
+    topic: "GeorgeBot — Chess",
+    keywords: [
+        "can i play chess",
+        "can i play chess?",
+        "play chess",
+        "do you have chess",
+        "is there chess"
+    ],
+    answer:
+        "Yes! ♟️ You can play Chess with GeorgeBot. There is a hidden Games button in the top-left robot icon. Click the robot face to open the Games menu and choose Chess."
+},
+
+{
+    topic: "GeorgeBot — Age",
+    keywords: [
+        "how old are you",
+        "how old are you?",
+        "what age are you",
+        "what age are you?",
+        "when were you created",
+        "when were you created?"
+    ],
+    answer:
+        "I was created on 2 September 2026. Today I am 14 days old! 🤖🎂"
+},
+
 // -----------------------------------------
 // COMPUTING
 // -----------------------------------------
