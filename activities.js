@@ -86,6 +86,15 @@ const activities = [
         link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/12/levels/1?viewAs=Instructor"
     },
     {
+        title: "End of Course Project",
+        description: "",
+        icon: "🏆",
+        category: "Coding Games",
+        yearGroups: ["years1-2"],
+        type: "external",
+        link: "https://studio.code.org/courses/coursea-2025/units/1/lessons/13/levels/1"
+    },
+    {
         title: "Scratch",
         description: "",
         icon: "🐱",
