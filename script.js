@@ -471,7 +471,7 @@ form.addEventListener("submit", function(event) {
     input.value = "";
 
     setTimeout(function() {
-        const answer = findAnswer(question);
+        let answer = findAnswer(question);
 
         if (answer === null) {
             answer = getUnknownQuestionAnswer();
