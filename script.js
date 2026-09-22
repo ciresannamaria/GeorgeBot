@@ -99,7 +99,7 @@ function renderActivities(yearGroupId) {
             return activity.category === categoryName && activity.yearGroups.includes(yearGroupId);
         });
 
-        if (categoryName === "Coding" && yearGroupId === "years1-2") {
+        if (categoryName === "Coding" && (yearGroupId === "years1-2" || yearGroupId === "years3-4")) {
             [1, 2, 3].forEach(function(level) {
                 const levelActivities = matchingActivities.filter(function(activity) {
                     return activity.level === level;
@@ -110,7 +110,7 @@ function renderActivities(yearGroupId) {
                 }
 
                 const levelSection = document.createElement("div");
-                levelSection.className = "coding-level";
+                levelSection.className = "coding-level level-" + level;
 
                 const levelTitle = document.createElement("h5");
                 levelTitle.textContent = "Level " + level;
