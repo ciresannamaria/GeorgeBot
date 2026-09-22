@@ -50,6 +50,21 @@ const activities = [
     { title: "Until Loops in Maze", description: "", icon: "🌀", category: "Coding", level: 1, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursed-2025/units/1/lessons/18/levels/1" },
     { title: "End of Course Project", description: "", icon: "🏆", category: "Coding", level: 1, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursed-2025/units/1/lessons/19/levels/1" },
 
+    // Years 3–4, Level 2
+    { title: "Swimming Fish with Sprite Lab", description: "", icon: "🐟", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/3/levels/1" },
+    { title: "Hello World", description: "", icon: "👋", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/4/levels/1" },
+    { title: "Mini-Project: Career Journeys", description: "", icon: "🧭", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/5/levels/1" },
+    { title: "Game Design", description: "", icon: "🎮", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/6/levels/1?viewAs=Instructor" },
+    { title: "Variables as Score", description: "", icon: "🏆", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/7/levels/1?viewAs=Instructor" },
+    { title: "Environment and Players", description: "", icon: "🌍", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/8/levels/1?viewAs=Instructor" },
+    { title: "Game Jam Day 1: Create", description: "", icon: "🕹️", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/9/levels/1" },
+    { title: "Functions in Music Lab", description: "", icon: "🎵", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/12/levels/1" },
+    { title: "Functions in Minecraft", description: "", icon: "⛏️", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/13/levels/1" },
+    { title: "Functions with Artist", description: "", icon: "🎨", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/14/levels/1" },
+    { title: "Conditionals in Minecraft: Voyage Aquatic", description: "", icon: "🌊", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/15/levels/1" },
+    { title: "Conditionals with the Farmer", description: "", icon: "👩‍🌾", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/16/levels/1?viewAs=Instructor" },
+    { title: "End of Course Project", description: "", icon: "🏆", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/19/levels/2" },
+
     { title: "Scratch", description: "", icon: "🐱", category: "Computing Activities", yearGroups: ["years3-4", "years5-6"], type: "external", link: "https://scratch.mit.edu/" },
     { title: "Pixel Art", description: "", icon: "🎨", category: "Create & Design", yearGroups: ["years1-2", "years3-4", "years5-6"], type: "external", link: "https://www.pixilart.com/draw?ref=home-page" }
 ];
