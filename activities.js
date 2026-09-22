@@ -67,6 +67,22 @@ const activities = [
     { title: "End of Course Project • Level 1", description: "", icon: "🏆", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/19/levels/1" },
     { title: "End of Course Project • Level 2", description: "", icon: "🏆", category: "Coding", level: 2, yearGroups: ["years3-4"], type: "external", link: "https://studio.code.org/courses/coursee-2025/units/1/lessons/19/levels/2" },
 
+    // Years 5–6, Level 1
+    { title: "Introducing Sprite Lab", description: "", icon: "🧩", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/2/levels/1" },
+    { title: "Making Sprites", description: "", icon: "🎭", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/3/levels/1" },
+    { title: "Mini-Project: Career Journeys", description: "", icon: "🧭", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/4/levels/1" },
+    { title: "Sprites in Action", description: "", icon: "🎬", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/5/levels/1" },
+    { title: "Mini-Project: Virtual Pet", description: "", icon: "🐾", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/6/levels/1" },
+    { title: "Text and Prompts", description: "", icon: "💬", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/8/levels/1" },
+    { title: "Mini-Project: User Input Programs", description: "", icon: "⌨️", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/9/levels/1" },
+    { title: "Lots of Sprites", description: "", icon: "👾", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/10/levels/1" },
+    { title: "Counting with Variables", description: "", icon: "🔢", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/11/levels/1?viewAs=Instructor" },
+    { title: "Mini-Project: Collector Game", description: "", icon: "🎯", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/12/levels/2?viewAs=Instructor" },
+    { title: "Outbreak", description: "", icon: "🦠", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/14/levels/2" },
+    { title: "AI For Oceans", description: "", icon: "🌊", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/15/levels/1" },
+    { title: "End of Course Project", description: "", icon: "🏆", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/17/levels/1" },
+    { title: "Create your project", description: "", icon: "✨", category: "Coding", level: 1, yearGroups: ["years5-6"], type: "external", link: "https://studio.code.org/courses/coursef-2025/units/1/lessons/17/levels/2" },
+
     { title: "Scratch", description: "", icon: "🐱", category: "Computing Activities", yearGroups: ["years3-4", "years5-6"], type: "external", link: "https://scratch.mit.edu/" },
     { title: "Pixel Art", description: "", icon: "🎨", category: "Create & Design", yearGroups: ["years1-2", "years3-4", "years5-6"], type: "external", link: "https://www.pixilart.com/draw?ref=home-page" }
 ];
