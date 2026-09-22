@@ -294,11 +294,37 @@ function solveCalculation(question) {
     }
 }
 
+// Fuse.js is used as a second layer after the exact keyword matcher.
+// This lets GeorgeBot recognise small spelling mistakes and different
+// phrasings without changing the carefully programmed answers.
+let knowledgeFuse = null;
+
+function getKnowledgeFuse() {
+    if (knowledgeFuse !== null) {
+        return knowledgeFuse;
+    }
+
+    if (typeof Fuse === "undefined" || !Array.isArray(knowledge)) {
+        return null;
+    }
+
+    knowledgeFuse = new Fuse(knowledge, {
+        keys: ["keywords"],
+        includeScore: true,
+        threshold: 0.45,
+        ignoreLocation: true,
+        minMatchCharLength: 2
+    });
+
+    return knowledgeFuse;
+}
+
 function findKnowledgeMatch(question) {
     const cleanedQuestion = cleanQuestion(question);
     let bestMatch = null;
     let bestScore = 0;
 
+    // First keep the original exact keyword behaviour.
     for (const item of knowledge) {
         for (const keyword of item.keywords) {
             const cleanedKeyword = cleanQuestion(keyword);
@@ -319,7 +345,32 @@ function findKnowledgeMatch(question) {
         }
     }
 
-    return bestMatch;
+    if (bestMatch !== null) {
+        return bestMatch;
+    }
+
+    // If no exact keyword matched, try fuzzy matching.
+    const fuse = getKnowledgeFuse();
+
+    if (fuse === null) {
+        return null;
+    }
+
+    const fuzzyResults = fuse.search(cleanedQuestion);
+
+    if (fuzzyResults.length === 0) {
+        return null;
+    }
+
+    const bestFuzzyResult = fuzzyResults[0];
+
+    // Fuse scores closer to 0 are better. The threshold above keeps
+    // unrelated questions from being treated as known questions.
+    if (typeof bestFuzzyResult.score === "number" && bestFuzzyResult.score <= 0.45) {
+        return bestFuzzyResult.item;
+    }
+
+    return null;
 }
 
 function findAnswer(question) {
