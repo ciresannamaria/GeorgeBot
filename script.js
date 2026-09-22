@@ -386,7 +386,22 @@ function findAnswer(question) {
         return match.answer;
     }
 
-    return "🤔 I can't find this information in my learning resources. Ask your teacher!";
+    return null;
+}
+
+// Keep track of consecutive questions GeorgeBot could not answer.
+// The first two attempts encourage the student to rephrase or check spelling.
+// Only after three unsuccessful attempts do we direct them to the teacher.
+let unansweredAttempts = 0;
+
+function getUnknownQuestionAnswer() {
+    unansweredAttempts += 1;
+
+    if (unansweredAttempts < 3) {
+        return "🤔 I'm not quite sure what you mean. Try rephrasing your question or check the spelling, then ask me again!";
+    }
+
+    return "🤔 I still don't know this one. Please ask your teacher!";
 }
 
 const QUESTION_LOG_KEY = "georgebot-question-log";
@@ -457,6 +472,13 @@ form.addEventListener("submit", function(event) {
 
     setTimeout(function() {
         const answer = findAnswer(question);
+
+        if (answer === null) {
+            answer = getUnknownQuestionAnswer();
+        } else {
+            unansweredAttempts = 0;
+        }
+
         saveQuestionToLog(question, answer);
         addMessage("GeorgeBot", answer, "bot-message");
     }, 600);
