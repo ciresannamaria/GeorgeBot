@@ -11,7 +11,6 @@ const georgeConcepts = {
     events: { icon:"🎯", name:"Events", aliases:["event","events","trigger","when clicked","when key pressed","user input"], prompts:["what is an event","what are events","teach me events","learn about events","how do events work","what are programming events"], explanations:{"years1-2":"An event is something that happens that can make a program respond. 🎯 For example, clicking a button can make something happen.","years3-4":"An event is something that happens in a program and can trigger instructions. 🎯 For example, pressing a key can start an action.","years5-6":"An event is an occurrence that triggers code to run. 🎯 Events can come from users, such as clicks or key presses, or from things happening in a program."} }
 };
 
-// Curriculum-informed tags. An activity may cover more than one concept.
 const activityConceptOverrides = {
     "Debugging with Laurel":["debugging","sequences","loops"], "Hello World":["events"], "Sprites in Action":["events"], "Mini-Project: Virtual Pet":["events"], "Dance Party":["events"], "Build a Star Wars Game":["events"], "Game Design":["events"], "Environment and Players":["events"], "Game Jam Day 1: Create":["events"], "Mini-Project: User Input Programs":["events"], "Build a Flappy Game":["events"], "Mini-Project: Chase Game":["events"], "Mini-Project: A Royal Battle with Events":["events"], "Mini-Project: On the Move with Play Lab":["events"], "Mini-Project: Sticker Art":["events"],
     "Mini-Project: Collector Game":["variables","events"], "Outbreak":["variables"], "Counting with Variables":["variables"], "Using Variables with the Artist":["variables","loops"], "Variables with the Bee":["variables","conditionals"], "Variables as Score":["variables"], "Harvesting with Conditionals":["conditionals"], "Conditionals in Minecraft: Voyage Aquatic":["conditionals"], "Conditionals with the Farmer":["conditionals"], "If/Else with Bee":["conditionals"], "Looking Ahead with Minecraft":["sequences","conditionals"],
@@ -73,4 +72,10 @@ function finishTeaching(conceptId,yearGroupId){
         event.preventDefault();event.stopImmediatePropagation();addTeachingMessage(question,"user-message");input.value="";showTeachingYearChoices(conceptId);
     },true);
 })();
+
+// Expose these functions so the compatibility handler can use the same
+// teaching system if the normal submit listener is unavailable.
 window.georgeConcepts=georgeConcepts;
+window.detectTeachingConcept=detectTeachingConcept;
+window.addTeachingMessage=addTeachingMessage;
+window.showTeachingYearChoices=showTeachingYearChoices;
