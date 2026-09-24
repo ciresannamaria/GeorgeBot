@@ -171,7 +171,7 @@ const knowledge = [
         "what does ms cires do", "what does ms cires teach", "who is my computing teacher"
     ],
     answer:
-        "Ms Cires is your Computing teacher and the person who created me! 👩‍💻🤖 She teaches students about Computing, coding and technology."
+        "Ms Cires is your Computing teacher and the person who created me! 👩‍💻🤖 She teaches students about Computing, robotics and IT."
 },
 
 {
