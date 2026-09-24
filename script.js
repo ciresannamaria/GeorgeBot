@@ -248,6 +248,26 @@ function cleanQuestion(question) {
         .trim();
 }
 
+// Some student questions are intentionally left unanswered, especially
+// personal/romantic/gender questions and messages containing profanity.
+// This prevents fuzzy matching from accidentally turning them into an
+// unrelated answer.
+function isIgnoredQuestion(question) {
+    const cleaned = cleanQuestion(question);
+    const ignoredTerms = [
+        "are you gay", "are you lesbian", "are you bisexual", "are you trans",
+        "are you transgender", "gay femboy", "femboy", "boyfriend", "girlfriend",
+        "robo boyfriend", "robo girlfriend", "do you wanna be my boyfriend",
+        "do you want to be my boyfriend", "do you wanna be my girlfriend",
+        "do you want to be my girlfriend", "fuck", "fucking", "shit", "bitch",
+        "asshole"
+    ];
+
+    return ignoredTerms.some(function(term) {
+        return cleaned.includes(term);
+    });
+}
+
 function solveCalculation(question) {
     let expression = question
         .toLowerCase()
@@ -320,6 +340,10 @@ function getKnowledgeFuse() {
 }
 
 function findKnowledgeMatch(question) {
+    if (isIgnoredQuestion(question)) {
+        return null;
+    }
+
     const cleanedQuestion = cleanQuestion(question);
     let bestMatch = null;
     let bestScore = 0;
@@ -374,6 +398,10 @@ function findKnowledgeMatch(question) {
 }
 
 function findAnswer(question) {
+    if (isIgnoredQuestion(question)) {
+        return null;
+    }
+
     const calculationAnswer = solveCalculation(question);
 
     if (calculationAnswer !== null) {
