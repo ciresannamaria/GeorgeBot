@@ -111,8 +111,12 @@
                 return;
             }
 
-            // Recognise natural questions about playing chess.
-            if (/\bchess\b/.test(lower) && /\b(play|game|games)\b/.test(lower)) {
+            // Recognise natural questions about playing OR learning chess.
+            // Students may say "play chess", "chess game", "learn chess",
+            // "I would like to learn chess", etc.
+            const asksAboutChess = /\bchess\b/.test(lower);
+            const chessIntent = /\b(play|playing|game|games|learn|learning|teach|teaching|study|know|how)\b/.test(lower);
+            if (asksAboutChess && chessIntent) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
 
@@ -121,6 +125,7 @@
                 addRuntimeMessage("GeorgeBot", answer, "bot-message");
                 logRuntimeQuestion(question, answer);
                 input.value = "";
+                return;
             }
         }, true);
     }
