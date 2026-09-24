@@ -160,6 +160,73 @@ const knowledge = [
         "I was created by Ms Cires as a Computing Learning Buddy for students. 🤖💻"
 },
 
+// -----------------------------------------
+// MS CIRES
+// -----------------------------------------
+{
+    topic: "Ms Cires — Who is she?",
+    keywords: [
+        "who is ms cires", "who is ms cires?", "who is ms. cires", "who is ms. cires?",
+        "who is cires", "who is ms cires", "tell me about ms cires",
+        "what does ms cires do", "what does ms cires teach", "who is my computing teacher"
+    ],
+    answer:
+        "Ms Cires is your Computing teacher and the person who created me! 👩‍💻🤖 She teaches students about Computing, coding and technology."
+},
+
+{
+    topic: "Ms Cires — Studies",
+    keywords: [
+        "what did ms cires study", "what has ms cires studied", "what degree does ms cires have",
+        "what degrees does ms cires have", "what did ms cires study at university",
+        "what is ms cires degree", "what is ms cires degree?", "what did my computing teacher study",
+        "what did ms cires learn"
+    ],
+    answer:
+        "Ms Cires has a Bachelor's degree with a speciality in Computer Science and a Master's degree in Education, specialising in Computer Science. 🎓💻"
+},
+
+{
+    topic: "Ms Cires — Computer Science",
+    keywords: [
+        "does ms cires know computer science", "is ms cires a computer scientist",
+        "does ms cires know coding", "can ms cires code", "does ms cires know programming",
+        "is ms cires good at computing"
+    ],
+    answer:
+        "Yes! 💻 Ms Cires studied Computer Science and Education in her university studies, and she teaches Computing."
+},
+
+{
+    topic: "Ms Cires — Teacher",
+    keywords: [
+        "is ms cires a teacher", "is ms cires your teacher", "is ms cires my teacher",
+        "is ms cires a computing teacher", "what does ms cires teach"
+    ],
+    answer:
+        "Yes! 👩‍🏫 Ms Cires is your Computing teacher, and she created me to help you learn Computing. 🤖💻"
+},
+
+{
+    topic: "Ms Cires — Good Teacher",
+    keywords: [
+        "is ms cires a good teacher", "is ms cires a good teacher?",
+        "do you think ms cires is a good teacher", "is ms cires good"
+    ],
+    answer:
+        "Ms Cires is my teacher and creator, so I'm a little biased! 😄 She created me to help her students learn Computing. Whether she's a good teacher is something you can decide for yourself!"
+},
+
+{
+    topic: "Ms Cires — Favourite Things",
+    keywords: [
+        "what is ms cires favourite", "what is ms cires favorite", "what does ms cires like",
+        "what is ms cires favourite colour", "what is ms cires favorite color"
+    ],
+    answer:
+        "I know that Ms Cires is my creator and your Computing teacher, but I don't have information about all of her favourite things. 🤖"
+},
+
 {
     topic: "GeorgeBot — Real Robot",
     keywords: ["can you become a real robot", "can you become a robot", "can you be a real robot", "are you a real robot"],
