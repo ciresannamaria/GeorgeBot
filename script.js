@@ -6,6 +6,11 @@
 const startScreen = document.getElementById("start-screen");
 const askGeorgeButton = document.getElementById("ask-george-button");
 const activitiesStartButton = document.getElementById("activities-start-button");
+const calmingCornerStartButton = document.getElementById("calming-corner-start-button");
+const calmingCorner = document.getElementById("calming-corner");
+const calmingBackButton = document.getElementById("calming-back-button");
+const zoneCards = document.querySelectorAll(".zone-card");
+const zoneSelectionMessage = document.getElementById("zone-selection-message");
 const activitiesHub = document.getElementById("activities-hub");
 const yearGroupButtons = document.querySelectorAll(".year-group-button");
 const yearSections = document.querySelectorAll(".year-section");
@@ -17,6 +22,7 @@ const input = document.getElementById("user-input");
 function showChat() {
     startScreen.hidden = true;
     activitiesHub.hidden = true;
+    calmingCorner.hidden = true;
     chat.hidden = false;
     form.hidden = false;
     input.focus();
@@ -25,6 +31,7 @@ function showChat() {
 function showActivitiesHub() {
     startScreen.hidden = true;
     chat.hidden = true;
+    calmingCorner.hidden = true;
     form.hidden = true;
     activitiesHub.hidden = false;
     showYearGroup("years1-2");
@@ -32,13 +39,44 @@ function showActivitiesHub() {
 
 function showStartScreen() {
     activitiesHub.hidden = true;
+    calmingCorner.hidden = true;
     chat.hidden = true;
     form.hidden = true;
     startScreen.hidden = false;
 }
 
+function showCalmingCorner() {
+    startScreen.hidden = true;
+    activitiesHub.hidden = true;
+    chat.hidden = true;
+    form.hidden = true;
+    calmingCorner.hidden = false;
+    zoneCards.forEach(function(card) {
+        card.setAttribute("aria-pressed", "false");
+    });
+    zoneSelectionMessage.textContent = "There is no right or wrong answer.";
+}
+
 askGeorgeButton.addEventListener("click", showChat);
 activitiesStartButton.addEventListener("click", showActivitiesHub);
+calmingCornerStartButton.addEventListener("click", showCalmingCorner);
+calmingBackButton.addEventListener("click", showStartScreen);
+
+zoneCards.forEach(function(card) {
+    card.addEventListener("click", function() {
+        zoneCards.forEach(function(otherCard) {
+            otherCard.setAttribute("aria-pressed", String(otherCard === card));
+        });
+        const labels = {
+            blue: "You chose the Blue Zone.",
+            green: "You chose the Green Zone.",
+            yellow: "You chose the Yellow Zone.",
+            red: "You chose the Red Zone.",
+            unsure: "That's okay. It's fine not to be sure."
+        };
+        zoneSelectionMessage.textContent = labels[card.dataset.zone];
+    });
+});
 backToStartButton.addEventListener("click", showStartScreen);
 
 function showYearGroup(yearGroupId) {
