@@ -121,3 +121,5 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
  .game-modal { padding: 10px; }
  .game-modal-content { width: 100%; max-height: calc(100vh - 20px); padding: 12px; }
 }
+
+.chat-back-button { display:block; margin:12px 18px 0; flex:0 0 auto; }
