@@ -23,6 +23,7 @@
    <div class="start-options">
     <button id="ask-george-button" class="start-option" type="button"><span class="start-option-icon">💬</span><span class="start-option-title">Ask George</span><span class="start-option-description">Ask a Computing question</span></button>
     <button id="activities-start-button" class="start-option" type="button"><span class="start-option-icon">🚀</span><span class="start-option-title">Activities</span><span class="start-option-description">Explore Computing activities</span></button>
+    <button id="calming-corner-start-button" class="start-option calming-start-option" type="button"><span class="start-option-icon">💚</span><span class="start-option-title">Digital Calming Corner</span><span class="start-option-description">Explore your feelings</span></button>
    </div>
   </main>
   <main id="activities-hub" class="activities-hub" hidden>
@@ -38,6 +39,18 @@
     <section id="years5-6" class="year-section" hidden><h3>🟣 Years 5–6</h3><div class="activity-category"><h4>💻 Coding</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>💡 Computing Activities</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>🎨 Create &amp; Design</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div></section>
    </div>
    <button id="back-to-start-button" class="back-to-start-button" type="button">← Back</button>
+  </main>
+  <main id="calming-corner" class="calming-corner" hidden>
+   <div class="calming-header"><h2>💚 Digital Calming Corner</h2><p>How are you feeling right now?</p><span>Choose the zone that feels closest to you.</span></div>
+   <div class="zones-grid" aria-label="Choose how you are feeling">
+    <button class="zone-card zone-blue" type="button" data-zone="blue" aria-pressed="false"><span class="zone-symbol">🔵</span><strong>BLUE ZONE</strong><span>Low energy</span><small>Tired · Sad · Bored</small></button>
+    <button class="zone-card zone-green" type="button" data-zone="green" aria-pressed="false"><span class="zone-symbol">🟢</span><strong>GREEN ZONE</strong><span>Just right</span><small>Calm · Happy · Focused</small></button>
+    <button class="zone-card zone-yellow" type="button" data-zone="yellow" aria-pressed="false"><span class="zone-symbol">🟡</span><strong>YELLOW ZONE</strong><span>Heightened feelings</span><small>Worried · Excited · Frustrated</small></button>
+    <button class="zone-card zone-red" type="button" data-zone="red" aria-pressed="false"><span class="zone-symbol">🔴</span><strong>RED ZONE</strong><span>Intense feelings</span><small>Angry · Scared · Out of control</small></button>
+    <button class="zone-card zone-unsure" type="button" data-zone="unsure" aria-pressed="false"><span class="zone-symbol">❔</span><strong>NOT SURE</strong><span>That's okay!</span><small>You can choose this too.</small></button>
+   </div>
+   <p id="zone-selection-message" class="zone-selection-message" aria-live="polite">There is no right or wrong answer.</p>
+   <button id="calming-back-button" class="back-to-start-button" type="button">← Back</button>
   </main>
   <main id="chat" hidden><div class="message bot-message"><strong>GeorgeBot</strong><p>Hello! 👋 I'm GeorgeBot. Ask me something about Computing!</p></div></main>
   <aside id="activities-menu" class="activities-menu" hidden><div class="activities-menu-header"><strong>Activities</strong><button id="close-activities-button" type="button" aria-label="Close Activities menu">×</button></div><button id="tic-tac-toe-button" class="activity-button" type="button">Tic-Tac-Toe</button><button id="chess-button" class="activity-button" type="button">♟️ Chess</button><button class="activity-button activity-coming-soon" type="button" disabled>More coming soon...</button></aside>
