@@ -84,13 +84,36 @@ function showZoneFeelings(zone) {
     zoneSelectionMessage.textContent = "";
     zoneFeelingsTitle.textContent = details.title + " — how are you feeling?";
     zoneFeelingsList.innerHTML = "";
+
     details.feelings.forEach(function(feeling) {
         const button = document.createElement("button");
         button.type = "button";
-        button.className = "zone-feeling-option";
-        button.textContent = feeling;
+        button.className = zone === "blue" ? "zone-feeling-card" : "zone-feeling-option";
+        button.setAttribute("aria-pressed", "false");
+
+        if (zone === "blue") {
+            const image = document.createElement("img");
+            const fileName = feeling.toLowerCase().replace(/\s+/g, "-");
+            image.src = "images/calming-corner/blue/" + fileName + ".svg";
+            image.alt = "";
+            image.loading = "lazy";
+            const label = document.createElement("span");
+            label.textContent = feeling;
+            button.appendChild(image);
+            button.appendChild(label);
+            button.addEventListener("click", function() {
+                zoneFeelingsList.querySelectorAll(".zone-feeling-card").forEach(function(card) {
+                    card.setAttribute("aria-pressed", String(card === button));
+                });
+            });
+        } else {
+            button.className = "zone-feeling-option";
+            button.textContent = feeling;
+        }
+
         zoneFeelingsList.appendChild(button);
     });
+    zoneFeelings.classList.toggle("blue-zone-feelings", zone === "blue");
     zoneFeelings.hidden = false;
 }
 
