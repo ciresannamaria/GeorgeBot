@@ -402,6 +402,10 @@ function findAnswer(question) {
         return null;
     }
 
+    if (window.isNumberGameRequest && window.isNumberGameRequest(question)) {
+        return window.getNumberGameAnswer();
+    }
+
     if (window.isCatQuestion && window.isCatQuestion(question)) {
         return window.getCatAnswer();
     }
@@ -554,7 +558,9 @@ form.addEventListener("submit", function(event) {
                 unansweredAttempts = 0;
             }
 
-            if (window.isCatQuestion && window.isCatQuestion(question)) {
+            if (window.isNumberGameRequest && window.isNumberGameRequest(question)) {
+                topicOverride = "Games — Missing Number";
+            } else if (window.isCatQuestion && window.isCatQuestion(question)) {
                 topicOverride = "Animals — Cats";
             }
         }
