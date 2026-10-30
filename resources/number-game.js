@@ -89,7 +89,7 @@
     }
 
     window.isNumberGameRequest = function (text) {
-        return /\b(play|game|challenge)\b.*\b(number|numbers|missing number|sequence|maths|math)\b|\b(number|numbers|missing number)\b.*\b(game|challenge|play)\b|\bwhat.s the missing number\b/i.test(text);
+        return /\b(?:let(?:s| us)?\s+)?play\s+(?:the\s+)?(?:numbers?|missing numbers?|number game|maths?|math)\b|\b(?:number game|missing number challenge|missing number game)\b|\b(?:can we|do you want to|wanna|want to)\s+play\s+(?:the\s+)?numbers?\b|\bwhat.s the missing number\b/i.test(text);
     };
     window.getNumberGameAnswer = startGame;
 
