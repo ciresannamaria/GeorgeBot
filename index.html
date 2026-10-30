@@ -50,6 +50,12 @@
     <button class="zone-card zone-red" type="button" data-zone="red" aria-pressed="false"><span class="zone-symbol">🔴</span><strong>RED ZONE</strong><span>Intense feelings</span><small>Angry · Scared · Out of control</small></button>
     <button class="zone-card zone-unsure" type="button" data-zone="unsure" aria-pressed="false"><span class="zone-symbol">❔</span><strong>NOT SURE</strong><span>That's okay!</span><small>You can choose this too.</small></button>
    </div>
+   <section id="zone-feelings" class="zone-feelings" hidden aria-live="polite">
+    <h3 id="zone-feelings-title">How are you feeling?</h3>
+    <p>Choose the feeling that fits you best.</p>
+    <div id="zone-feelings-list" class="zone-feelings-list"></div>
+    <button id="back-to-zones-button" class="back-to-zones-button" type="button">← Back to zones</button>
+   </section>
    <p id="zone-selection-message" class="zone-selection-message" aria-live="polite">There is no right or wrong answer.</p>
    <button id="calming-back-button" class="back-to-start-button" type="button">← Back</button>
   </main>
