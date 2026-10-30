@@ -16,6 +16,7 @@ const yearGroupButtons = document.querySelectorAll(".year-group-button");
 const yearSections = document.querySelectorAll(".year-section");
 const backToStartButton = document.getElementById("back-to-start-button");
 const chat = document.getElementById("chat");
+const chatBackButton = document.getElementById("chat-back-button");
 const form = document.getElementById("chat-form");
 const input = document.getElementById("user-input");
 
@@ -58,6 +59,7 @@ function showCalmingCorner() {
 }
 
 askGeorgeButton.addEventListener("click", showChat);
+chatBackButton.addEventListener("click", showStartScreen);
 activitiesStartButton.addEventListener("click", showActivitiesHub);
 calmingCornerStartButton.addEventListener("click", showCalmingCorner);
 calmingBackButton.addEventListener("click", showStartScreen);
