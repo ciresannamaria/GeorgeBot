@@ -402,6 +402,10 @@ function findAnswer(question) {
         return null;
     }
 
+    if (window.isCatQuestion && window.isCatQuestion(question)) {
+        return window.getCatAnswer();
+    }
+
     const calculationAnswer = solveCalculation(question);
 
     if (calculationAnswer !== null) {
@@ -443,14 +447,14 @@ function getQuestionLog() {
     }
 }
 
-function saveQuestionToLog(question, answer) {
+function saveQuestionToLog(question, answer, topicOverride) {
     const match = findKnowledgeMatch(question);
     const calculationAnswer = solveCalculation(question);
     const entry = {
         date: new Date().toISOString(),
         question: question,
-        answered: match !== null || calculationAnswer !== null,
-        topic: match ? match.topic : (calculationAnswer !== null ? "Calculator" : "Unknown")
+        answered: (topicOverride !== null && topicOverride !== undefined) || match !== null || calculationAnswer !== null,
+        topic: topicOverride || (match ? match.topic : (calculationAnswer !== null ? "Calculator" : "Unknown"))
     };
 
     const log = getQuestionLog();
@@ -507,7 +511,8 @@ form.addEventListener("submit", function(event) {
             unansweredAttempts = 0;
         }
 
-        saveQuestionToLog(question, answer);
+        const catQuestion = window.isCatQuestion && window.isCatQuestion(question);
+        saveQuestionToLog(question, answer, catQuestion ? "Animals — Cats" : null);
         addMessage("GeorgeBot", answer, "bot-message");
     }, 600);
 });
