@@ -9,3 +9,12 @@
 .zone-feeling-option:hover,.zone-feeling-option:focus-visible{border-color:#0E204A;background:#f4f7fb}
 .back-to-zones-button{display:block;margin:16px auto 0;padding:9px 15px;border:0;border-radius:9px;background:#eef1f5;color:#26364a;cursor:pointer}
 @media(max-width:700px){.zone-feelings-list{gap:8px}.zone-feeling-option{min-height:48px;font-size:14px}}
+
+.zone-feelings.blue-zone-feelings{max-width:760px}
+.blue-zone-feelings .zone-feelings-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.zone-feeling-card{overflow:hidden;padding:0;border:2px solid #b8dafa;border-radius:16px;background:#e8f4ff;color:#123e70;cursor:pointer;display:flex;flex-direction:column;align-items:center;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.zone-feeling-card img{display:block;width:100%;max-width:190px;aspect-ratio:1/1;object-fit:contain;padding:8px}
+.zone-feeling-card span{display:block;width:100%;padding:10px 6px;background:#fff;font-size:16px;font-weight:700}
+.zone-feeling-card:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(18,62,112,.12)}
+.zone-feeling-card[aria-pressed="true"]{border-color:#123e70;box-shadow:0 0 0 2px #123e70}
+@media(max-width:700px){.blue-zone-feelings .zone-feelings-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.zone-feeling-card span{font-size:14px}.zone-feeling-card img{padding:5px}}
