@@ -1,0 +1,33 @@
+/* GEORGE BOT — MISSING NUMBER CHALLENGE */
+.number-game {
+    width: min(100%, 500px);
+    padding: 16px;
+    margin-top: 8px;
+    border: 1px solid #d8e0eb;
+    border-radius: 16px;
+    background: #fff;
+    color: #0E204A;
+}
+.number-game-top { display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:14px; }
+.number-game-top span { color:#657286; font-size:12px; }
+.number-game-progress { height:7px; margin:12px 0; overflow:hidden; border-radius:8px; background:#edf1f5; }
+.number-game-progress span { display:block; height:100%; background:#B28B5D; transition:width .2s ease; }
+.number-game-level { color:#657286; text-align:center; font-size:11px; font-weight:bold; letter-spacing:1.5px; margin:15px 0 8px; }
+.number-sequence { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:7px; padding:15px 4px; font-size:clamp(23px,5vw,34px); font-weight:bold; }
+.sequence-comma { color:#9aa5b2; font-size:20px; }
+.missing-number { display:inline-flex; justify-content:center; align-items:center; width:43px; height:48px; border:2px dashed #B28B5D; border-radius:10px; background:#faf6ef; color:#8b663a; }
+.number-game-prompt { text-align:center; margin:3px 0 13px; font-weight:bold; }
+.number-game-options { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.number-choice { min-height:48px; border:1px solid #cbd5e1; border-radius:10px; background:#f7f9fb; color:#0E204A; font-size:19px; font-weight:bold; cursor:pointer; }
+.number-choice:hover:not(:disabled) { border-color:#B28B5D; background:#faf6ef; }
+.number-choice:disabled { cursor:default; opacity:.8; }
+.number-choice.number-correct { border:2px solid #39834b; background:#edf8ef; opacity:1; }
+.number-choice.number-incorrect { border:2px solid #b65b50; background:#fff0ee; }
+.number-game-feedback { min-height:42px; margin:12px 0 5px; font-size:14px; line-height:1.4; }
+.number-game-score { color:#52606d; font-size:13px; }
+.number-game-next, .number-game-restart { width:100%; margin-top:12px; padding:11px; border:0; border-radius:10px; background:#0E204A; color:#fff; font-weight:bold; cursor:pointer; }
+.number-game-next:hover, .number-game-restart:hover { background:#174078; }
+.number-game-result { text-align:center; }
+.number-game-result h3 { margin-bottom:12px; font-size:21px; }
+.number-game-result p { margin:8px 0; }
+@media(max-width:480px) { .number-game { padding:12px; } .number-game-options { gap:6px; } .number-choice { min-height:44px; } }
