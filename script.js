@@ -480,13 +480,42 @@ function saveQuestionToLog(question, answer, topicOverride) {
     }
 }
 
+// When a student offers to tell a joke, GeorgeBot invites them to share it.
+// The next message is treated as their joke and gets an encouraging reaction.
+let waitingForStudentJoke = false;
+
+function isJokeInvitation(question) {
+    const cleaned = cleanQuestion(question);
+    return /\\b(i have a joke|ive got a joke|i've got a joke|can i tell you a joke|may i tell you a joke|let me tell you a joke|i want to tell you a joke|i wanna tell you a joke|i will tell you a joke|here is a joke|heres a joke|here's a joke|wanna hear a joke|want to hear a joke)\\b/.test(cleaned);
+}
+
+function getStudentJokeReaction() {
+    const reactions = [
+        "😂 HAHAHA! Thanks for sharing your joke! You've made my circuits giggle!",
+        "🤣 That was a good one! Thanks for making me laugh!",
+        "😄 Thanks for telling me a joke! My robot belly is shaking with laughter!",
+        "😂 Brilliant! I love hearing jokes. Have you got another one?"
+    ];
+    return reactions[Math.floor(Math.random() * reactions.length)];
+}
+
 function addMessage(sender, text, className) {
     const message = document.createElement("div");
     message.classList.add("message", className);
-    message.innerHTML = `
-        <strong>${sender}</strong>
-        <p>${text}</p>
-    `;
+    const name = document.createElement("strong");
+    name.textContent = sender;
+    const paragraph = document.createElement("p");
+
+    // Student messages are always inserted as plain text, so typed jokes
+    // cannot accidentally be interpreted as HTML.
+    if (className === "user-message") {
+        paragraph.textContent = text;
+    } else {
+        paragraph.innerHTML = text;
+    }
+
+    message.appendChild(name);
+    message.appendChild(paragraph);
     chat.appendChild(message);
     chat.scrollTop = chat.scrollHeight;
 }
@@ -503,16 +532,34 @@ form.addEventListener("submit", function(event) {
     input.value = "";
 
     setTimeout(function() {
-        let answer = findAnswer(question);
+        let answer;
+        let topicOverride = null;
 
-        if (answer === null) {
-            answer = getUnknownQuestionAnswer();
-        } else {
+        if (waitingForStudentJoke) {
+            waitingForStudentJoke = false;
+            answer = getStudentJokeReaction();
+            topicOverride = "Fun — Student Joke";
             unansweredAttempts = 0;
+        } else if (isJokeInvitation(question)) {
+            waitingForStudentJoke = true;
+            answer = "😃 Absolutely! I'm all ears. Tell me your best joke!";
+            topicOverride = "Fun — Student Joke";
+            unansweredAttempts = 0;
+        } else {
+            answer = findAnswer(question);
+
+            if (answer === null) {
+                answer = getUnknownQuestionAnswer();
+            } else {
+                unansweredAttempts = 0;
+            }
+
+            if (window.isCatQuestion && window.isCatQuestion(question)) {
+                topicOverride = "Animals — Cats";
+            }
         }
 
-        const catQuestion = window.isCatQuestion && window.isCatQuestion(question);
-        saveQuestionToLog(question, answer, catQuestion ? "Animals — Cats" : null);
+        saveQuestionToLog(question, answer, topicOverride);
         addMessage("GeorgeBot", answer, "bot-message");
     }, 600);
 });
