@@ -1,0 +1,33 @@
+/* GEORGE BOT — CAT CORNER */
+.cat-corner {
+    width: min(100%, 440px);
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #d8e0eb;
+    border-radius: 14px;
+    background: #fff;
+}
+.cat-corner > p:first-child { margin-bottom: 10px; }
+.cat-corner-image {
+    display: block;
+    width: 100%;
+    max-height: 280px;
+    aspect-ratio: 11 / 7;
+    object-fit: cover;
+    border-radius: 11px;
+    background: #eef2f6;
+}
+.cat-corner-fact { margin: 12px 0; line-height: 1.45; }
+.cat-another-button {
+    border: 0;
+    border-radius: 9px;
+    padding: 10px 14px;
+    background: #0E204A;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cat-another-button:hover { background: #174078; }
+.cat-another-button:focus-visible { outline: 3px solid #B28B5D; outline-offset: 3px; }
+.cat-corner-note { margin-top: 10px; color: #657286; font-size: 12px; }
