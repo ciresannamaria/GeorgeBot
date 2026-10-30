@@ -24,7 +24,7 @@
                 function () { const start = pick([30, 40, 50, 60]); const step = pick([3, 4, 6, 7]); return { sequence: [start, start-step, start-step*2, start-step*3, start-step*4], missing: 2, explanation: "The numbers go down by " + step + " each time." }; }
             ],
             3: [
-                function () { const start = pick([1, 2, 3]); return { sequence: [0,1,2,3,4].map(i => (start+i)*(start+i)), missing: 3, explanation: "These are square numbers: 1², 2², 3², 4², 5² (or a later run of squares)." }; },
+                function () { const start = pick([1, 2, 3]); return { sequence: [0,1,2,3,4].map(i => (start+i)*(start+i)), missing: 3, explanation: "These are square numbers: " + [0,1,2,3,4].map(i => (start+i) + "²").join(", ") + "." }; },
                 function () { const start = pick([2, 3, 4]); const step = pick([3, 4, 5]); return { sequence: [start, start+step, start+2*step+1, start+3*step+3, start+4*step+6], missing: 3, explanation: "The gaps increase by 1 each time." }; }
             ]
         };
