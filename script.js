@@ -157,18 +157,18 @@ const blueSupportFlows = {
   question:"What might help you right now?",
   choices:[["comfort","💙 Feel comforted"],["express","🎨 Show how I feel"],["distract","🌿 Take a gentle break"],["connect","🤝 Connect with someone"],["unsure","❔ I'm not sure"]],
   activities:{
-   comfort:["Find a comfort","Think of a person, place or object that helps you feel safe and cared for. Picture it in your mind, or draw it.","You do not have to explain why you feel sad."],
+   comfort:["Find a comfort","Think of a person, place or object that helps you feel safe and cared for. Close your eyes if you like, and picture it in your mind for about 30 seconds. You can draw it instead.","You do not have to explain why you feel sad."],
    express:["Draw your feeling","Draw your feeling using colours, shapes or a picture. There is no right or wrong way.","Keep your drawing or share it with someone you trust."],
-   distract:["Notice the world around you","Find 3 things you can see, 2 things you can hear and 1 thing you can feel.","Repeat slowly if it feels helpful."],
+   distract:["Notice the world around you","Take about 1 minute to notice 3 things you can see, 2 things you can hear and 1 thing you can feel. Go slowly.","Repeat slowly if it feels helpful."],
    connect:["Reach out","Choose someone you trust and say: “I'm feeling sad. Can you spend a little time with me?”","You do not need to tell the whole story."],
-   unsure:["Choose one small thing","Take three comfortable breaths, have a sip of water, or find a quiet place for a moment.","You can come back and choose another idea."]
+   unsure:["Choose one small thing","Take 3 slow, comfortable breaths (about 20–30 seconds). Do not force or hold your breath. Or have a sip of water or sit quietly for 1 minute.","You can come back and choose another idea."]
   }
  },
  "Tired":{
   question:"What kind of tired do you feel?",
   choices:[["rest","😌 I need a quiet rest"],["move","🙆 I want to wake up gently"],["water","💧 I might need water"],["unsure","❔ I'm not sure"]],
   activities:{
-   rest:["Take a quiet pause","Sit comfortably, relax your shoulders and give yourself a quiet moment.","If you are still very tired, tell a trusted adult."],
+   rest:["Take a quiet pause","Sit comfortably, relax your shoulders and take a quiet pause for 1 minute. You can simply sit and rest; you do not need to do anything.","If you are still very tired, tell a trusted adult."],
    move:["Wake up gently","If you feel well enough, stand up, stretch your arms slowly and roll your shoulders. Stop if uncomfortable.","A little gentle movement may help you feel more awake."],
    water:["Have a drink","If you can, have a drink of water and take a few comfortable sips.","Notice whether you feel any different afterwards."],
    unsure:["Check what your body needs","Would a quiet rest, a drink of water or a gentle stretch feel best? Choose one, or ask an adult.","If you feel unwell or unusually exhausted, tell a trusted adult."]
@@ -197,11 +197,11 @@ const blueSupportFlows = {
   question:"What would help you right now?",
   choices:[["pause","🌬️ Have a quiet moment"],["express","🎨 Show how I feel"],["next","🧩 Think of one next step"],["connect","🤝 Talk to someone"],["unsure","❔ I'm not sure"]],
   activities:{
-   pause:["Give yourself a moment","It can be hard when something does not go the way you hoped. Sit comfortably and take a few slow, comfortable breaths.","You do not have to feel better straight away."],
+   pause:["Give yourself a moment","It can be hard when something does not go the way you hoped. Sit comfortably and take 5 slow, comfortable breaths (about 30–45 seconds). Do not force or hold your breath.","You do not have to feel better straight away."],
    express:["Show your feeling","Draw the moment using colours, shapes or a few simple pictures. You do not need to write words.","You can keep it private or share it with someone you trust."],
    next:["Find one small next step","Ask yourself: “What is one small thing I can do next?” It might be trying again, asking for help or taking a break.","One small step is enough."],
    connect:["Share what happened","If you want to, tell someone you trust: “I'm disappointed because things didn't go as I hoped. Can you listen?”","You can choose how much you want to share."],
-   unsure:["Start with a small pause","Take a moment, have a sip of water or choose a quiet activity. You can ask a trusted adult to help you choose.","It is okay if you still feel disappointed."]
+   unsure:["Start with a small pause","Take a quiet pause for 1 minute, have a sip of water or choose a quiet activity. You can ask a trusted adult to help you choose.","It is okay if you still feel disappointed."]
   }
  }
 };
