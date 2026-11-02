@@ -15,6 +15,13 @@ const zoneFeelings = document.getElementById("zone-feelings");
 const zoneFeelingsTitle = document.getElementById("zone-feelings-title");
 const zoneFeelingsList = document.getElementById("zone-feelings-list");
 const backToZonesButton = document.getElementById("back-to-zones-button");
+const blueSupport = document.getElementById("blue-support");
+const blueSupportProgress = document.getElementById("blue-support-progress");
+const blueSupportTitle = document.getElementById("blue-support-title");
+const blueSupportQuestion = document.getElementById("blue-support-question");
+const blueSupportOptions = document.getElementById("blue-support-options");
+const blueSupportResult = document.getElementById("blue-support-result");
+const blueSupportBack = document.getElementById("blue-support-back");
 const activitiesHub = document.getElementById("activities-hub");
 const yearGroupButtons = document.querySelectorAll(".year-group-button");
 const yearSections = document.querySelectorAll(".year-section");
@@ -61,6 +68,8 @@ function showCalmingCorner() {
     });
     document.querySelector(".zones-grid").hidden = false;
     zoneFeelings.hidden = true;
+    blueSupport.hidden = true;
+    resetBlueSupport();
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 }
 
@@ -107,6 +116,9 @@ function showZoneFeelings(zone) {
         button.appendChild(emoji);
         button.appendChild(label);
 
+        if (zone === "blue") {
+            button.addEventListener("click", function() { showBlueSupport(feeling); });
+        }
         zoneFeelingsList.appendChild(button);
     });
     zoneFeelings.classList.remove("blue-zone-feelings");
@@ -128,11 +140,95 @@ zoneCards.forEach(function(card) {
 
 backToZonesButton.addEventListener("click", function() {
     zoneFeelings.hidden = true;
+    blueSupport.hidden = true;
     document.querySelector(".zones-grid").hidden = false;
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 });
+blueSupportBack.addEventListener("click", function() {
+    blueSupport.hidden = true;
+    zoneFeelings.hidden = false;
+});
 
 backToStartButton.addEventListener("click", showStartScreen);
+
+
+const blueSupportFlows = {
+ "Sad": {
+  question:"What might help you right now?",
+  choices:[["comfort","💙 Feel comforted"],["express","🎨 Show how I feel"],["distract","🌿 Take a gentle break"],["connect","🤝 Connect with someone"],["unsure","❔ I'm not sure"]],
+  activities:{
+   comfort:["Find a comfort","Think of a person, place or object that helps you feel safe and cared for. Picture it in your mind, or draw it.","You do not have to explain why you feel sad."],
+   express:["Draw your feeling","Draw your feeling using colours, shapes or a picture. There is no right or wrong way.","Keep your drawing or share it with someone you trust."],
+   distract:["Notice the world around you","Find 3 things you can see, 2 things you can hear and 1 thing you can feel.","Repeat slowly if it feels helpful."],
+   connect:["Reach out","Choose someone you trust and say: “I'm feeling sad. Can you spend a little time with me?”","You do not need to tell the whole story."],
+   unsure:["Choose one small thing","Take three comfortable breaths, have a sip of water, or find a quiet place for a moment.","You can come back and choose another idea."]
+  }
+ },
+ "Tired":{
+  question:"What kind of tired do you feel?",
+  choices:[["rest","😌 I need a quiet rest"],["move","🙆 I want to wake up gently"],["water","💧 I might need water"],["unsure","❔ I'm not sure"]],
+  activities:{
+   rest:["Take a quiet pause","Sit comfortably, relax your shoulders and give yourself a quiet moment.","If you are still very tired, tell a trusted adult."],
+   move:["Wake up gently","If you feel well enough, stand up, stretch your arms slowly and roll your shoulders. Stop if uncomfortable.","A little gentle movement may help you feel more awake."],
+   water:["Have a drink","If you can, have a drink of water and take a few comfortable sips.","Notice whether you feel any different afterwards."],
+   unsure:["Check what your body needs","Would a quiet rest, a drink of water or a gentle stretch feel best? Choose one, or ask an adult.","If you feel unwell or unusually exhausted, tell a trusted adult."]
+  }
+ },
+ "Sick":{
+  question:"What would help you feel looked after?",
+  choices:[["adult","🙋 Tell a trusted adult"],["rest","🛋️ Find a quiet place to rest"],["unsure","❔ I'm not sure"]],
+  activities:{
+   adult:["Let someone know","Please tell your teacher or another trusted adult: “I don't feel well. Can you help me?”","An adult can help you decide what to do next."],
+   rest:["Take a quiet rest","Sit somewhere comfortable and rest while you let a trusted adult know how you are feeling.","This app cannot check how your body is doing. Please tell an adult."],
+   unsure:["Ask for help","You do not have to work this out alone. Find your teacher or another trusted adult and say you do not feel well.","If you feel very unwell, tell an adult straight away."]
+  }
+ },
+ "Bored":{
+  question:"What would you like to do?",
+  choices:[["create","🎨 Make something"],["notice","🔎 Find something interesting"],["move","🙆 Move a little"],["unsure","❔ Give me an idea"]],
+  activities:{
+   create:["Make a tiny creation","Choose a colour and make a quick pattern, doodle or imaginary creature on paper. Give it a name.","It does not need to be perfect. Just experiment."],
+   notice:["Become a curious explorer","Find one object you have never really noticed. What shapes, colours or tiny details can you spot?","Can you find one more interesting detail?"],
+   move:["Try a movement break","If it is a suitable place and you feel well, stand up, stretch gently and take a short walk.","Come back when you are ready."],
+   unsure:["Try a one-minute challenge","Name 5 animals, spot 4 things of the same colour, or invent a new use for an everyday object.","Pick whichever sounds fun."]
+  }
+ },
+ "Disappointed":{
+  question:"What would help you right now?",
+  choices:[["pause","🌬️ Have a quiet moment"],["express","🎨 Show how I feel"],["next","🧩 Think of one next step"],["connect","🤝 Talk to someone"],["unsure","❔ I'm not sure"]],
+  activities:{
+   pause:["Give yourself a moment","It can be hard when something does not go the way you hoped. Sit comfortably and take a few slow, comfortable breaths.","You do not have to feel better straight away."],
+   express:["Show your feeling","Draw the moment using colours, shapes or a few simple pictures. You do not need to write words.","You can keep it private or share it with someone you trust."],
+   next:["Find one small next step","Ask yourself: “What is one small thing I can do next?” It might be trying again, asking for help or taking a break.","One small step is enough."],
+   connect:["Share what happened","If you want to, tell someone you trust: “I'm disappointed because things didn't go as I hoped. Can you listen?”","You can choose how much you want to share."],
+   unsure:["Start with a small pause","Take a moment, have a sip of water or choose a quiet activity. You can ask a trusted adult to help you choose.","It is okay if you still feel disappointed."]
+  }
+ }
+};
+let currentBlueFeeling="";
+function resetBlueSupport(){currentBlueFeeling="";blueSupportOptions.innerHTML="";blueSupportResult.hidden=true;blueSupportResult.textContent="";blueSupportProgress.textContent="";}
+function addBlueButton(label,action){const b=document.createElement("button");b.type="button";b.className="blue-support-option";b.textContent=label;b.addEventListener("click",action);blueSupportOptions.appendChild(b);}
+function showBlueSupport(feeling){
+ const flow=blueSupportFlows[feeling];if(!flow)return;currentBlueFeeling=feeling;zoneFeelings.hidden=true;blueSupport.hidden=false;blueSupportResult.hidden=true;
+ blueSupportProgress.textContent="A small step, at your own pace";blueSupportTitle.textContent=feeling+" — let's find something that might help";blueSupportQuestion.textContent=flow.question;blueSupportOptions.innerHTML="";
+ flow.choices.forEach(choice=>addBlueButton(choice[1],()=>showBlueActivity(choice[0])));
+}
+function showBlueActivity(key){
+ const item=blueSupportFlows[currentBlueFeeling].activities[key];if(!item)return;blueSupportProgress.textContent="An idea to try";blueSupportTitle.textContent=item[0];blueSupportQuestion.textContent=item[1];blueSupportResult.textContent=item[2];blueSupportResult.hidden=false;blueSupportOptions.innerHTML="";
+ addBlueButton("I've tried it — how do I feel?",showBlueCheckIn);
+}
+function showBlueCheckIn(){
+ blueSupportProgress.textContent="Check in with yourself";blueSupportTitle.textContent="How are you feeling now?";blueSupportQuestion.textContent="There is no right or wrong answer. You do not have to feel better straight away.";blueSupportResult.hidden=true;blueSupportOptions.innerHTML="";
+ [["better","🙂 A little better"],["same","😐 About the same"],["still","💙 I still feel this way"]].forEach(choice=>addBlueButton(choice[1],()=>showBlueNextStep(choice[0])));
+}
+function showBlueNextStep(answer){
+ blueSupportOptions.innerHTML="";blueSupportResult.hidden=false;
+ if(answer==="better"){blueSupportTitle.textContent="I'm glad you found something helpful 💙";blueSupportQuestion.textContent="You can go back to your day, or try another idea.";blueSupportResult.textContent="You can use a tool whenever you need it.";}
+ else if(answer==="same"){blueSupportTitle.textContent="That's okay. Take your time.";blueSupportQuestion.textContent="Sometimes feelings need time. Would you like to try a different idea?";blueSupportResult.textContent="You can also talk to someone you trust.";}
+ else{blueSupportTitle.textContent="You don't have to manage this alone.";blueSupportQuestion.textContent="Would you like to try another idea, or talk to a trusted adult?";blueSupportResult.textContent="You can say: “I'm still feeling this way. Can you help me?”";}
+ addBlueButton("↻ Try a different idea",()=>showBlueSupport(currentBlueFeeling));
+ addBlueButton("🤝 Talk to a trusted adult",()=>{blueSupportTitle.textContent="Find a trusted adult";blueSupportQuestion.textContent="Please speak to your teacher or another adult you trust. You can show them this screen.";blueSupportResult.textContent="If you feel unsafe or are hurt, tell a trusted adult immediately.";blueSupportOptions.innerHTML="";});
+}
 
 function showYearGroup(yearGroupId) {
     yearSections.forEach(function(section) {
