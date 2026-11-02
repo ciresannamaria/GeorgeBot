@@ -98,7 +98,14 @@ function showZoneFeelings(zone) {
             "Angry": "😠", "Furious": "🤬", "Panicked": "😱", "Terrified": "😨", "Extremely sad": "😭"
         };
 
-        button.textContent = (feelingEmojis[feeling] || "💭") + "  " + feeling;
+        const emoji = document.createElement("span");
+        emoji.className = "zone-feeling-emoji";
+        emoji.textContent = feelingEmojis[feeling] || "💭";
+        const label = document.createElement("span");
+        label.className = "zone-feeling-label";
+        label.textContent = feeling;
+        button.appendChild(emoji);
+        button.appendChild(label);
 
         zoneFeelingsList.appendChild(button);
     });
