@@ -215,7 +215,27 @@ function showBlueSupport(feeling){
 }
 function showBlueActivity(key){
  const item=blueSupportFlows[currentBlueFeeling].activities[key];if(!item)return;blueSupportProgress.textContent="An idea to try";blueSupportTitle.textContent=item[0];blueSupportQuestion.textContent=item[1];blueSupportResult.textContent=item[2];blueSupportResult.hidden=false;blueSupportOptions.innerHTML="";
+ if(currentBlueFeeling==="Sad" && key==="express"){addDrawingPad();}
  addBlueButton("I've tried it — how do I feel?",showBlueCheckIn);
+}
+
+function addDrawingPad(){
+ const wrap=document.createElement("div");wrap.className="feeling-drawing";
+ const tools=document.createElement("div");tools.className="drawing-tools";
+ const canvas=document.createElement("canvas");canvas.className="feeling-drawing-canvas";canvas.width=600;canvas.height=300;canvas.setAttribute("role","img");canvas.setAttribute("aria-label","A blank drawing area. Use your mouse, finger or stylus to draw.");
+ const ctx=canvas.getContext("2d");ctx.fillStyle="#ffffff";ctx.fillRect(0,0,canvas.width,canvas.height);
+ let colour="#315E8A",drawing=false,erase=false;
+ const palette=[["#315E8A","Blue"],["#E58A9B","Pink"],["#E5B84B","Yellow"],["#5B9B72","Green"],["#8B72B8","Purple"],["#26364A","Dark"]];
+ palette.forEach(([value,label])=>{const b=document.createElement("button");b.type="button";b.className="drawing-colour";b.style.backgroundColor=value;b.setAttribute("aria-label",label+" pencil");b.title=label;b.addEventListener("click",()=>{colour=value;erase=false;tools.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");});tools.appendChild(b);});
+ const eraser=document.createElement("button");eraser.type="button";eraser.className="drawing-tool-button";eraser.textContent="Eraser";eraser.addEventListener("click",()=>{erase=true;tools.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));eraser.classList.add("selected");});tools.appendChild(eraser);
+ const clear=document.createElement("button");clear.type="button";clear.className="drawing-tool-button";clear.textContent="Clear";clear.addEventListener("click",()=>{ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#fff";ctx.fillRect(0,0,canvas.width,canvas.height);});tools.appendChild(clear);
+ const hint=document.createElement("p");hint.className="drawing-hint";hint.textContent="Draw with your mouse, finger or stylus. Your picture stays on this screen and is not saved.";
+ wrap.appendChild(tools);wrap.appendChild(canvas);wrap.appendChild(hint);blueSupportResult.appendChild(wrap);
+ function point(e){const rect=canvas.getBoundingClientRect();return{x:(e.clientX-rect.left)*canvas.width/rect.width,y:(e.clientY-rect.top)*canvas.height/rect.height};}
+ canvas.addEventListener("pointerdown",e=>{drawing=true;canvas.setPointerCapture(e.pointerId);const p=point(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=erase?24:5;ctx.strokeStyle=erase?"#ffffff":colour;ctx.lineTo(p.x+0.1,p.y+0.1);ctx.stroke();});
+ canvas.addEventListener("pointermove",e=>{if(!drawing)return;const p=point(e);ctx.lineWidth=erase?24:5;ctx.strokeStyle=erase?"#ffffff":colour;ctx.lineTo(p.x,p.y);ctx.stroke();});
+ function stop(){drawing=false;ctx.beginPath();}
+ canvas.addEventListener("pointerup",stop);canvas.addEventListener("pointercancel",stop);canvas.addEventListener("lostpointercapture",stop);
 }
 function showBlueCheckIn(){
  blueSupportProgress.textContent="Check in with yourself";blueSupportTitle.textContent="How are you feeling now?";blueSupportQuestion.textContent="There is no right or wrong answer. You do not have to feel better straight away.";blueSupportResult.hidden=true;blueSupportOptions.innerHTML="";
