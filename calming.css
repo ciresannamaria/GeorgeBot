@@ -13,3 +13,15 @@
 .zone-feeling-option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .zone-feeling-emoji{font-size:38px;line-height:1.2}
 .zone-feeling-label{font-size:14px}
+
+.blue-support{max-width:560px;margin:18px auto 12px;padding:18px;background:#f2f7fc;border:1px solid #d8e5f2;border-radius:16px;text-align:center}
+.blue-support[hidden]{display:none}
+.blue-support-progress{font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#526d88;margin-bottom:10px}
+.blue-support h3{font-size:20px;margin:0 0 10px;color:#183b5b}
+.blue-support>p{font-size:15px;line-height:1.55;color:#34495e;margin:0 0 15px}
+.blue-support-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.blue-support-option{min-height:48px;padding:11px;border:1px solid #c8d8e8;border-radius:11px;background:#fff;color:#173b5b;font-size:14px;font-weight:600;cursor:pointer}
+.blue-support-option:hover,.blue-support-option:focus-visible{background:#e5f0fa;border-color:#477da9;outline:2px solid #477da9;outline-offset:2px}
+.blue-support-result{margin:14px 0 4px;padding:13px;background:#fff;border-radius:11px;color:#34495e;font-size:14px;line-height:1.55}
+.blue-support-result[hidden]{display:none}
+@media(max-width:700px){.blue-support{padding:14px}.blue-support-options{grid-template-columns:1fr}.blue-support-option{min-height:44px}}
