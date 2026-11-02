@@ -88,32 +88,21 @@ function showZoneFeelings(zone) {
     details.feelings.forEach(function(feeling) {
         const button = document.createElement("button");
         button.type = "button";
-        button.className = zone === "blue" ? "zone-feeling-card" : "zone-feeling-option";
+        button.className = "zone-feeling-option";
         button.setAttribute("aria-pressed", "false");
 
-        if (zone === "blue") {
-            const image = document.createElement("img");
-            const fileName = feeling.toLowerCase().replace(/\s+/g, "-");
-            image.src = "images/calming-corner/blue/" + fileName + ".svg";
-            image.alt = "";
-            image.loading = "lazy";
-            const label = document.createElement("span");
-            label.textContent = feeling;
-            button.appendChild(image);
-            button.appendChild(label);
-            button.addEventListener("click", function() {
-                zoneFeelingsList.querySelectorAll(".zone-feeling-card").forEach(function(card) {
-                    card.setAttribute("aria-pressed", String(card === button));
-                });
-            });
-        } else {
-            button.className = "zone-feeling-option";
-            button.textContent = feeling;
-        }
+        const feelingEmojis = {
+            "Sad": "😢", "Tired": "😴", "Sick": "🤒", "Bored": "😐", "Disappointed": "😞",
+            "Calm": "😌", "Happy": "😊", "Focused": "🎯", "Content": "🙂", "Proud": "🥹",
+            "Stressed": "😣", "Frustrated": "😤", "Anxious": "😟", "Excited": "🤩", "Silly": "🤪",
+            "Angry": "😠", "Furious": "🤬", "Panicked": "😱", "Terrified": "😨", "Extremely sad": "😭"
+        };
+
+        button.textContent = (feelingEmojis[feeling] || "💭") + "  " + feeling;
 
         zoneFeelingsList.appendChild(button);
     });
-    zoneFeelings.classList.toggle("blue-zone-feelings", zone === "blue");
+    zoneFeelings.classList.remove("blue-zone-feelings");
     zoneFeelings.hidden = false;
 }
 
