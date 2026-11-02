@@ -25,3 +25,11 @@
 .blue-support-result{margin:14px 0 4px;padding:13px;background:#fff;border-radius:11px;color:#34495e;font-size:14px;line-height:1.55}
 .blue-support-result[hidden]{display:none}
 @media(max-width:700px){.blue-support{padding:14px}.blue-support-options{grid-template-columns:1fr}.blue-support-option{min-height:44px}}
+
+.feeling-drawing{margin-top:12px}
+.drawing-tools{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;margin:8px 0}
+.drawing-colour{width:29px;height:29px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px #aab7c5;cursor:pointer}
+.drawing-colour.selected{outline:3px solid #315e8a;outline-offset:2px}
+.drawing-tool-button{padding:7px 11px;border:1px solid #c8d8e8;border-radius:8px;background:#f7f9fc;color:#173b5b;font-size:13px;cursor:pointer}
+.feeling-drawing-canvas{display:block;width:100%;height:auto;aspect-ratio:2/1;border:2px solid #d5dce5;border-radius:10px;background:#fff;touch-action:none;cursor:crosshair}
+.drawing-hint{font-size:12px!important;color:#607080!important;margin:7px 0 0!important}
