@@ -38,3 +38,8 @@
 .green-support .blue-support-option{background:#fff;}
 .green-support .blue-support-result h4{font-size:18px;color:#38734A;margin:0 0 10px;}
 .green-support .blue-support-result p{margin:7px 0;}
+
+.human-connection-button{display:block;width:100%;margin:12px auto 0;padding:12px;border:1px solid #9bb9a2;border-radius:10px;background:#f0f8f1;color:#245b35;font-weight:700;cursor:pointer}
+.human-connection-button:hover,.human-connection-button:focus-visible{background:#e2f1e4;outline:2px solid #38734A;outline-offset:2px}
+.yellow-support{background:#fff9e9;border-color:#f0dfb6}.yellow-support h3{color:#755516}.yellow-support .blue-support-progress{color:#8a641c}
+.red-support{background:#fff3f3;border-color:#edcaca}.red-support h3{color:#8b3333}.red-support .blue-support-progress{color:#8b3333}
