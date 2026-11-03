@@ -123,3 +123,29 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
 }
 
 .chat-back-button { display:block; margin:12px 18px 0; flex:0 0 auto; }
+
+
+/* Small, discreet teacher-only noise meter */
+.chat-header{position:relative;padding-right:58px}
+.noise-meter-open{margin-left:auto;flex:0 0 30px;width:30px;height:30px;border:1px solid rgba(255,255,255,.28);border-radius:8px;background:rgba(255,255,255,.08);color:#fff;font-size:17px;cursor:pointer;opacity:.72}
+.noise-meter-open:hover,.noise-meter-open:focus-visible{opacity:1;background:rgba(255,255,255,.18);outline:2px solid #fff;outline-offset:2px}
+.noise-meter-panel{position:absolute;z-index:30;top:72px;right:14px;width:min(350px,calc(100% - 28px));padding:17px;background:#fff;border:1px solid #d5dce2;border-radius:14px;box-shadow:0 10px 35px rgba(14,32,74,.22);color:#0E204A}
+.noise-meter-panel[hidden]{display:none}
+.noise-meter-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.noise-meter-top h2{font-size:17px}
+.noise-meter-top button{border:0;background:transparent;font-size:24px;color:#52606d;cursor:pointer}
+.noise-meter-private,.noise-meter-note{font-size:11px;line-height:1.45;color:#687585;margin:7px 0 12px}
+.noise-meter-reading{text-align:center;margin:15px 0 9px}
+.noise-meter-reading span{display:block;font-size:42px;font-weight:700;font-variant-numeric:tabular-nums}
+.noise-meter-reading small{font-size:11px;color:#687585}
+.noise-meter-track{height:13px;background:#edf0f4;border-radius:99px;overflow:hidden}
+.noise-meter-track div{height:100%;width:0;background:#4b9a69;border-radius:99px;transition:width .12s linear,background .12s}
+.noise-meter-track div.over-limit{background:#d34b4b}
+.noise-meter-setting{display:block;margin:15px 0 5px;font-size:13px}
+#noise-meter-limit{width:100%;accent-color:#0E204A}
+.noise-meter-alert{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:12px}
+.noise-meter-status{min-height:18px;margin:12px 0;font-size:12px;font-weight:700;color:#52606d}
+.noise-meter-actions{display:flex;gap:8px}
+.noise-meter-actions button{flex:1;padding:9px;border:0;border-radius:8px;background:#0E204A;color:white;font-weight:600;cursor:pointer}
+.noise-meter-actions button:disabled{opacity:.4;cursor:not-allowed}
+.noise-meter-actions button:last-child{background:#e9edf2;color:#26364a}
