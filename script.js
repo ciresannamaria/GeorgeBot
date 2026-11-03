@@ -379,8 +379,64 @@ function showHumanConnection(title,question,result,options){
 document.getElementById("blue-human-connection").addEventListener("click",()=>showHumanConnection(blueSupportTitle,blueSupportQuestion,blueSupportResult,blueSupportOptions));
 document.getElementById("green-human-connection").addEventListener("click",()=>showHumanConnection(greenSupportTitle,greenSupportQuestion,greenSupportResult,greenSupportOptions));
 document.getElementById("yellow-human-connection").addEventListener("click",()=>showHumanConnection(yellowSupportTitle,yellowSupportQuestion,yellowSupportResult,yellowSupportOptions));
-document.getElementById("red-human-connection").addEventListener("click",()=>{const p=redSupport.querySelector("p");p.textContent="Please go to your teacher or another trusted adult now. You can show them this screen.";});
-function showRedSupport(){zoneFeelings.hidden=true;redSupport.hidden=false;}
+document.getElementById("red-human-connection").addEventListener("click",showRedHumanConnection);
+function showRedSupport(){
+ zoneFeelings.hidden=true;redSupport.hidden=false;redSupportProgress.textContent="Pause, notice, and choose";redSupportTitle.textContent="Your feelings are very strong right now";
+ redSupportQuestion.textContent="You do not have to push your feelings away. Let's try one safe way to help your body settle a little. You can stop at any time.";
+ redSupportResult.hidden=true;redSupportOptions.replaceChildren();
+ redActivities.forEach((activity,index)=>redButton(activity.label,()=>runRedActivity(index)));
+}
+const redSupportProgress=document.getElementById("red-support-progress");
+const redSupportTitle=document.getElementById("red-support-title");
+const redSupportQuestion=document.getElementById("red-support-question");
+const redSupportOptions=document.getElementById("red-support-options");
+const redSupportResult=document.getElementById("red-support-result");
+const redActivities=[
+ {label:"🌬️ Slow breathing",title:"Slow breathing",instruction:"Sit somewhere comfortable. Breathe in gently, then breathe out slowly. Repeat at your own pace for about 30 seconds. Do not hold or force your breath.",note:"If breathing exercises do not feel comfortable, stop and choose another activity."},
+ {label:"🤲 Squeeze and release",title:"Squeeze and release",instruction:"Gently squeeze your hands into fists for 3 seconds, then relax them. Repeat five times. You can squeeze a soft cushion or stress ball instead.",note:"Notice the difference between your hands feeling tense and relaxed. Keep the squeeze gentle."},
+ {label:"🧱 Push the wall",title:"Push the wall",instruction:"Stand facing a wall and place both hands on it. Gently push for 5 seconds, then relax. Repeat three times. You can skip this activity or stop if uncomfortable.",note:"Only do this if there is a safe space and it feels okay for your body."},
+ {label:"🌿 Find a quiet moment",title:"Find a quiet moment",instruction:"For about 1 minute, look around quietly and find five things you can see. Notice their colours, shapes or details. Or look at a peaceful picture and rest quietly.",note:"You do not have to think about what made you upset right now."}
+];
+function redButton(label,handler){const b=document.createElement("button");b.type="button";b.className="blue-support-option";b.textContent=label;b.addEventListener("click",handler);redSupportOptions.appendChild(b);}
+function runRedActivity(index){
+ const a=redActivities[index];redSupportProgress.textContent="A small step to help you settle";redSupportTitle.textContent=a.title;redSupportQuestion.textContent=a.instruction;redSupportResult.textContent=a.note;redSupportResult.hidden=false;redSupportOptions.replaceChildren();
+ redButton("I've finished — check in",showRedCheckIn);
+}
+function showRedCheckIn(){
+ redSupportProgress.textContent="Check in with yourself";redSupportTitle.textContent="How are you feeling now?";
+ redSupportQuestion.textContent="You do not need to feel completely calm. Has the intensity changed a little?";
+ redSupportResult.hidden=true;redSupportOptions.replaceChildren();
+ [["🙂 A little calmer","calmer"],["😐 Still feeling very strong","same"],["😟 I need help now","help"]].forEach(([label,value])=>redButton(label,()=>showRedNextStep(value)));
+}
+function showRedNextStep(answer){
+ redSupportOptions.replaceChildren();redSupportResult.hidden=false;
+ if(answer==="calmer"){
+  redSupportTitle.textContent="Thank you for checking in ❤️";
+  redSupportQuestion.textContent="The feeling is allowed to be there. Would you like to try another activity, or talk to someone about what happened?";
+  redSupportResult.textContent="You do not have to make the feeling disappear. Notice what you need next.";
+  redButton("Try another activity",showRedSupport);
+  redButton("Talk to a trusted adult",showRedHumanConnection);
+ }else if(answer==="same"){
+  redSupportTitle.textContent="You don't have to do this alone";
+  redSupportQuestion.textContent="You can try one different activity, or ask a trusted adult to stay with you and help.";
+  redSupportResult.textContent="It is okay if the feeling is still strong. You deserve support.";
+  redButton("Try one more activity",showRedSupport);
+  redButton("Talk to a trusted adult",showRedHumanConnection);
+ }else{
+  redSupportTitle.textContent="Let's find someone to help";
+  redSupportQuestion.textContent="Please go to your teacher or another trusted adult now. You do not need to finish another activity first.";
+  redSupportResult.textContent="You can say: “My feelings are still very strong. Can you stay with me and help me?” You can show them this screen.";
+  redButton("Show me what I can say",showRedHumanConnection);
+ }
+}
+function showRedHumanConnection(){
+ redSupportProgress.textContent="Human connection";
+ redSupportTitle.textContent="You don't have to manage big feelings alone";
+ redSupportQuestion.textContent="Find your teacher or another trusted adult. Ask them to listen, stay with you, or help you decide what to do next.";
+ redSupportResult.textContent="You could say: “I'm still feeling really angry/upset/scared. Can you help me?”";
+ redSupportOptions.replaceChildren();
+}
+
 const yellowActivities=[
  ["🌬️ Breathing break","Follow this gentle pattern for about 30–45 seconds: breathe in comfortably, then breathe out slowly. Repeat at your own pace. Do not hold or force your breath.","Breathing is optional. If it does not feel comfortable, choose another activity."],
  ["🙆 Gentle movement","For about 1 minute: reach both arms up, lower them; roll your shoulders gently; stretch each arm across your body. Move slowly and stop if uncomfortable.","Choose only movements that feel safe for your body and space."],
