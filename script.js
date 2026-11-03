@@ -83,6 +83,7 @@ function showCalmingCorner() {
     greenSupport.hidden = true;
     yellowSupport.hidden = true;
     redSupport.hidden = true;
+    unsureSupport.hidden = true;
     resetBlueSupport();
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 }
@@ -153,7 +154,7 @@ zoneCards.forEach(function(card) {
         if (zoneFeelingExamples[card.dataset.zone]) {
             showZoneFeelings(card.dataset.zone);
         } else {
-            zoneSelectionMessage.textContent = "That's okay. It's fine not to be sure.";
+            showUnsureSupport();
         }
     });
 });
@@ -164,6 +165,7 @@ backToZonesButton.addEventListener("click", function() {
     greenSupport.hidden = true;
     yellowSupport.hidden = true;
     redSupport.hidden = true;
+    unsureSupport.hidden = true;
     document.querySelector(".zones-grid").hidden = false;
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 });
@@ -177,9 +179,19 @@ greenSupportBack.addEventListener("click", function() {
 });
 document.getElementById("yellow-support-back").addEventListener("click",()=>{yellowSupport.hidden=true;zoneFeelings.hidden=false;});
 document.getElementById("red-support-back").addEventListener("click",()=>{redSupport.hidden=true;zoneFeelings.hidden=false;});
+document.getElementById("unsure-support-back").addEventListener("click",()=>{unsureSupport.hidden=true;document.querySelector(".zones-grid").hidden=false;zoneSelectionMessage.textContent="There is no right or wrong answer.";});
+document.getElementById("unsure-human-connection").addEventListener("click",()=>showHumanConnection(unsureTitle,unsureQuestion,unsureResult,unsureOptions));
 
 backToStartButton.addEventListener("click", showStartScreen);
 
+
+const unsureActivities=[["Notice your body","Notice what your body is telling you","Take about 1 minute. Notice whether your body feels tired, full of energy, tense, relaxed, warm, or something else. You do not need to name a feeling."],["Draw or choose colours","Show it with colours or shapes","For about 2 minutes, draw lines, shapes or colours that match how you feel inside. There is no right or wrong way."],["Take a quiet pause","Take a quiet pause","Sit comfortably for about 1 minute. Let your breathing happen naturally and notice what is around you."],["Move gently","Move gently","If you feel well and have a safe space, stretch gently or roll your shoulders for about 1 minute. Stop if uncomfortable."]];
+function unsureButton(label,fn){const b=document.createElement("button");b.type="button";b.className="blue-support-option";b.textContent=label;b.addEventListener("click",fn);unsureOptions.appendChild(b);}
+function showUnsureSupport(){document.querySelector(".zones-grid").hidden=true;zoneFeelings.hidden=true;blueSupport.hidden=true;greenSupport.hidden=true;yellowSupport.hidden=true;redSupport.hidden=true;unsureSupport.hidden=false;unsureProgress.textContent="Explore at your own pace";unsureTitle.textContent="It is okay not to know";unsureQuestion.textContent="Sometimes it is hard to name a feeling. Try an activity just to notice more about yourself. You do not have to choose a zone.";unsureResult.hidden=true;unsureOptions.replaceChildren();["My body feels tired","My body feels full of energy","My body feels tense","My body feels comfortable","My thoughts feel busy","I am not sure what I notice"].forEach(v=>unsureButton(v,()=>showUnsureActivities(v)));}
+function showUnsureActivities(note){unsureProgress.textContent="Choose an activity";unsureTitle.textContent="Thank you for noticing";unsureQuestion.textContent="You noticed: "+note+". Choose one activity that feels okay.";unsureResult.hidden=true;unsureOptions.replaceChildren();unsureActivities.forEach((a,i)=>unsureButton(a[0],()=>runUnsureActivity(i)));}
+function runUnsureActivity(i){const a=unsureActivities[i];unsureProgress.textContent="Your activity";unsureTitle.textContent=a[1];unsureQuestion.textContent=a[2];unsureResult.hidden=false;unsureResult.textContent="When you are ready, check in. You do not need to feel different.";unsureOptions.replaceChildren();unsureButton("I have finished — check in",showUnsureCheckIn);}
+function showUnsureCheckIn(){unsureProgress.textContent="Check in with yourself";unsureTitle.textContent="What do you notice now?";unsureQuestion.textContent="Do you have a better idea of how you feel?";unsureResult.hidden=true;unsureOptions.replaceChildren();[["Yes, I have an idea","know"],["A little, but I am still unsure","little"],["I am still not sure","unsure"]].forEach(([label,v])=>unsureButton(label,()=>showUnsureNext(v)));}
+function showUnsureNext(v){unsureOptions.replaceChildren();unsureResult.hidden=false;if(v==="know"){unsureTitle.textContent="You noticed something about yourself";unsureQuestion.textContent="If you want, go back and choose the zone or feeling that feels closest. You can also continue with your day.";unsureResult.textContent="You do not have to choose a zone.";unsureButton("Choose a zone",()=>{unsureSupport.hidden=true;document.querySelector(".zones-grid").hidden=false;});}else{unsureTitle.textContent="It is okay to still be unsure";unsureQuestion.textContent="Would you like to try a different activity, or take a break?";unsureResult.textContent="Learning about yourself takes time.";unsureButton("Try another activity",()=>showUnsureActivities("I am still exploring"));unsureButton("Take a break",()=>{unsureTitle.textContent="Take your time";unsureQuestion.textContent="You can pause here, return to class, or talk to someone you trust.";unsureOptions.replaceChildren();});}}
 
 const blueSupportFlows = {
  "Sad": {
