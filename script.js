@@ -31,6 +31,12 @@ const yellowSupportOptions=document.getElementById("yellow-support-options");
 const yellowSupportResult=document.getElementById("yellow-support-result");
 const yellowHumanConnection=document.getElementById("yellow-human-connection");
 const redSupport=document.getElementById("red-support");
+const unsureSupport = document.getElementById("unsure-support");
+const unsureProgress = document.getElementById("unsure-support-progress");
+const unsureTitle = document.getElementById("unsure-support-title");
+const unsureQuestion = document.getElementById("unsure-support-question");
+const unsureOptions = document.getElementById("unsure-support-options");
+const unsureResult = document.getElementById("unsure-support-result");
 
 const greenSupportBack = document.getElementById("green-support-back");
 const activitiesHub = document.getElementById("activities-hub");
