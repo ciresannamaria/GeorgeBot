@@ -261,6 +261,7 @@ function showBlueNextStep(answer){
 }
 
 
+const greenSupportProgress = document.getElementById("green-support-progress");
 const greenSupportTitle = document.getElementById("green-support-title");
 const greenSupportQuestion = document.getElementById("green-support-question");
 const greenSupportOptions = document.getElementById("green-support-options");
