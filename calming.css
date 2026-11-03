@@ -48,3 +48,5 @@
 .red-support{background:#fff5f4;border-color:#edcaca}
 .red-support .blue-support-option{border-color:#e5c5c3;color:#713b3b}
 .red-support .blue-support-option:hover,.red-support .blue-support-option:focus-visible{background:#fce8e6;border-color:#b94a48}
+
+.zone-mix-note{max-width:680px;margin:0 auto 14px;padding:11px 14px;border-radius:11px;background:#f4f6f8;color:#445365;text-align:center;font-size:13px;line-height:1.5}.unsure-support{background:#f5f5f8;border-color:#dfe2e8}.unsure-support h3{color:#39465a}.unsure-support .blue-support-progress{color:#657184}
