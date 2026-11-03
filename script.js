@@ -22,6 +22,8 @@ const blueSupportQuestion = document.getElementById("blue-support-question");
 const blueSupportOptions = document.getElementById("blue-support-options");
 const blueSupportResult = document.getElementById("blue-support-result");
 const blueSupportBack = document.getElementById("blue-support-back");
+const greenSupport = document.getElementById("green-support");
+const greenSupportBack = document.getElementById("green-support-back");
 const activitiesHub = document.getElementById("activities-hub");
 const yearGroupButtons = document.querySelectorAll(".year-group-button");
 const yearSections = document.querySelectorAll(".year-section");
@@ -69,6 +71,7 @@ function showCalmingCorner() {
     document.querySelector(".zones-grid").hidden = false;
     zoneFeelings.hidden = true;
     blueSupport.hidden = true;
+    greenSupport.hidden = true;
     resetBlueSupport();
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 }
@@ -118,6 +121,8 @@ function showZoneFeelings(zone) {
 
         if (zone === "blue") {
             button.addEventListener("click", function() { showBlueSupport(feeling); });
+        } else if (zone === "green") {
+            button.addEventListener("click", function() { showGreenSupport(feeling); });
         }
         zoneFeelingsList.appendChild(button);
     });
@@ -141,11 +146,16 @@ zoneCards.forEach(function(card) {
 backToZonesButton.addEventListener("click", function() {
     zoneFeelings.hidden = true;
     blueSupport.hidden = true;
+    greenSupport.hidden = true;
     document.querySelector(".zones-grid").hidden = false;
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 });
 blueSupportBack.addEventListener("click", function() {
     blueSupport.hidden = true;
+    zoneFeelings.hidden = false;
+});
+greenSupportBack.addEventListener("click", function() {
+    greenSupport.hidden = true;
     zoneFeelings.hidden = false;
 });
 
@@ -248,6 +258,94 @@ function showBlueNextStep(answer){
  else{blueSupportTitle.textContent="You don't have to manage this alone.";blueSupportQuestion.textContent="Would you like to try another idea, or talk to a trusted adult?";blueSupportResult.textContent="You can say: “I'm still feeling this way. Can you help me?”";}
  addBlueButton("↻ Try a different idea",()=>showBlueSupport(currentBlueFeeling));
  addBlueButton("🤝 Talk to a trusted adult",()=>{blueSupportTitle.textContent="Find a trusted adult";blueSupportQuestion.textContent="Please speak to your teacher or another adult you trust. You can show them this screen.";blueSupportResult.textContent="If you feel unsafe or are hurt, tell a trusted adult immediately.";blueSupportOptions.innerHTML="";});
+}
+
+
+const greenSupportTitle = document.getElementById("green-support-title");
+const greenSupportQuestion = document.getElementById("green-support-question");
+const greenSupportOptions = document.getElementById("green-support-options");
+const greenSupportResult = document.getElementById("green-support-result");
+const greenFeelings = {
+ "Calm":"Enjoy this peaceful moment", "Happy":"Share or celebrate your happiness",
+ "Focused":"Notice what helps you concentrate", "Content":"Appreciate this moment", "Proud":"Celebrate something you have done"
+};
+function greenButton(label, handler) {
+ const b=document.createElement("button"); b.type="button"; b.className="blue-support-option"; b.textContent=label;
+ b.addEventListener("click",handler); greenSupportOptions.appendChild(b);
+}
+function greenField(placeholder, multiline) {
+ const field=document.createElement(multiline?"textarea":"input");
+ field.className="green-writing-field"; field.placeholder=placeholder; field.maxLength=180;
+ if(multiline) field.rows=2;
+ return field;
+}
+function greenResult(title, lines, note) {
+ greenSupportResult.replaceChildren();
+ const heading=document.createElement("h4"); heading.textContent=title; greenSupportResult.appendChild(heading);
+ lines.forEach(line=>{const p=document.createElement("p");p.textContent="✨ "+line;greenSupportResult.appendChild(p);});
+ if(note){const small=document.createElement("p");small.textContent=note;greenSupportResult.appendChild(small);}
+ greenSupportResult.hidden=false;
+}
+function showGreenSupport(feeling) {
+ greenSupport.hidden=false; zoneFeelings.hidden=true; greenSupportOptions.replaceChildren(); greenSupportResult.hidden=true;
+ greenSupportTitle.textContent=feeling+" — enjoy this moment";
+ greenSupportQuestion.textContent=greenFeelings[feeling] || "Choose something positive to do.";
+ greenSupportProgress.textContent="Choose an activity";
+ ["🎨 Draw how I feel","✨ Three good things","🌟 My little achievement","💚 Spread some kindness","☁️ Imagine something wonderful","🎵 Celebrate your energy"].forEach((label,index)=>greenButton(label,()=>runGreenActivity(index)));
+}
+function runGreenActivity(index) {
+ greenSupportOptions.replaceChildren(); greenSupportResult.hidden=true;
+ const configs=[
+  ["Draw how I feel","Use the drawing pad to show how you feel right now. Use colours, shapes or pictures. There is no right or wrong way."],
+  ["Three good things","Write down three things that made you smile today. They can be little things!"],
+  ["My little achievement","Write one thing you did well, learned, tried or did for someone. Every little achievement counts."],
+  ["Spread some kindness","Choose one kind thing you can do or say to someone today."],
+  ["Imagine something wonderful","Imagine a happy place for about 30–60 seconds. Then write or draw one thing you imagined."],
+  ["Celebrate your energy","Choose a movement challenge and try it for about 1 minute. Stop if it feels uncomfortable."]
+ ];
+ const [title,instruction]=configs[index]; greenSupportTitle.textContent=title;greenSupportQuestion.textContent=instruction;greenSupportProgress.textContent="Your activity";
+ if(index===0){addGreenDrawingPad();greenButton("I'm done drawing",()=>{greenResult("Your picture is your expression",["You can keep it on this screen or share it with someone you trust."],"Your picture is not saved.");greenSupportOptions.replaceChildren();greenButton("Choose another activity",()=>showGreenSupport(currentGreenFeeling));});return;}
+ if(index===1){
+  const fields=[greenField("1. Something that made me smile...",false),greenField("2. Another good thing...",false),greenField("3. One more thing...",false)];
+  fields.forEach(f=>greenSupportOptions.appendChild(f));
+  greenButton("Show my three good things",()=>{const values=fields.map(f=>f.value.trim());if(values.some(v=>!v)){greenSupportQuestion.textContent="Please fill in all three little moments first.";return;}greenResult("My happy moments ✨",values,"It's lovely to notice the good things in our day.");greenSupportOptions.replaceChildren();greenButton("Choose another activity",()=>showGreenSupport(currentGreenFeeling));});
+  return;
+ }
+ if(index===2){
+  const field=greenField("I am proud that I...",true);greenSupportOptions.appendChild(field);
+  greenButton("Celebrate my achievement",()=>{if(!field.value.trim()){greenSupportQuestion.textContent="Write one little achievement first.";return;}greenResult("Well done! 🌟",[field.value.trim()],"Every little achievement counts.");greenSupportOptions.replaceChildren();greenButton("Choose another activity",()=>showGreenSupport(currentGreenFeeling));});
+  return;
+ }
+ if(index===3){
+  const choices=["Give someone a compliment","Ask someone if they need help","Invite someone to play with me","Say something kind to someone","Ask someone who looks sad if they would like company"];
+  choices.forEach(value=>greenButton(value,()=>{greenSupportOptions.replaceChildren();greenResult("Your kindness mission 💚",[value],"Now go and do it! You can offer kindness, but you are not responsible for changing how someone else feels.");greenButton("Choose another activity",()=>showGreenSupport(currentGreenFeeling));}));
+  return;
+ }
+ if(index===4){
+  const field=greenField("One thing I imagined was...",false);
+  greenSupportOptions.appendChild(field);
+  greenButton("Show my idea",()=>{if(!field.value.trim()){greenSupportQuestion.textContent="Write or draw one detail from your happy place.";return;}greenResult("A little moment of imagination ☁️",[field.value.trim()],"You can share your idea or keep it just for yourself.");greenSupportOptions.replaceChildren();greenButton("Choose another activity",()=>showGreenSupport(currentGreenFeeling));});
+  return;
+ }
+ ["Stretch your arms gently","Do 5 shoulder rolls","Stand and reach up high","Make up a happy dance"].forEach(value=>greenButton(value,()=>{greenSupportOptions.replaceChildren();greenResult("Your movement challenge 🎵",[value+" for about 1 minute."],"Move safely in your space and stop if anything feels uncomfortable.");greenButton("Choose another activity",()=>showGreenSupport(currentGreenFeeling));}));
+}
+let currentGreenFeeling="";
+const originalShowGreenSupport=showGreenSupport;
+showGreenSupport=function(feeling){currentGreenFeeling=feeling;originalShowGreenSupport(feeling);};
+function addGreenDrawingPad(){
+ const wrap=document.createElement("div");wrap.className="feeling-drawing";
+ const tools=document.createElement("div");tools.className="drawing-tools";
+ const canvas=document.createElement("canvas");canvas.className="feeling-drawing-canvas";canvas.width=600;canvas.height=300;canvas.setAttribute("aria-label","Drawing area");
+ const ctx=canvas.getContext("2d");ctx.fillStyle="#fff";ctx.fillRect(0,0,600,300);
+ let colour="#315E8A",drawing=false;
+ [["#315E8A","Blue"],["#E58A9B","Pink"],["#E5B84B","Yellow"],["#5B9B72","Green"],["#8B72B8","Purple"],["#26364A","Dark"]].forEach(([c,n])=>{const b=document.createElement("button");b.type="button";b.className="drawing-colour";b.style.backgroundColor=c;b.title=n;b.addEventListener("click",()=>colour=c);tools.appendChild(b);});
+ const clear=document.createElement("button");clear.type="button";clear.className="drawing-tool-button";clear.textContent="Clear";clear.addEventListener("click",()=>{ctx.clearRect(0,0,600,300);ctx.fillStyle="#fff";ctx.fillRect(0,0,600,300);});tools.appendChild(clear);
+ function pos(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*600/r.width,y:(e.clientY-r.top)*300/r.height};}
+ canvas.addEventListener("pointerdown",e=>{drawing=true;canvas.setPointerCapture(e.pointerId);const p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);});
+ canvas.addEventListener("pointermove",e=>{if(!drawing)return;const p=pos(e);ctx.lineWidth=5;ctx.lineCap="round";ctx.strokeStyle=colour;ctx.lineTo(p.x,p.y);ctx.stroke();});
+ ["pointerup","pointercancel","lostpointercapture"].forEach(name=>canvas.addEventListener(name,()=>drawing=false));
+ const hint=document.createElement("p");hint.className="drawing-hint";hint.textContent="Use your mouse, finger or stylus. Your picture stays on this screen and is not saved.";
+ wrap.append(tools,canvas,hint);greenSupportResult.appendChild(wrap);greenSupportResult.hidden=false;
 }
 
 function showYearGroup(yearGroupId) {
