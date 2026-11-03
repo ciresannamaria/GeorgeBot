@@ -23,6 +23,15 @@ const blueSupportOptions = document.getElementById("blue-support-options");
 const blueSupportResult = document.getElementById("blue-support-result");
 const blueSupportBack = document.getElementById("blue-support-back");
 const greenSupport = document.getElementById("green-support");
+const yellowSupport=document.getElementById("yellow-support");
+const yellowSupportProgress=document.getElementById("yellow-support-progress");
+const yellowSupportTitle=document.getElementById("yellow-support-title");
+const yellowSupportQuestion=document.getElementById("yellow-support-question");
+const yellowSupportOptions=document.getElementById("yellow-support-options");
+const yellowSupportResult=document.getElementById("yellow-support-result");
+const yellowHumanConnection=document.getElementById("yellow-human-connection");
+const redSupport=document.getElementById("red-support");
+
 const greenSupportBack = document.getElementById("green-support-back");
 const activitiesHub = document.getElementById("activities-hub");
 const yearGroupButtons = document.querySelectorAll(".year-group-button");
@@ -72,6 +81,8 @@ function showCalmingCorner() {
     zoneFeelings.hidden = true;
     blueSupport.hidden = true;
     greenSupport.hidden = true;
+    yellowSupport.hidden = true;
+    redSupport.hidden = true;
     resetBlueSupport();
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 }
@@ -123,6 +134,10 @@ function showZoneFeelings(zone) {
             button.addEventListener("click", function() { showBlueSupport(feeling); });
         } else if (zone === "green") {
             button.addEventListener("click", function() { showGreenSupport(feeling); });
+        } else if (zone === "yellow") {
+            button.addEventListener("click", function() { showYellowSupport(feeling); });
+        } else if (zone === "red") {
+            button.addEventListener("click", showRedSupport);
         }
         zoneFeelingsList.appendChild(button);
     });
@@ -147,6 +162,8 @@ backToZonesButton.addEventListener("click", function() {
     zoneFeelings.hidden = true;
     blueSupport.hidden = true;
     greenSupport.hidden = true;
+    yellowSupport.hidden = true;
+    redSupport.hidden = true;
     document.querySelector(".zones-grid").hidden = false;
     zoneSelectionMessage.textContent = "There is no right or wrong answer.";
 });
@@ -158,6 +175,8 @@ greenSupportBack.addEventListener("click", function() {
     greenSupport.hidden = true;
     zoneFeelings.hidden = false;
 });
+document.getElementById("yellow-support-back").addEventListener("click",()=>{yellowSupport.hidden=true;zoneFeelings.hidden=false;});
+document.getElementById("red-support-back").addEventListener("click",()=>{redSupport.hidden=true;zoneFeelings.hidden=false;});
 
 backToStartButton.addEventListener("click", showStartScreen);
 
@@ -347,6 +366,58 @@ function addGreenDrawingPad(){
  ["pointerup","pointercancel","lostpointercapture"].forEach(name=>canvas.addEventListener(name,()=>drawing=false));
  const hint=document.createElement("p");hint.className="drawing-hint";hint.textContent="Use your mouse, finger or stylus. Your picture stays on this screen and is not saved.";
  wrap.append(tools,canvas,hint);greenSupportResult.appendChild(wrap);greenSupportResult.hidden=false;
+}
+
+
+// Human connection is available in every zone, not only when an activity has not helped.
+function showHumanConnection(title,question,result,options){
+ title.textContent="You can talk to someone";
+ question.textContent="Find your teacher or another trusted adult. You can tell them how you feel, ask them to listen, or simply ask them to stay with you.";
+ result.textContent="You could say: “I would like some help. Can you talk with me?” You can also show them this screen.";
+ result.hidden=false; options.replaceChildren();
+}
+document.getElementById("blue-human-connection").addEventListener("click",()=>showHumanConnection(blueSupportTitle,blueSupportQuestion,blueSupportResult,blueSupportOptions));
+document.getElementById("green-human-connection").addEventListener("click",()=>showHumanConnection(greenSupportTitle,greenSupportQuestion,greenSupportResult,greenSupportOptions));
+document.getElementById("yellow-human-connection").addEventListener("click",()=>showHumanConnection(yellowSupportTitle,yellowSupportQuestion,yellowSupportResult,yellowSupportOptions));
+document.getElementById("red-human-connection").addEventListener("click",()=>{const p=redSupport.querySelector("p");p.textContent="Please go to your teacher or another trusted adult now. You can show them this screen.";});
+function showRedSupport(){zoneFeelings.hidden=true;redSupport.hidden=false;}
+const yellowActivities=[
+ ["🌬️ Breathing break","Follow this gentle pattern for about 30–45 seconds: breathe in comfortably, then breathe out slowly. Repeat at your own pace. Do not hold or force your breath.","Breathing is optional. If it does not feel comfortable, choose another activity."],
+ ["🙆 Gentle movement","For about 1 minute: reach both arms up, lower them; roll your shoulders gently; stretch each arm across your body. Move slowly and stop if uncomfortable.","Choose only movements that feel safe for your body and space."],
+ ["🔢 Count and reset","Tap each number from 10 down to 1, slowly. Take about 30–45 seconds. Let your shoulders soften as you count.","You can start again or choose another tool."],
+ ["🧠 Brain Gym challenge","For about 1 minute, touch your right hand to your left knee, then your left hand to your right knee. Alternate slowly. You can do this seated too.","Go at your own pace. Stop if it feels uncomfortable."],
+ ["💬 My Inner Coach","Choose a helpful coach thought, then finish the sentence below. Take about 1 minute.","A helpful thought does not have to make the feeling disappear. It can help you choose your next step."],
+ ["🌿 Take a mental break","Pause for 1–2 minutes. Look quietly around you and find 5 things you can see. Notice their colours, shapes or details. Or sit quietly and rest your eyes.","If you would rather talk, you can choose the trusted adult button."]
+];
+function yellowButton(label,fn){const b=document.createElement("button");b.type="button";b.className="blue-support-option";b.textContent=label;b.addEventListener("click",fn);yellowSupportOptions.appendChild(b);}
+function showYellowSupport(feeling){
+ zoneFeelings.hidden=true;yellowSupport.hidden=false;yellowSupportOptions.replaceChildren();yellowSupportResult.hidden=true;
+ yellowSupportProgress.textContent="Choose a tool to slow down and refocus";
+ yellowSupportTitle.textContent=feeling+" — let's try a small reset";
+ yellowSupportQuestion.textContent="Choose one activity. You can stop at any time or ask a trusted adult for help.";
+ yellowActivities.forEach((a,i)=>yellowButton(a[0],()=>runYellowActivity(i)));
+}
+function runYellowActivity(index){
+ const a=yellowActivities[index];yellowSupportOptions.replaceChildren();yellowSupportProgress.textContent="Your activity";yellowSupportTitle.textContent=a[0];yellowSupportQuestion.textContent=a[1];yellowSupportResult.textContent=a[2];yellowSupportResult.hidden=false;
+ if(index===2){
+  let n=10;yellowSupportQuestion.textContent="Tap the numbers in order, slowly. Take about 30–45 seconds.";
+  const next=()=>{yellowSupportOptions.replaceChildren();if(n>0){yellowButton(String(n),()=>{n--;next();});}else{yellowSupportQuestion.textContent="You counted all the way down. Take one comfortable breath.";yellowButton("I've finished",showYellowCheckIn);}};
+  next();return;
+ }
+ if(index===4){
+  yellowSupportQuestion.textContent="Sometimes our first thought is unhelpful. Choose a kind, useful thought:";
+  ["I can take one small step.","I can ask someone to help me.","I can try again when I'm ready.","This feeling will change."].forEach(v=>yellowButton(v,()=>{yellowSupportOptions.replaceChildren();const field=document.createElement("input");field.className="green-writing-field";field.placeholder="My next step could be...";yellowSupportOptions.appendChild(field);yellowButton("Save my next step",()=>{yellowSupportQuestion.textContent="My Inner Coach says: “"+v+"”";yellowSupportResult.textContent=field.value.trim()?"My next step: "+field.value.trim():"You can choose one small next step when you are ready.";yellowButton("I've finished",showYellowCheckIn);});}));
+  return;
+ }
+ yellowButton("I've finished — check in",showYellowCheckIn);
+}
+function showYellowCheckIn(){
+ yellowSupportProgress.textContent="Check in with yourself";yellowSupportTitle.textContent="How are you feeling now?";yellowSupportQuestion.textContent="There is no right or wrong answer. You do not have to feel calm straight away.";yellowSupportResult.hidden=true;yellowSupportOptions.replaceChildren();
+ [["🙂 A little more settled","A little more settled"],["😐 About the same","About the same"],["😟 More overwhelmed","More overwhelmed"]].forEach(([label,value])=>yellowButton(label,()=>{
+  yellowSupportOptions.replaceChildren();yellowSupportTitle.textContent=value==="A little more settled"?"I'm glad you checked in 💛":"Thank you for checking in.";
+  yellowSupportQuestion.textContent=value==="More overwhelmed"?"Please find a trusted adult now. You do not have to manage this alone.":value==="About the same"?"Would you like to try a different tool or talk with someone?":"You can return to your day or choose another tool.";
+  yellowButton("↻ Try another activity",()=>showYellowSupport("Yellow Zone"));
+ }));
 }
 
 function showYearGroup(yearGroupId) {
