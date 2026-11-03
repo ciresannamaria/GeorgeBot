@@ -129,7 +129,7 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
 .chat-header{position:relative;padding-right:58px}
 .noise-meter-open{margin-left:auto;flex:0 0 30px;width:30px;height:30px;border:1px solid rgba(255,255,255,.28);border-radius:8px;background:rgba(255,255,255,.08);color:#fff;font-size:17px;cursor:pointer;opacity:.72}
 .noise-meter-open:hover,.noise-meter-open:focus-visible{opacity:1;background:rgba(255,255,255,.18);outline:2px solid #fff;outline-offset:2px}
-.noise-meter-panel{position:absolute;z-index:30;top:72px;right:14px;width:min(350px,calc(100% - 28px));padding:17px;background:#fff;border:1px solid #d5dce2;border-radius:14px;box-shadow:0 10px 35px rgba(14,32,74,.22);color:#0E204A}
+.noise-meter-panel{position:fixed;inset:0;z-index:99999;width:100vw;height:100vh;height:100dvh;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px max(18px,env(safe-area-inset-right)) 28px max(18px,env(safe-area-inset-left));background:#f5f7fa;color:#0E204A;border:0;border-radius:0;box-shadow:none;text-align:center}
 .noise-meter-panel[hidden]{display:none}
 .noise-meter-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .noise-meter-top h2{font-size:17px}
@@ -149,3 +149,18 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
 .noise-meter-actions button{flex:1;padding:9px;border:0;border-radius:8px;background:#0E204A;color:white;font-weight:600;cursor:pointer}
 .noise-meter-actions button:disabled{opacity:.4;cursor:not-allowed}
 .noise-meter-actions button:last-child{background:#e9edf2;color:#26364a}
+
+.noise-meter-panel[hidden]{display:none!important}
+.noise-meter-panel>*{width:min(100%,520px)}
+.noise-meter-panel .noise-meter-top{margin-bottom:10px}
+.noise-meter-panel .noise-meter-top h2{font-size:clamp(22px,4vw,30px)}
+.noise-meter-panel .noise-meter-reading{margin:clamp(24px,7vh,60px) 0 18px}
+.noise-meter-panel .noise-meter-reading span{font-size:clamp(76px,18vw,150px);line-height:1}
+.noise-meter-panel .noise-meter-track{height:24px;margin:10px 0 30px}
+.noise-meter-panel .noise-meter-setting{text-align:left;font-size:16px;margin-top:24px}
+.noise-meter-panel #noise-meter-limit{height:30px}
+.noise-meter-panel .noise-meter-alert{font-size:15px;justify-content:center;margin:24px 0}
+.noise-meter-panel .noise-meter-status{font-size:17px;min-height:26px;margin:22px 0}
+.noise-meter-panel .noise-meter-actions button{padding:14px;font-size:16px}
+.noise-meter-panel .noise-meter-note,.noise-meter-panel .noise-meter-private{font-size:13px}
+.noise-meter-panel .noise-meter-top button{font-size:32px;padding:4px 12px}
