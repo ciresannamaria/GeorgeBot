@@ -21,6 +21,7 @@
    <button id="noise-meter-open" class="noise-meter-open" type="button" aria-label="Open teacher noise meter" title="Teacher noise meter" onclick="document.getElementById('noise-meter-panel').hidden=false">♫</button>
   </header>
   <section id="noise-meter-panel" class="noise-meter-panel" role="dialog" aria-modal="true" aria-labelledby="noise-meter-title" hidden>
+   <div class="noise-meter-shell">
    <div class="noise-meter-top"><h2 id="noise-meter-title">Classroom noise meter</h2><button id="noise-meter-close" type="button" aria-label="Close noise meter">×</button></div>
    <p class="noise-meter-private">Teacher tool · Microphone audio is analysed in this browser and is not recorded.</p>
    <div class="noise-meter-reading"><span id="noise-meter-value">—</span><small>relative noise level</small></div>
@@ -31,6 +32,8 @@
    <p id="noise-meter-status" class="noise-meter-status" aria-live="polite">Press Start and allow microphone access.</p>
    <div class="noise-meter-actions"><button id="noise-meter-start" type="button">Start measuring</button><button id="noise-meter-stop" type="button" disabled>Stop</button></div>
    <p class="noise-meter-note">This is an approximate relative level, not a calibrated decibel (dB) measurement. Results depend on your device and microphone.</p>
+
+   </div>
   </section>
   <main id="start-screen" class="start-screen">
    <div class="start-message"><div class="message bot-message"><strong>GeorgeBot</strong><p>Hi! I'm GeorgeBot 🤖</p><p>What would you like to do today?</p></div></div>
