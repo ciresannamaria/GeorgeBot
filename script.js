@@ -1051,7 +1051,16 @@ form.addEventListener("submit", function(event) {
  open.addEventListener("click",showPanel);close.addEventListener("click",hidePanel);panel.addEventListener("click",e=>{if(e.target===panel)e.stopPropagation();});
  limit.addEventListener("input",()=>{limitValue.textContent=limit.value;});
  start.addEventListener("click",async()=>{if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){status.textContent="Microphone access is not supported in this browser.";return;}start.disabled=true;status.textContent="Requesting microphone access…";try{context=new (window.AudioContext||window.webkitAudioContext)();await context.resume();stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});analyser=context.createAnalyser();analyser.fftSize=2048;source=context.createMediaStreamSource(stream);source.connect(analyser);stop.disabled=false;status.textContent="Listening… Monitoring continues if you close this panel or move around GeorgeBot.";measure();}catch(error){stopMeter();status.textContent=error.name==="NotAllowedError"?"Microphone permission was denied. Allow access in your browser settings.":"Could not start the microphone. Check that it is connected and available.";}});
- testSound.addEventListener("click",async()=>{try{if(!context||context.state==="closed")context=new (window.AudioContext||window.webkitAudioContext)();await context.resume();const played=await beep(true);status.textContent=played?"Sound test played. If you cannot hear it, check device volume and output."; }catch(error){status.textContent="Sound test failed. Check browser audio permissions and device volume.";}});
+ testSound.addEventListener("click", async () => {
+  try {
+   if (!context || context.state === "closed") context = new (window.AudioContext || window.webkitAudioContext)();
+   await context.resume();
+   const played = await beep(true);
+   status.textContent = played ? "Sound test played. If you cannot hear it, check device volume and output." : "Sound is unavailable. Check browser audio settings.";
+  } catch (error) {
+   status.textContent = "Sound test failed. Check browser audio settings and device volume.";
+  }
+ });
  stop.addEventListener("click",stopMeter);
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden)hidePanel();});
  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&analyser&&frame===null){if(context&&context.state==="suspended")context.resume().catch(()=>{});measure();}});
