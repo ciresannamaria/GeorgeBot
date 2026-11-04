@@ -1031,7 +1031,6 @@ form.addEventListener("submit", function(event) {
  const close=document.getElementById("noise-meter-close");
  const start=document.getElementById("noise-meter-start");
  const stop=document.getElementById("noise-meter-stop");
- const testSound=document.getElementById("noise-meter-test-sound");
  const limit=document.getElementById("noise-meter-limit");
  const limitValue=document.getElementById("noise-meter-limit-value");
  const value=document.getElementById("noise-meter-value");
@@ -1042,25 +1041,41 @@ form.addEventListener("submit", function(event) {
  function showPanel(){panel.hidden=false;}
  function hidePanel(){panel.hidden=true;}
  function stopMeter(){if(frame!==null)cancelAnimationFrame(frame);frame=null;if(stream)stream.getTracks().forEach(track=>track.stop());stream=null;if(context&&context.state!=="closed")context.close().catch(()=>{});context=null;analyser=null;source=null;start.disabled=false;stop.disabled=true;status.textContent="Measurement stopped. Press Start to measure again.";}
- async function beep(force=false){if((!sound.checked&&!force)||!context)return false;try{if(context.state!=="running")await context.resume();if(context.state!=="running")return false;const now=context.currentTime;[0,0.22].forEach(delay=>{const osc=context.createOscillator(),gain=context.createGain();osc.type="sine";osc.frequency.setValueAtTime(1046,now+delay);gain.gain.setValueAtTime(0.0001,now+delay);gain.gain.linearRampToValueAtTime(0.28,now+delay+0.025);gain.gain.setValueAtTime(0.28,now+delay+0.13);gain.gain.linearRampToValueAtTime(0.0001,now+delay+0.2);osc.connect(gain);gain.connect(context.destination);osc.start(now+delay);osc.stop(now+delay+0.22);});return true;}catch(e){status.textContent="Could not play sound. Check your device volume and browser audio settings.";return false;}}
+ function beep(){
+  if(!sound.checked||!context||context.state!=="running"){
+   if(sound.checked) status.textContent="Alert sound is unavailable. Press Start again to enable audio.";
+   return false;
+  }
+  try{
+   const now=context.currentTime;
+   [0,0.24].forEach((delay)=>{
+    const osc=context.createOscillator();
+    const gain=context.createGain();
+    osc.type="sine";
+    osc.frequency.setValueAtTime(1046,now+delay);
+    gain.gain.setValueAtTime(0.0001,now+delay);
+    gain.gain.linearRampToValueAtTime(0.28,now+delay+0.025);
+    gain.gain.setValueAtTime(0.28,now+delay+0.14);
+    gain.gain.linearRampToValueAtTime(0.0001,now+delay+0.21);
+    osc.connect(gain);
+    gain.connect(context.destination);
+    osc.start(now+delay);
+    osc.stop(now+delay+0.23);
+   });
+   return true;
+  }catch(error){
+   status.textContent="Could not play alert. Check your device volume.";
+   return false;
+  }
+ }
  function measure(){if(!analyser)return;const data=new Uint8Array(analyser.fftSize);analyser.getByteTimeDomainData(data);let sum=0;for(let i=0;i<data.length;i++){const n=(data[i]-128)/128;sum+=n*n;}const rms=Math.sqrt(sum/data.length);
   // Use a gentler relative scale and smooth short microphone fluctuations. This is not dB SPL.
   const rawLevel=Math.max(0,Math.min(100,Math.round(20*Math.log10(Math.max(rms,0.00001))+75)));
   smoothedLevel=smoothedLevel===null?rawLevel:(smoothedLevel*0.82+rawLevel*0.18);const level=Math.round(smoothedLevel);
-  value.textContent=String(level);bar.style.width=level+"%";const threshold=Number(limit.value);bar.classList.toggle("over-limit",level>=threshold);if(level>=threshold){if(!aboveSince)aboveSince=Date.now();status.textContent="Noise limit exceeded";if(Date.now()-aboveSince>900&&Date.now()-lastAlert>3000){beep();lastAlert=Date.now();}}else{aboveSince=0;status.textContent="Noise level is within your limit";}frame=requestAnimationFrame(measure);}
+  value.textContent=String(level);bar.style.width=level+"%";const threshold=Number(limit.value);bar.classList.toggle("over-limit",level>=threshold);if(level>=threshold){if(!aboveSince)aboveSince=Date.now();status.textContent="Noise limit exceeded";if(Date.now()-aboveSince>900&&Date.now()-lastAlert>3000){if(beep()){lastAlert=Date.now();status.textContent="Noise limit exceeded — alert sound played";}else{lastAlert=Date.now();}}}else{aboveSince=0;status.textContent="Noise level is within your limit";}frame=requestAnimationFrame(measure);}
  open.addEventListener("click",showPanel);close.addEventListener("click",hidePanel);panel.addEventListener("click",e=>{if(e.target===panel)e.stopPropagation();});
  limit.addEventListener("input",()=>{limitValue.textContent=limit.value;});
  start.addEventListener("click",async()=>{if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){status.textContent="Microphone access is not supported in this browser.";return;}start.disabled=true;status.textContent="Requesting microphone access…";try{context=new (window.AudioContext||window.webkitAudioContext)();await context.resume();stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});analyser=context.createAnalyser();analyser.fftSize=2048;source=context.createMediaStreamSource(stream);source.connect(analyser);stop.disabled=false;status.textContent="Listening… Monitoring continues if you close this panel or move around GeorgeBot.";measure();}catch(error){stopMeter();status.textContent=error.name==="NotAllowedError"?"Microphone permission was denied. Allow access in your browser settings.":"Could not start the microphone. Check that it is connected and available.";}});
- testSound.addEventListener("click", async () => {
-  try {
-   if (!context || context.state === "closed") context = new (window.AudioContext || window.webkitAudioContext)();
-   await context.resume();
-   const played = await beep(true);
-   status.textContent = played ? "Sound test played. If you cannot hear it, check device volume and output." : "Sound is unavailable. Check browser audio settings.";
-  } catch (error) {
-   status.textContent = "Sound test failed. Check browser audio settings and device volume.";
-  }
- });
  stop.addEventListener("click",stopMeter);
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden)hidePanel();});
  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&analyser&&frame===null){if(context&&context.state==="suspended")context.resume().catch(()=>{});measure();}});
