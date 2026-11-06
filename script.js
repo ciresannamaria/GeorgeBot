@@ -41,8 +41,6 @@ function showStartScreen() {
 askGeorgeButton.addEventListener("click", showChat);
 chatBackButton.addEventListener("click", showStartScreen);
 activitiesStartButton.addEventListener("click", showActivitiesHub);
-calmingCornerStartButton.addEventListener("click", showCalmingCorner);
-calmingBackButton.addEventListener("click", showStartScreen);
 
 function showYearGroup(yearGroupId) {
     yearSections.forEach(function(section) {
