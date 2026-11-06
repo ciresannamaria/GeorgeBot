@@ -5,7 +5,6 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>GeorgeBot</title>
  <link rel="stylesheet" href="style.css">
- <link rel="stylesheet" href="calming.css">
  <link rel="stylesheet" href="teaching.css">
  <link rel="stylesheet" href="resources/cats.css">
  <link rel="stylesheet" href="resources/number-game.css">
@@ -40,7 +39,7 @@
    <div class="start-options">
     <button id="ask-george-button" class="start-option" type="button"><span class="start-option-icon">💬</span><span class="start-option-title">Ask George</span><span class="start-option-description">Ask a Computing question</span></button>
     <button id="activities-start-button" class="start-option" type="button"><span class="start-option-icon">🚀</span><span class="start-option-title">Activities</span><span class="start-option-description">Explore Computing activities</span></button>
-    <button id="calming-corner-start-button" class="start-option calming-start-option" type="button"><span class="start-option-icon">💙💚💛❤️</span><span class="start-option-title">Digital Calming Corner</span><span class="start-option-description">Explore your feelings</span></button>
+    <a id="calming-corner-start-button" class="start-option calming-start-option" href="https://sgsdd-school.github.io/digital-calming-corner/"><span class="start-option-icon">💙💚💛❤️</span><span class="start-option-title">Digital Calming Corner</span><span class="start-option-description">Explore your feelings</span></a>
    </div>
   </main>
   <main id="activities-hub" class="activities-hub" hidden>
@@ -56,60 +55,6 @@
     <section id="years5-6" class="year-section" hidden><h3>🟣 Years 5–6</h3><div class="activity-category"><h4>💻 Coding</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>💡 Computing Activities</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>🎨 Create &amp; Design</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div></section>
    </div>
    <button id="back-to-start-button" class="back-to-start-button" type="button">← Back</button>
-  </main>
-  <main id="calming-corner" class="calming-corner" hidden>
-   <div class="calming-header"><h2>💚 Digital Calming Corner</h2><p>How are you feeling right now?</p><span>Choose the zone that feels closest to you.</span></div>
-   <div class="zones-grid" aria-label="Choose how you are feeling">
-    <button class="zone-card zone-blue" type="button" data-zone="blue" aria-pressed="false"><span class="zone-symbol">🔵</span><strong>BLUE ZONE</strong><span>Low energy</span><small>Tired · Sad · Bored</small></button>
-    <button class="zone-card zone-green" type="button" data-zone="green" aria-pressed="false"><span class="zone-symbol">🟢</span><strong>GREEN ZONE</strong><span>Just right</span><small>Calm · Happy · Focused</small></button>
-    <button class="zone-card zone-yellow" type="button" data-zone="yellow" aria-pressed="false"><span class="zone-symbol">🟡</span><strong>YELLOW ZONE</strong><span>Heightened feelings</span><small>Worried · Excited · Frustrated</small></button>
-    <button class="zone-card zone-red" type="button" data-zone="red" aria-pressed="false"><span class="zone-symbol">🔴</span><strong>RED ZONE</strong><span>Intense feelings</span><small>Angry · Scared · Out of control</small></button>
-    <button class="zone-card zone-unsure" type="button" data-zone="unsure" aria-pressed="false"><span class="zone-symbol">❔</span><strong>NOT SURE</strong><span>That's okay!</span><small>You can choose this too.</small></button>
-   </div>
-   <p class="zone-mix-note">You can feel more than one feeling at the same time. If two zones feel right, choose one activity from either zone, check in with yourself, and then try an activity from the other zone if you like.</p>
-   <section id="zone-feelings" class="zone-feelings" hidden aria-live="polite">
-    <h3 id="zone-feelings-title">How are you feeling?</h3>
-    <p>Choose the feeling that fits you best.</p>
-    <div id="zone-feelings-list" class="zone-feelings-list"></div>
-    <button id="back-to-zones-button" class="back-to-zones-button" type="button">← Back to zones</button>
-   </section>
-   <section id="unsure-support" class="blue-support unsure-support" hidden aria-live="polite"><div id="unsure-support-progress" class="blue-support-progress"></div><h3 id="unsure-support-title">It is okay not to know</h3><p id="unsure-support-question"></p><div id="unsure-support-options" class="blue-support-options"></div><div id="unsure-support-result" class="blue-support-result" hidden></div><button id="unsure-human-connection" class="human-connection-button" type="button">Talk to a trusted adult</button><button id="unsure-support-back" class="back-to-zones-button" type="button">Back to zones</button></section>
-   <section id="blue-support" class="blue-support" hidden aria-live="polite">
-    <div id="blue-support-progress" class="blue-support-progress"></div>
-    <h3 id="blue-support-title"></h3>
-    <p id="blue-support-question"></p>
-    <div id="blue-support-options" class="blue-support-options"></div>
-    <div id="blue-support-result" class="blue-support-result" hidden></div>
-    <button id="blue-human-connection" class="human-connection-button" type="button">🤝 Talk to a trusted adult</button>
-    <button id="blue-support-back" class="back-to-zones-button" type="button">← Back to feelings</button>
-   </section>
-   <section id="green-support" class="blue-support green-support" hidden aria-live="polite">
-    <div id="green-support-progress" class="blue-support-progress"></div>
-    <h3 id="green-support-title"></h3>
-    <p id="green-support-question"></p>
-    <div id="green-support-options" class="blue-support-options"></div>
-    <div id="green-support-result" class="blue-support-result" hidden></div>
-    <button id="green-human-connection" class="human-connection-button" type="button">🤝 Share this moment with someone</button>
-    <button id="green-support-back" class="back-to-zones-button" type="button">← Back to feelings</button>
-   </section>
-   <section id="yellow-support" class="blue-support yellow-support" hidden aria-live="polite">
-    <div id="yellow-support-progress" class="blue-support-progress"></div><h3 id="yellow-support-title"></h3><p id="yellow-support-question"></p>
-    <div id="yellow-support-options" class="blue-support-options"></div><div id="yellow-support-result" class="blue-support-result" hidden></div>
-    <button id="yellow-human-connection" class="human-connection-button" type="button">🤝 Talk to a trusted adult</button>
-    <button id="yellow-support-back" class="back-to-zones-button" type="button">← Back to feelings</button>
-   </section>
-   <section id="red-support" class="blue-support red-support" hidden aria-live="polite">
-    <div id="red-support-progress" class="blue-support-progress"></div>
-    <h3 id="red-support-title">Your feelings are very strong right now</h3>
-    <p id="red-support-question">You do not have to push your feelings away. Let's try one safe way to help your body settle a little. You can stop at any time.</p>
-    <div id="red-support-options" class="blue-support-options"></div>
-    <div id="red-support-result" class="blue-support-result" hidden></div>
-    <p class="red-safety-note">If you or someone else is in danger, or you might hurt yourself or someone else, get a trusted adult immediately. You do not need to finish an activity first.</p>
-    <button id="red-human-connection" class="human-connection-button" type="button">🤝 Talk to a trusted adult</button>
-    <button id="red-support-back" class="back-to-zones-button" type="button">← Back to feelings</button>
-   </section>
-   <p id="zone-selection-message" class="zone-selection-message" aria-live="polite">There is no right or wrong answer.</p>
-   <button id="calming-back-button" class="back-to-start-button" type="button">← Back</button>
   </main>
   <main id="chat" hidden><button id="chat-back-button" class="back-to-start-button chat-back-button" type="button">← Back to home</button><div class="message bot-message"><strong>GeorgeBot</strong><p>Hello! 👋 I'm GeorgeBot. Ask me something about Computing!</p></div></main>
   <aside id="activities-menu" class="activities-menu" hidden><div class="activities-menu-header"><strong>Activities</strong><button id="close-activities-button" type="button" aria-label="Close Activities menu">×</button></div><button id="tic-tac-toe-button" class="activity-button" type="button">Tic-Tac-Toe</button><button id="chess-button" class="activity-button" type="button">♟️ Chess</button><button class="activity-button activity-coming-soon" type="button" disabled>More coming soon...</button></aside>
