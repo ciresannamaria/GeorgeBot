@@ -368,6 +368,86 @@ const knowledge = [
         "Coding is writing instructions that tell a computer what to do."
 },
 
+// -----------------------------------------
+// FIRST LEGO LEAGUE (FLL)
+// -----------------------------------------
+{
+    topic: "FIRST LEGO League — What is FLL?",
+    keywords: [
+        "what is fll", "what is first lego league", "what's first lego league",
+        "tell me about first lego league", "what do you do in fll",
+        "what is the lego league", "what is first lego league about"
+    ],
+    answer:
+        "FIRST LEGO League, or FLL, is a worldwide learning programme where children explore science, technology, engineering and maths (STEM). 🤖🌍 Teams work together to investigate a real-world theme, design and build, program and test technology, and share their ideas. It is about learning, creativity, teamwork and solving problems — not just building a robot!"
+},
+
+{
+    topic: "FIRST LEGO League — What do teams do?",
+    keywords: [
+        "what do you do in fll", "what do fll teams do", "what happens in first lego league",
+        "what are the fll activities", "what do we need to do in fll",
+        "what is an fll team"
+    ],
+    answer:
+        "In FIRST LEGO League, teams learn about the season's theme, investigate a real-world problem, develop and share an idea, and build and program technology to complete missions. Teams practise testing, improving, explaining their thinking and working together. The exact activities depend on the FLL programme edition."
+},
+
+{
+    topic: "FIRST LEGO League — This year's theme",
+    keywords: [
+        "what is this year's fll topic", "what is this years fll topic",
+        "what is the fll theme this year", "what is this year's fll theme",
+        "what is the topic for fll", "what is the theme for first lego league",
+        "what are we learning about in fll", "what is bioglow", "bioglow"
+    ],
+    answer:
+        "The FIRST LEGO League theme for 2026–2027 is BIOGLOW! 🌿✨ This season is all about biodiversity — the variety of living things on Earth and how plants, animals and other organisms are connected in ecosystems. We explore how people, nature and technology can work together to understand, protect and restore natural habitats. The season motto is “Engineer a Thriving Planet.”"
+},
+
+{
+    topic: "FIRST LEGO League — What is biodiversity?",
+    keywords: [
+        "what is biodiversity", "what does biodiversity mean", "explain biodiversity",
+        "why is biodiversity important", "what are ecosystems", "what is an ecosystem"
+    ],
+    answer:
+        "Biodiversity means the variety of life on Earth. 🌳🐝 It includes different plants, animals, fungi and tiny living things, as well as the ecosystems where they live. Biodiversity matters because living things depend on one another. Healthy ecosystems help provide food, clean water, healthy soil and places for wildlife to live."
+},
+
+{
+    topic: "FIRST LEGO League — What is our innovation project?",
+    keywords: [
+        "what is the innovation project", "what do we do for the innovation project",
+        "what is our fll project", "what problem do we research in fll",
+        "what do we need to research", "what is the research project"
+    ],
+    answer:
+        "The Innovation Project is where your team investigates a problem connected to this year's theme, biodiversity. You choose an issue that can harm biodiversity, learn about it, and develop an original idea for a solution. You should explain the problem, how your idea could help, and share what you discovered. You can investigate an ecosystem near you or somewhere else in the world."
+},
+
+{
+    topic: "FIRST LEGO League — Future Edition 8+",
+    keywords: [
+        "what is future edition", "what is fll future edition",
+        "what do we use in future edition", "what kit do we use for fll",
+        "what is computer science and ai in fll", "how do we play the future edition game"
+    ],
+    answer:
+        "In FIRST LEGO League Future Edition 8+, teams use LEGO Education Computer Science & AI technology to build and code wireless hardware. Teams work together in an alliance-style game, moving across the playing mat to complete missions during a two-and-a-half-minute match. They also explore biodiversity through their Innovation Project. 🤖🌱"
+},
+
+{
+    topic: "FIRST LEGO League — Teamwork and Core Values",
+    keywords: [
+        "what are the fll core values", "what are first core values",
+        "why is teamwork important in fll", "what is coopertition",
+        "what is gracious professionalism", "what makes a good fll team"
+    ],
+    answer:
+        "FIRST LEGO League is about more than technology. Its Core Values are Discovery, Innovation, Impact, Inclusion, Teamwork and Fun. Teams learn new things, try creative ideas, help others, respect different contributions and enjoy learning together. 🤝"
+},
+
 // =========================================
 // YEAR 4
 // =========================================
