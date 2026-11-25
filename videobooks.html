@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0E204A">
+  <title>Videobooks | GeorgeBot</title>
+  <link rel="stylesheet" href="videobooks.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <main class="library-shell">
+    <header class="library-header">
+      <a class="back-link" href="index.html">← Back to GeorgeBot</a>
+      <div class="library-heading">
+        <span class="library-kicker">GEORGEBOT LIBRARY</span>
+        <h1>📚 Videobooks</h1>
+        <p>Choose your year group and explore a story.</p>
+      </div>
+    </header>
+
+    <nav class="year-tabs" aria-label="Choose your year group">
+      <a class="year-tab years-1-2" href="#years1-2">Years 1–2</a>
+      <a class="year-tab years-3-4" href="#years3-4">Years 3–4</a>
+      <a class="year-tab years-5-6" href="#years5-6">Years 5–6</a>
+    </nav>
+
+    <section class="year-library" id="years1-2">
+      <div class="year-title"><span>🟢</span><div><h2>Years 1–2</h2><p>Stories for our younger learners</p></div></div>
+      <div class="empty-library">More videobooks coming soon!</div>
+    </section>
+
+    <section class="year-library" id="years3-4">
+      <div class="year-title"><span>🔵</span><div><h2>Years 3–4</h2><p>Stories to explore and discuss</p></div></div>
+      <article class="videobook-card">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/3SBidapSdf0?rel=0"
+            title="Trolls — videobook"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="videobook-details">
+          <span class="content-label">▶ VIDEObook</span>
+          <h3>Trolls</h3>
+          <p>Watch the story here in GeorgeBot. When you have finished, think about what happened in the story and what you learned.</p>
+          <p class="video-note">Video hosted by YouTube and displayed here using its privacy-enhanced embed player.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="year-library" id="years5-6">
+      <div class="year-title"><span>🟣</span><div><h2>Years 5–6</h2><p>Stories for confident explorers</p></div></div>
+      <div class="empty-library">More videobooks coming soon!</div>
+    </section>
+
+    <footer class="library-footer">Keep exploring, keep asking questions! 🤖</footer>
+  </main>
+</body>
+</html>
