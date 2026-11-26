@@ -287,3 +287,33 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
  .noise-meter-panel .noise-meter-shell{border-radius:20px;padding:16px}
  .noise-meter-panel .noise-meter-track{width:90%}
 }
+
+
+/* Compact back navigation for the main GeorgeBot sections */
+.section-back-button{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ width:40px;
+ height:40px;
+ flex:0 0 40px;
+ margin:0 0 16px;
+ border:1px solid #dce3eb;
+ border-radius:12px;
+ background:linear-gradient(145deg,#ffffff,#eef2f7);
+ color:#0E204A;
+ font-size:25px;
+ line-height:1;
+ cursor:pointer;
+ box-shadow:0 2px 7px rgba(14,32,74,.08);
+ transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.section-back-button:hover{
+ transform:translateX(-2px);
+ background:#e8eef5;
+ box-shadow:0 4px 12px rgba(14,32,74,.13);
+}
+.section-back-button:focus-visible{outline:3px solid #004681;outline-offset:3px}
+#activities-hub>.section-back-button{margin:0 0 12px}
+#chat>.section-back-button{align-self:flex-start;margin:0 0 2px}
+@media(prefers-reduced-motion:reduce){.section-back-button{transition:none}}
