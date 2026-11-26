@@ -31,7 +31,6 @@
    <p id="noise-meter-status" class="noise-meter-status" aria-live="polite">Press Start and allow microphone access.</p>
    <div class="noise-meter-actions"><button id="noise-meter-start" type="button">Start</button><button id="noise-meter-stop" type="button" disabled>Stop</button></div>
    <p class="noise-meter-note">This is an approximate relative level, not a calibrated decibel (dB) measurement. Results depend on your device and microphone.</p>
-
    </div>
   </section>
   <main id="start-screen" class="start-screen">
@@ -44,6 +43,7 @@
    </div>
   </main>
   <main id="activities-hub" class="activities-hub" hidden>
+   <button id="back-to-start-button" class="section-back-button" type="button" aria-label="Back to home" title="Back to home">←</button>
    <div class="activities-hub-header"><h2>🚀 Activities</h2><p>Choose your year group.</p></div>
    <div class="year-group-buttons" aria-label="Choose year group">
     <button class="year-group-button year-group-green" type="button" data-year-group="years1-2">🟢 Years 1–2</button>
@@ -55,9 +55,11 @@
     <section id="years3-4" class="year-section" hidden><h3>🔵 Years 3–4</h3><div class="activity-category"><h4>💻 Coding</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>💡 Computing Activities</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>🎨 Create &amp; Design</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div></section>
     <section id="years5-6" class="year-section" hidden><h3>🟣 Years 5–6</h3><div class="activity-category"><h4>💻 Coding</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>💡 Computing Activities</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div><div class="activity-category"><h4>🎨 Create &amp; Design</h4><div class="activity-grid"></div><p class="year-placeholder">More coming soon!</p></div></section>
    </div>
-   <button id="back-to-start-button" class="back-to-start-button" type="button">← Back</button>
   </main>
-  <main id="chat" hidden><button id="chat-back-button" class="back-to-start-button chat-back-button" type="button">← Back to home</button><div class="message bot-message"><strong>GeorgeBot</strong><p>Hello! 👋 I'm GeorgeBot. Ask me something about Computing!</p></div></main>
+  <main id="chat" hidden>
+   <button id="chat-back-button" class="section-back-button" type="button" aria-label="Back to home" title="Back to home">←</button>
+   <div class="message bot-message"><strong>GeorgeBot</strong><p>Hello! 👋 I'm GeorgeBot. Ask me something about Computing!</p></div>
+  </main>
   <aside id="activities-menu" class="activities-menu" hidden><div class="activities-menu-header"><strong>Activities</strong><button id="close-activities-button" type="button" aria-label="Close Activities menu">×</button></div><button id="tic-tac-toe-button" class="activity-button" type="button">Tic-Tac-Toe</button><button id="chess-button" class="activity-button" type="button">♟️ Chess</button><button class="activity-button activity-coming-soon" type="button" disabled>More coming soon...</button></aside>
   <div id="game-modal" class="game-modal" hidden><div class="game-modal-content"><button id="close-game-button" class="close-game-button" type="button" aria-label="Close game">×</button><div id="game-container"></div></div></div>
   <form id="chat-form" hidden><input type="text" id="user-input" placeholder="Ask GeorgeBot something..." autocomplete="off"><button type="submit" aria-label="Send message">➤</button></form>
