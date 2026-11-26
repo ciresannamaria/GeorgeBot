@@ -317,3 +317,69 @@ body { font-family: Arial, Helvetica, sans-serif; background: #f5f7fa; color: #0
 #activities-hub>.section-back-button{margin:0 0 12px}
 #chat>.section-back-button{align-self:flex-start;margin:0 0 2px}
 @media(prefers-reduced-motion:reduce){.section-back-button{transition:none}}
+
+
+/* Final compact arrow controls — override page-wide button rules */
+#chat > #chat-back-button.section-back-button,
+#activities-hub > #back-to-start-button.section-back-button{
+ display:inline-flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ box-sizing:border-box!important;
+ width:34px!important;
+ min-width:34px!important;
+ max-width:34px!important;
+ height:34px!important;
+ min-height:34px!important;
+ max-height:34px!important;
+ padding:0!important;
+ margin:0 0 14px!important;
+ align-self:flex-start!important;
+ flex:0 0 34px!important;
+ border:1px solid #d9e1eb!important;
+ border-radius:10px!important;
+ background:#f3f6fa!important;
+ color:#23466f!important;
+ font-family:Arial,Helvetica,sans-serif!important;
+ font-size:27px!important;
+ font-weight:400!important;
+ line-height:1!important;
+ text-align:center!important;
+ box-shadow:0 2px 5px rgba(14,32,74,.07)!important;
+ cursor:pointer!important;
+}
+#chat > #chat-back-button.section-back-button:hover,
+#activities-hub > #back-to-start-button.section-back-button:hover{
+ background:#e7edf5!important;
+ border-color:#b8c8dc!important;
+ transform:translateX(-2px)!important;
+ box-shadow:0 3px 9px rgba(14,32,74,.12)!important;
+}
+#chat > #chat-back-button.section-back-button:focus-visible,
+#activities-hub > #back-to-start-button.section-back-button:focus-visible{
+ outline:2px solid #416d9e!important;
+ outline-offset:3px!important;
+}
+.back-icon{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ width:34px;
+ height:34px;
+ border:1px solid #d9e1eb;
+ border-radius:10px;
+ background:#f3f6fa;
+ color:#23466f;
+ font-size:27px;
+ line-height:1;
+ text-decoration:none;
+ box-shadow:0 2px 5px rgba(14,32,74,.07);
+ transition:background .15s,border-color .15s,transform .15s;
+}
+.back-icon:hover{
+ background:#e7edf5;
+ border-color:#b8c8dc;
+ transform:translateX(-2px);
+}
+.back-icon:focus-visible{outline:2px solid #416d9e;outline-offset:3px}
+.library-header .back-icon{position:absolute;top:0;left:0}
