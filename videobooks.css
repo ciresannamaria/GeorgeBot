@@ -34,7 +34,7 @@ body{margin:0;min-height:100vh;padding:28px 18px;background:#f5f7fa;color:var(--
 @media(max-width:600px){body{padding:0;background:#fff}.library-shell{min-height:100vh;padding:20px 16px;border-radius:0;box-shadow:none}.library-heading{padding:24px 0}.year-tabs{grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:28px}.year-tab{padding:12px 5px;font-size:13px}.year-title h2{font-size:20px}.videobook-details{padding:16px}.videobook-details h3{font-size:21px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.year-tab{transition:none}}
 
-/* Small icon-only return control */
+/* Match the compact GeorgeBot section back arrow */
 .library-header .back-icon{
  position:absolute;
  top:0;
@@ -42,14 +42,21 @@ body{margin:0;min-height:100vh;padding:28px 18px;background:#f5f7fa;color:var(--
  display:inline-flex;
  align-items:center;
  justify-content:center;
+ box-sizing:border-box;
  width:34px;
+ min-width:34px;
  height:34px;
+ min-height:34px;
+ padding:0;
  border:1px solid #d9e1eb;
  border-radius:10px;
  background:#f3f6fa;
  color:#23466f;
+ font-family:Arial,Helvetica,sans-serif;
  font-size:27px;
+ font-weight:400;
  line-height:1;
+ text-align:center;
  text-decoration:none;
  box-shadow:0 2px 5px rgba(14,32,74,.07);
  transition:background .15s,border-color .15s,transform .15s;
